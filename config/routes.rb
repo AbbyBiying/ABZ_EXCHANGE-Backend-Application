@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
+
+  
+Blog::Application.routes.draw do
+  constraints Monban::Constraints::SignedIn.new do
+    root "dashboards#show", as: :dashboard
+  end
+
+  constraints Monban::Constraints::SignedOut.new do
+    root "landings#show"
+  end
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
