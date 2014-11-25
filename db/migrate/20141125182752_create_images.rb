@@ -4,6 +4,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :name, null: false
       t.references :user, null: false
       t.string :url, null: false
+      t.text :description, null: false
 
       t.timestamps
     end

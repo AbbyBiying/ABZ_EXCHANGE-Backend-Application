@@ -1,1 +1,10 @@
 <h1><%= current_user.username %>'s Dashboard</h1>
+<h3>Here are images you created:</h3>
+
+<% current_user.images.each do |image| %>
+  <div><%= image_tag image.url, width:"300" %></div>
+<% end %>
+
+<div>
+<%= link_to "Add Image", new_image_path(@image) %>
+</div>
