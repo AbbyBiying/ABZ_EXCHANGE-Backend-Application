@@ -1,8 +1,12 @@
+<p>Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
 <h1><%= current_user.username %>'s Dashboard</h1>
 <h3>Here are images you created:</h3>
 
 <% current_user.images.each do |image| %>
-  <div><%= image_tag image.url, width:"300" %></div>
+  <div>
+  <%= image_tag image.url, width:"300" %>
+  <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+  </div>
 <% end %>
 
 <div>

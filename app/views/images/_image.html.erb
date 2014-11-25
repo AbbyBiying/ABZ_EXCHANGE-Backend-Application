@@ -2,3 +2,5 @@
 <h2>description: <%= image.description %></h2>
 <%= image_tag image.url, width:"500" %>
 <p>upload by user: <%= image.user.username %></p>
+
+<p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
