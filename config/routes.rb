@@ -4,7 +4,7 @@ require "monban/constraints/signed_out"
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update]
-  resources :images, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :images
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
