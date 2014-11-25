@@ -1,0 +1,11 @@
+<div id="map"></div>
+
+<h1>Where would you like to go?</h1>
+<% @locations.each do |location| %>
+  <p><%= link_to location.city.titleize, location %>,
+  <%= location.state.upcase %></p>
+<% end %>
+
+<script>
+  buildMap(<%= raw @location_hash.to_json %>);
+</script>

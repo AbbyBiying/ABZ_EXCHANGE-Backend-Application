@@ -1,0 +1,47 @@
+body {
+  background: linear-gradient(#E6005C, #3366FF);
+  color: white;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 7px;
+  line-height: 1.5;
+  margin: 4em;
+  padding-top: 0;
+}
+
+#map {
+  height: 20em;
+}
+
+#directions {
+  height: 20em;
+}
+
+a:active {
+  color: #99FF00;
+}
+
+a:hover {
+  color: #FF00FF;
+}
+
+a:link {
+  color: #400D12;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #CCFFCC;
+}
+
+.sign-up {
+    background: #3366FF;
+    height: 22px;
+    transition: width 2s;
+    -webkit-transition: width 2s;
+    width: 300px;
+}
+
+.sign-up:hover {
+    width: 950px;
+}

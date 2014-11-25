@@ -1,0 +1,6 @@
+<%= render @users %>
+<div id="map"></div>
+
+<script>
+  buildMap(<%= raw @location_hash.to_json %>);
+</script>

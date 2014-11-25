@@ -1,10 +1,18 @@
 class ImagesController < ApplicationController
+  before_filter :require_permission, only: [:edit, :update, :destroy]
+
+  def index
+    @images = Image.all
+  end
+
   def new
     @image = Image.new
   end
 
   def show
     find_image
+    @textcomment = Textcomment.new
+    @picturecomment = Picturecomment.new
   end
 
   def create
@@ -12,7 +20,7 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to @image
     else
-      redirect_to :back
+      render :new
     end
   end
 
@@ -25,17 +33,24 @@ class ImagesController < ApplicationController
     if @image.update(image_params)
       redirect_to @image
     else
-      redirect_to :back
+      render :edit
     end
   end
 
   def destroy
     image = Image.find(params[:id])
     image.destroy
-    redirect_to dashboard_path
+    redirect_to root_path
   end
 
   private
+
+  def require_permission
+    if current_user != Image.find(params[:id]).user
+      flash[:error] = "You do not have the right to do it."
+      redirect_to dashboard_path
+    end
+  end
 
   def find_image
     @image ||= Image.find(params[:id])
@@ -43,8 +58,9 @@ class ImagesController < ApplicationController
 
   def image_params
     params.require(:image).permit(
-      :name,
+      :comment,
       :description,
+      :name,
       :url,
       :user_id
       )

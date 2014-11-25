@@ -1,10 +1,24 @@
 class User < ActiveRecord::Base
-  validates :email, presence: true, uniqueness: true
-  validates :password_digest, presence: true
+  belongs_to :location
 
+  accepts_nested_attributes_for(
+    :location,
+    reject_if: proc { |attributes| attributes["city"].blank? }
+  )
+
+  delegate :city, to: :location
+  delegate :latitude, to: :location
+  delegate :longitude, to: :location
+  delegate :state, to: :location
+
+  has_many :comments
   has_many :images
 
-  def owns?(listing)
-    self == listing.user
+  validates :email, presence: true, uniqueness: true
+  validates :location, presence: true
+  validates :password_digest, presence: true
+
+  def full_street_address
+    "#{number}, #{street}, #{city}"
   end
 end
