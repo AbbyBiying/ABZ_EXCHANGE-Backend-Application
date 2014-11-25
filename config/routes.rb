@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedOut.new do
-    root "landings#show"
+    root "sessions#show"
   end
 end
