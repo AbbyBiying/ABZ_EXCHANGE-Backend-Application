@@ -1,10 +1,7 @@
-<h1>This is user: <%= @user.username %></h1>
-<h2>User's bio: <%= @user.bio %></h2>
-<h2>User's location: <%= @user.city.titleize  %>, <%= @user.city.upcase %></h2>
-
+<%= render @user %>
 <div>
   <%= link_to "Image Index 去图片页面", images_path %>
 </div>
 <div>
-  <%= link_to "Dashboard", dashboard_path %>
+  <%= link_to "My Dashboard", dashboard_path %>
 </div>
