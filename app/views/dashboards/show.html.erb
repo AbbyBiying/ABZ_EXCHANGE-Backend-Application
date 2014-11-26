@@ -1,15 +1,17 @@
 <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
+<p>Your location is at <%= current_user.city.titleize %>, <%= current_user.state.upcase %></p>
 <h1><%= current_user.username %>'s Dashboard</h1>
 <h3>Here are images you created:</h3>
 <h3>这是你的图片:</h3>
 <% current_user.images.each do |image| %>
   <div>
-  <%= image_tag image.url, width:"300" %>
-  <p>This image was created at 图片添加时间为 <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+    <%= image_tag image.url, width:"300" %>
+    <p>This image was created at 图片添加时间为 <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
   </div>
 <% end %>
 
 <div>
-<%= link_to "Add Image 添加图片", new_image_path(@image) %>
+  <%= link_to "Add Image 添加图片", new_image_path(@image) %>
 </div>
+
 <%= link_to "Image Index 去图片页面", images_path %>
