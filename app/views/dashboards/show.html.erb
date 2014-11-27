@@ -11,6 +11,6 @@
 <% end %>
 
 <div>
-  <%= button_to "Add Image 添加图片", new_image_path(@image) %>
+  <%= button_to "Add Image 添加图片", new_image_path(@image), :method => :get  %>
 </div>
 <%= render "application/footer" %>

@@ -1,10 +1,7 @@
 <h1>name: <%= image.name %></h1>
 <h2>description: <%= image.description %></h2>
 <%= image_tag image.url, width:"500" %>
-<p>upload by user: <%= button_to image.user.username, image.user %></p>
+<p>upload by user: <%= button_to image.user.username, image.user, :class => "button", :method => :get %></p>
 
 <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
 
-<div>
-  <%= button_to "Add Comment to This Image", new_comment_path %>
-</div>

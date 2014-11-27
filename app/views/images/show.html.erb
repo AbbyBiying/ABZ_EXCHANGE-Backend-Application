@@ -4,7 +4,7 @@
 <p>This image was created at  图片添加时间为 <%= @image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
 
 <div>
-  <%= button_to "Edit This Image", edit_image_path(@image) %>
+  <%= button_to "Edit This Image", edit_image_path(@image), :class => "button", :method => :get %>
 </div>
 
 <div>

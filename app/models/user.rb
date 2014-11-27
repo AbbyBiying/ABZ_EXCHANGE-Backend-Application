@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
+  has_many :comments
   has_many :images
   has_many :user_locations
   has_and_belongs_to_many :locations

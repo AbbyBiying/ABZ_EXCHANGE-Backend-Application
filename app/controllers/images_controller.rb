@@ -50,7 +50,8 @@ class ImagesController < ApplicationController
       :name,
       :description,
       :url,
-      :user_id
+      :user_id,
+      :comment
       )
   end
 end
