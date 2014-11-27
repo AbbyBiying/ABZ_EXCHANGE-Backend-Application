@@ -4,11 +4,11 @@
 <p>This image was created at  图片添加时间为 <%= @image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
 
 <div>
-  <%= link_to "Edit This Image", edit_image_path(@image) %>
+  <%= button_to "Edit This Image", edit_image_path(@image) %>
 </div>
 
 <div>
-  <%= link_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
 <%= render "application/footer" %>
