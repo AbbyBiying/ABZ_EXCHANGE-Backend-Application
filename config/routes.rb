@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :images
 
   resources :images, only: [] do
-    resources :comments, only:[:create, :show, :destroy]
+    resources :comments, only:[:create, :destroy]
   end
 
   resources :locations, only: [:show, :create]

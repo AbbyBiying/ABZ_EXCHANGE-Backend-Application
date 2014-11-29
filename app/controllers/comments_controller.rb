@@ -9,13 +9,21 @@ class CommentsController < ApplicationController
     @image = Image.find(params[:image_id])
     @comment = @image.comments.build(comment_params)
     if @comment.save
-      redirect_to @user
+      redirect_to @image
     else
       redirect_to :back
     end
   end
 
+  def destroy
+    @image = Image.find(params[:image_id])
+    @comment = @image.comments.find(comment_params)
+    @comment.destroy
+    redirect_to root_path
+  end
+
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content).merge(user: current_user)
   end
 end
+

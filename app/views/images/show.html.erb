@@ -1,17 +1,19 @@
 <h1>Image name: <%= @image.name %></h1>
 <h1>Image description: <%= @image.description %></h1>
 <%= image_tag @image.url, width:"500" %>
-<p>This image was created at  图片添加时间为 <%= @image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+<p>This image was created at  图片添加时间为 <%= @image.created_at.strftime("%H:%M, %m/%d/%Y %Z") %></p>
 
 <div>
   <%= button_to "Edit This Image", edit_image_path(@image), :class => "button", :method => :get %>
 </div>
 
 <div>
-  <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
 </div>
 
-<%= form_for :comment do |f| %>
+<%= render @image.comments.by_most_recent %>
+
+<%= form_for [@image, @comment] do |f| %>
   <%= f.label :content, "Add Comment:" %>
   <%= f.text_area :content %>
   <%= f.submit %>

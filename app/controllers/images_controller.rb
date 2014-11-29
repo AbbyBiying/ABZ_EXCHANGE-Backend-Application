@@ -9,6 +9,7 @@ class ImagesController < ApplicationController
 
   def show
     find_image
+    @comment = @image.comments.build
   end
 
   def create
