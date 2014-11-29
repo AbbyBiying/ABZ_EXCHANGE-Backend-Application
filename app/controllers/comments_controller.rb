@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @image = Image.find(params[:image_id])
     @comment = @image.comments.build(comment_params)
     if @comment.save
-      redirect_to @image
+      redirect_to @user
     else
       redirect_to :back
     end

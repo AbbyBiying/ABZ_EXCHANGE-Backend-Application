@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :city, null: false
       t.string :state, null: false
       t.string :bio, null: false
+      t.float :latitude
+      t.float :longtitude
 
       t.timestamps null: false
     end

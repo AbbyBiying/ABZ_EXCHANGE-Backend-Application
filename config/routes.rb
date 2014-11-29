@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update, :index]
   resources :images
+
+  resources :images, only: [] do
+    resources :comments, only:[:create, :show, :destroy]
+  end
+
   resources :locations, only: [:show, :create]
   resources :maps, only: [:show]
-  resources :comments, only: [:new, :create, :show]
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard

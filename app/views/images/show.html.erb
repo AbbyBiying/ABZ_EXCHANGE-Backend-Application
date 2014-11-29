@@ -11,4 +11,10 @@
   <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
+<%= form_for :comment do |f| %>
+  <%= f.label :content, "Add Comment:" %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
+
 <%= render "application/footer" %>

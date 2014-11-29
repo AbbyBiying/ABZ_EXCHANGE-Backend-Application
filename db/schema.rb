@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20141127173410) do
     t.string   "city",            null: false
     t.string   "state",           null: false
     t.string   "bio",             null: false
+    t.float    "latitude"
+    t.float    "longtitude"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
