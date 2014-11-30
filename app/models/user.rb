@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   after_validation :geocode
 
   def full_street_address
-    "#{number} #{street}, #{city}"
+    "#{number}, #{street}, #{city}"
   end
 
   def owns?(image)
