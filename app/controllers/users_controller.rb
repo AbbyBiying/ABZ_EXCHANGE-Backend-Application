@@ -24,16 +24,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
     if current_user.update(user_params)
-      redirect_to root_path
+      sign_in(current_user)
+      flash[:success] = "Welcome to your dashboard!"
+      redirect_to current_user
     else
       redirect_to :back
     end
-  end
-
-  def edit
-    current_user
   end
 
   private
