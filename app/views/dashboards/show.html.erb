@@ -13,7 +13,8 @@
       function initialize() {
         var mapOptions = {
           center: { lat: <%= current_user.latitude %>, lng: <%= current_user.longitude %>},
-          zoom: 8
+          mapTypeId: google.maps.MapTypeId.SATELLITE,
+          zoom: 18,
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
@@ -22,12 +23,13 @@
     </script>
   </head>
   <body>
+
+<p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
+<h1><%= current_user.username %>'s Dashboard</h1>
 <h2>This is your location on google map:</h2>
 <div id="map-canvas"></div>
 
-<p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
 <p>Your location is at <%= current_user.city.titleize %>, <%= current_user.state.upcase %></p>
-<h1><%= current_user.username %>'s Dashboard</h1>
 <h3>Here are images you created:</h3>
 <h3>这是你的图片:</h3>
 
