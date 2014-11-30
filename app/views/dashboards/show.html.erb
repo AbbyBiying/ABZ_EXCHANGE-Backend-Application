@@ -22,8 +22,9 @@
     </script>
   </head>
   <body>
+<h2>This is your location on google map:</h2>
 <div id="map-canvas"></div>
-<h2>This is your location</h2>
+
 <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
 <p>Your location is at <%= current_user.city.titleize %>, <%= current_user.state.upcase %></p>
 <h1><%= current_user.username %>'s Dashboard</h1>
