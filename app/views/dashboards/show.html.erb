@@ -18,6 +18,18 @@
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
+        map.setTilt(45);
+        map.setHeading(90);
+      }
+
+      function autoRotate() {
+        // Determine if we're showing aerial imagery
+        if (map.getTilt() != 0) {
+          map.setHeading(180);
+          setTimeout('map.setHeading(270)',3000);
+          setTimeout('map.setHeading(0)',6000);
+          setTimeout('map.setHeading(90)',9000);
+        }
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
