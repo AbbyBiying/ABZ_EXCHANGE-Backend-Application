@@ -35,30 +35,29 @@
     </script>
   </head>
   <body>
+    <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
+    <h1><%= current_user.username %>'s Dashboard</h1>
+    <h2>This is your location on google map:</h2>
+    <div id="map-canvas"></div>
 
-<p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
-<h1><%= current_user.username %>'s Dashboard</h1>
-<h2>This is your location on google map:</h2>
-<div id="map-canvas"></div>
+    <p>Your location is at <%= current_user.city.titleize %>, <%= current_user.state.upcase %></p>
+    <h3>Here are images you created:</h3>
+    <h3>这是你的图片:</h3>
 
-<p>Your location is at <%= current_user.city.titleize %>, <%= current_user.state.upcase %></p>
-<h3>Here are images you created:</h3>
-<h3>这是你的图片:</h3>
-
-<% current_user.images.each do |image| %>
-  <div>
-    <h1>name: <%= image.name %></h1>
-    <h2>description: <%= image.description %></h2>
-    <%= link_to image do %>
-      <%= image_tag image.url, width:"500" %>
+    <% current_user.images.each do |image| %>
+      <div>
+        <h1>name: <%= image.name %></h1>
+        <h2>description: <%= image.description %></h2>
+        <%= link_to image do %>
+          <%= image_tag image.url, width:"500" %>
+        <% end %>
+        <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+      <div>
     <% end %>
-    <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
-  <div>
-<% end %>
-<div>
-  <%= link_to "Add Image 添加图片", new_image_path(@image) %>
-</div>
-<%= render "application/footer" %>
 
+    <div>
+      <%= link_to "Add Image 添加图片", new_image_path(@image) %>
+    </div>
+    <%= render "application/footer" %>
   </body>
 </html>
