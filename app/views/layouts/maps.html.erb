@@ -1,16 +1,25 @@
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
-  var lat = <%= @map.latitude %>,
-      lon = <%= @map.longitude %>,
-      map;
-  function initialize() {
-    var myOptions = {
-      center: new google.maps.LatLng(lat, long)
-    };
-    map = new google.maps.Map(document.getElementById('map_canvas'),
-        myOptions);
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-<div id="map_canvas"></div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoT4I4sreJE9IESy6BmxGmvIY6o53bN10">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: <%= @map.latitude %>,  lng: <%= @map.longitude %>},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>
