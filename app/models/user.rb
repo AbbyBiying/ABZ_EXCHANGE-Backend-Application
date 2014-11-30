@@ -18,6 +18,19 @@ class User < ActiveRecord::Base
     self == listing.user
   end
 
+  def assign_location_id
+   puts self.city.inspect
+   if find_location(self.city)
+     self.location_id = find_location(city).id
+   else
+     self.location_id = 0
+   end
+  end
+
+  def location_names
+     Location.names
+  end
+
   private
 
   def find_location(city_name)
