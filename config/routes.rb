@@ -3,7 +3,7 @@ require "monban/constraints/signed_out"
 
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-  resources :users
+  resources :users, except: [:destroy]
   resources :images
 
   resources :images, only: [] do
