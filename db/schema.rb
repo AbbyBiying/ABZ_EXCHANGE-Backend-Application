@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20141130045509) do
     t.string   "state",               null: false
     t.string   "bio",                 null: false
     t.float    "latitude"
-    t.float    "longtitude"
+    t.float    "longitude"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "number"
