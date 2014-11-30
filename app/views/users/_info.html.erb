@@ -1,0 +1,46 @@
+<div id="user-listings">
+  <h4><%= @user.username %>'s listings:</h4>
+  <% if current_user == @user %>
+    <span class="create-button">
+      <%= link_to "Add a listing", new_listing_path %>
+    </span>
+  <% end %>
+
+  <p><%= render @user.listings %></p>
+</div>
+
+<div id="user-offers">
+  <h4><%= @user.username %>'s offers:</h4>
+  <%= render @user.offers %>
+</div>
+
+<div id="user-images">
+  <h4><%= @user.username %>'s Images:</h4>
+    <% if current_user == @user %>
+      <span class="create-button">
+        <%= link_to "Add an image", new_image_path %>
+      </span>
+    <% end %>
+  <br>
+  <div><%= render(partial: "images/user_image", collection: @user.images) %></div>
+  <br>
+</div>
+
+<div id="user-follows">
+<div class="follows">
+  <% if user.followers %>
+    <%= @user.username %>'s followers:
+    <% @user.followers.each do |follower| %>
+      <%= link_to follower.username, user_path(follower) %>
+    <% end %>
+  <% end %>
+  <br>
+
+  <% if user.followed_users %>
+    <%= @user.username %>'s following:
+    <% @user.followed_users.each do |followed_user| %>
+      <%= link_to followed_user.username, user_path(followed_user) %>
+    <% end %>
+  <% end %>
+</div>
+</div>

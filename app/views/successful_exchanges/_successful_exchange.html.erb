@@ -1,0 +1,32 @@
+<div class="listing-offer">
+    <div class="successful-listing">
+      <%= link_to successful_exchange.listing.user do %>
+        <div class="successful-listing-image">
+          <%= image_tag successful_exchange.listing.url %>
+        </div>
+
+        <div class="successful-description">
+          <p><strong>Listing: </strong><%= successful_exchange.listing.name %></p>
+          <p><strong>Description: </strong><%= successful_exchange.listing.description %></p>
+      <% end %>
+          <p><strong>posted by </strong><%= link_to successful_exchange.listing.username, successful_exchange.listing.user %></p>
+        </div>
+    </div>
+
+    <div class="successful-offer">
+      <%= link_to successful_exchange.offer.user do %>
+        <div class="successful-offer-image">
+          <%= image_tag successful_exchange.offer.url %>
+        </div>
+
+        <div class="successful-description">
+          <p><strong>Offer: </strong><%= successful_exchange.offer.name %></p>
+          <p><strong>Description: </strong><%= successful_exchange.offer.description %></p>
+          <p><strong>posted by </strong><%= link_to successful_exchange.offer.username, successful_exchange.offer.user %></p>
+       </div>
+      <% end %>
+    </div>
+</div>
+
+<div class="small"> created at <%= successful_exchange.created_time %></div>
+<br>

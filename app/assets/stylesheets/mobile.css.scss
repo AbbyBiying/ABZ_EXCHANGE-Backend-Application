@@ -1,0 +1,170 @@
+@media only screen and (max-device-width: 320px) {
+  body {
+    color: #176FBB;
+  }
+
+  .container {
+    margin-left: -8em;
+    width:100%;
+
+    h4 {
+      margin-left: 10em;
+    }
+
+    .user-listings {
+      margin-left: 163px;
+    }
+
+    .create-button {
+      margin-left: 11em;
+    }
+
+    .user {
+      margin-left: 230px;
+    }
+
+    .listing {
+      width: 34em;
+      margin-left: 9em;
+    }
+
+    .follows {
+      width: 34em;
+      margin-left: 9em;
+    }
+
+    .exchange-in-process {
+      margin-left: 8em;
+    }
+  }
+
+  nav {
+    .search {
+      #search {
+        margin-left: -300px;
+        width: 200px;
+      }
+    }
+
+    .clearfix li {
+      font-size: 10px;
+      margin-right: 4px;
+    }
+  }
+
+  .dashboard-container {
+    margin-left: 10em;
+    .button-container {
+      margin-left: -8px;
+      li {
+        font-size: 10px;
+        margin-right: 55px;
+      }
+    }
+  }
+
+  .form {
+    margin-left: 17.5em;
+  }
+
+  .new-location {
+    margin-left: 9em;
+  }
+
+  hr {
+    width: 985px;
+  }
+
+  input {
+    font-size: 8px;
+    height: 20px;
+  }
+
+  .introduction {
+    margin-left: 150px;
+    font-size: 9px;
+    width: 75%;
+    .title {
+      font-size: 28px;
+      margin-left: 10em;
+    }
+
+    p {
+      font-size: 10px;
+      margin-left: 30em;
+    }
+  }
+
+  .session {
+    margin-left: 383px;
+    li {
+    float: right;
+   }
+  }
+
+  .success {
+    margin-left: 170px;
+    .small {
+      font-size: 10px;
+    }
+
+    .font-mid {
+     font-size: 40px;
+    }
+
+    .listing-offer {
+      margin-left: 25px;
+      width: 45em;
+    }
+  }
+
+  .session-introduction {
+    margin-left: 27em;
+    margin-top: -6em;
+
+    p {
+      font-size: 11.5px;
+    }
+
+    .title{
+      font-size: 25px;
+    }
+  }
+
+  .user-new {
+    margin-left: -150px;
+  }
+
+  .form {
+    margin-left: 650px;
+  }
+
+  .footer {
+    font-size: 8px;
+  }
+
+  .new {
+    margin-left: 22em;
+  }
+
+  .new-listing {
+    margin-left: 520px;
+  }
+
+  .offer-edit {
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .listing-form {
+    margin-left: 21.5em;
+  }
+
+  .by-user {
+    font-size: 15px;
+  }
+
+  .exchange-in-process {
+    margin-left: 147px;
+  }
+}

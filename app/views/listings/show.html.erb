@@ -1,0 +1,34 @@
+<div class="exchange-in-process">
+  <% if @listing.exchange.present? %>
+    <b>Exchange in process</b>
+  <% end %>
+
+  <% if (current_user == @listing.user && @listing.accepted?) %>
+    <p> If you want to complete this exchange, hit the button</p>
+    <%= button_to "exchange page", exchange_path(@listing.exchange), method: :get %>
+  <% end %>
+</div>
+
+<%= render @listing %>
+
+<div class="user">
+  <% unless (@listing.user == current_user ||  @listing.accepted?) %>
+    <p>Make an offer</p>
+    <%= form_for [@listing, @offer] do |form| %>
+      <div>
+        <%= form.text_area :name, placeholder: "type offer name here"%>
+      </div>
+
+      <div>
+        <%= form.text_area :description, placeholder: "type offer description here" %>
+      </div>
+
+      <div>
+        <%= form.text_area :url, placeholder: "type offer image url here" %>
+      </div>
+      <%= form.submit %>
+    <% end %>
+  <% end %>
+</div>
+<br>
+<%= render @listing.offers.by_most_recent %>

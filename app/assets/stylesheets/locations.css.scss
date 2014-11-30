@@ -1,0 +1,59 @@
+#directions {
+  height: 12em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 180px;
+  width: 1077px;
+}
+
+.users-map {
+  margin-left: 180px;
+}
+
+.location-map {
+  margin-left: 180px;
+}
+
+#map {
+  height: 12em;
+  padding-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 1077px;
+}
+
+.location a:hover, a:active{
+  color: red;
+}
+
+.location-info {
+  font-size: 20px;
+}
+
+@media only screen and (max-device-width: 1500px) {
+  #directions {
+    width: 985px;
+  }
+
+  #map {
+    width: 985px;
+  }
+}
+
+@media only screen and (max-device-width: 320px) {
+  #directions {
+    width: 37em;
+    margin-left: 9em;
+  }
+
+  #map {
+    width: 37em;
+  }
+
+  .location-map {
+    margin-left: 230px;
+  }
+  .users-map {
+    margin-left: 224px;
+  }
+}

@@ -1,0 +1,133 @@
+@media only screen and (max-device-width: 1500px) {
+  nav {
+    .search {
+      #search {
+        margin-left: -245px;
+        width: 300px;
+      }
+    }
+  }
+
+  .container {
+    margin-left: 0;
+  }
+
+  .form {
+    margin-left: 17.5em;
+  }
+
+  .new-location {
+    margin-left: 176px;
+  }
+
+  hr {
+    width: 985px;
+  }
+
+  .clearfix li {
+    font-size: 16px;
+    margin-right: 18px;
+  }
+
+  input {
+    font-size: 12px;
+    height: 20px;
+  }
+
+  .introduction {
+    margin-left: 127px;
+    font-size: 20px;
+    .title {
+      font-size: 130px;
+      margin-left: -250px;
+    }
+  }
+
+  .dashboard-container {
+    margin-left: 177px;
+  }
+
+  .user-listings {
+    margin-left: -100px;
+  }
+
+  .listing {
+    width: 900px;
+  }
+
+  .session {
+    margin-left: 35px;
+    li {
+    float: right;
+    }
+  }
+
+  .success {
+    margin-left: 94px;
+    .font-mid {
+      font-size: 50px;
+    }
+  }
+
+  .session-introduction {
+    margin-left: 20em;
+    margin-top: -8em;
+    p {
+      font-size: 17px;
+    }
+
+    .title{
+      font-size: 95px;
+    }
+  }
+
+  .user-new {
+    margin-left: -150px;
+  }
+
+  .form {
+    margin-left: 550px;
+  }
+
+  .new {
+    margin-left: 548px;
+  }
+
+  .new-listing {
+    margin-left: 520px;
+  }
+
+  .offer-edit {
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .listing-form {
+    margin-left: 21.5em;
+  }
+
+  .listing-description {
+    .exchange-in-process {
+      margin-left: -28px;
+    }
+  }
+
+  .by-user {
+    font-size: 15px;
+  }
+
+  .exchange-in-process {
+    margin-left: 147px;
+  }
+
+  .follows {
+    margin-left: 180px;
+    background-color: #D9FFD7;
+    padding: 40px;
+    width: 1000px;
+    li {
+      margin-bottom: 50px;
+      margin-bottom: 50px;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.listing {
+  background-color: #D9FFD7;
+  margin: 10px 181px;
+  padding: 40px;
+  width: 1000px;
+  li {
+    margin-bottom: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.new-listing {
+  margin-left: 620px;
+}
+
+.listing-form {
+  margin-left: 24.5em;
+}
+
+.listing-offer {
+  background-color: #D9FFD7;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  width: 1000px;
+
+  .successful-listing {
+    width: 40%;
+    float: right;
+  }
+
+  .successful-offer {
+    width: 40%;
+  }
+
+  .successful-listing-image {
+    float: left;
+    margin-right: 22px;
+    margin-top: 5px;
+  }
+
+  .successful-offer-image {
+    float: left;
+    margin-right: 22px;
+    margin-top: 5px;
+  }
+
+  .successful-listing {
+    width: 51%;
+    .successful-description {
+      margin-top: -30px;
+      text-align: left;
+    }
+  }
+
+  .successful-offer {
+    width: 51%;
+    .successful-description {
+      margin-top: -30px;
+      text-align: left;
+    }
+  }
+}
+
+.listing-index a:hover, a:active {
+  color: #1695A3;
+}
+
+.listing-description {
+  width: 800px;
+  p {
+    font-size: 19px;
+  }
+}
+
+.listing-index {
+  margin-top: 30px;
+  h3 {
+    margin-left: 177px;
+  }
+}
+
+.listing-image {
+  float: left;
+  margin-right: 45px;
+}

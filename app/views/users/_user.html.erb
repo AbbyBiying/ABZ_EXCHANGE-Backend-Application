@@ -1,3 +1,10 @@
-<h1>This is user: <%= user.username %></h1>
-<h2>User's bio: <%= user.bio %></h2>
-<h2>User's location: <%= user.city.titleize  %>, <%= user.state.upcase %></h2>
+<div class="user">
+  <p>name: <i class="username"><%= link_to user.username, user_path(user) %></i></p>
+  <p>bio: <i><%= user.bio %></i></p>
+
+  <p>
+    Location: <b class="location"><%= link_to user.city.titleize, location_path(user.location) %></b>,
+      <%= user.state.upcase %>
+  </p>
+</div>
+<hr>

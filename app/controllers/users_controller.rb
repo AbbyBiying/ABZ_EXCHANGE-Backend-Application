@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  before_action :require_login, except: [:new, :create, :index]
 
   def new
     @user = User.new
+    @user.location = Location.new
   end
 
   def index
-    @user = User.all
+    @users = User.all
+    @location_hash = Gmap.new(@users).build_map!
   end
 
   def show
@@ -24,20 +26,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+
+    if @user.update(user_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(
-      :email,
       :bio,
+      :email,
+      :location_id,
       :number,
-      :city,
-      :state,
-      :username,
       :password,
-      :latitude,
-      :longitude
-      )
+      :username,
+      location_attributes: [
+        :city,
+        :state
+      ]
+    )
   end
 end
-

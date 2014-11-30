@@ -1,2 +1,23 @@
+<script>
+  $(function() {
+    calcRoute([<%= @user.latitude %>, <%= @user.longitude %>],
+      [<%= current_user.latitude %>, <%= current_user.longitude %>])
+  });
+</script>
+
+<% if signed_in? %>
+  <div id="directions"></div>
+<% end %>
+
+<div class="user">
+  <% if @user != current_user %>
+    <% if current_user.followings?(@user) %>
+      <%= button_to "unfollow", follow_user_path(@user), method: :delete %>
+    <% else %>
+      <%= button_to "follow!", follow_user_path(@user) %>
+    <% end %>
+  <% end %>
+</div>
+
 <%= render @user %>
-<%= render "application/footer" %>
+<%= render "info", user: @user %>
