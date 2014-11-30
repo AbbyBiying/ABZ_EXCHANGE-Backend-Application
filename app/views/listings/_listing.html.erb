@@ -1,0 +1,33 @@
+<div class="listing">
+  <ul>
+    <li>
+      <%= link_to listing do %>
+        <div class="listing-image">
+          <%= image_tag listing.url %>
+        </div>
+
+        <div class="listing-description">
+          <p><strong>Listing: </strong><%= listing.name %></p>
+          <p><strong>Description: </strong><%= listing.description %></p>
+      <% end %>
+          <p><strong>posted by </strong><%= link_to listing.username, listing.user %></p>
+          <p>was created at <%= listing.created_time %></p>
+        </div>
+      </li>
+
+      <% if listing.exchange.present? %>
+        <b>Exchange in process</b>
+      <% end %>
+
+      <li>
+        <% unless (listing.user != current_user || listing.accepted?) %>
+          <b class="edit-offer">
+            <%= link_to "Edit", edit_listing_path(listing), method: :get %>
+          </b>
+          <b class="edit-offer">
+            <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: 'Are you sure you want to delete this listing?' } %>
+          </b>
+        <% end %>
+      </li>
+  </ul>
+</div>

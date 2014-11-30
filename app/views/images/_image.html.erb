@@ -1,8 +1,13 @@
-<h1>name: <%= image.name %></h1>
-<h2>description: <%= image.description %></h2>
-<%= link_to image do %>
-  <%= image_tag image.url, width:"500" %>
-<% end %>
-<p>Upload by user: <%= link_to image.user.username, image.user %></p>
-
-<p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+<div class="listing">
+  <%= link_to image do %>
+    <div class="listing-image">
+      <%= image_tag image.url %>
+    </div>
+  <div class="listing-description">
+    <p><strong>Image:</strong><%= image.name %></p>
+     <p><strong>description:</strong><%= image.description %></p>
+  <% end %>
+    <p><strong>posted by<%= link_to image.user.username, image.user %></p>
+    <p>was created at <%= image.created_time %></p>
+  </div>
+</div>

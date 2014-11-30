@@ -1,18 +1,16 @@
 class Location < ActiveRecord::Base
-  geocoded_by :name_city_state
-  after_validation :geocode
   has_many :users
-  has_many :user_locations
+  geocoded_by :full_street_address
+  after_validation :geocode
 
-  def name_city_state
-    "#{name}, #{city}, #{state}"
+  validates :city, presence: true
+  validates :state, presence: true
+
+  def self.by_most_recent
+    order(created_at: :desc)
   end
 
-  def self.find_by_name(city_name)
-    find_by(name: city_name.downcase)
-  end
-
-  def self.names
-    all.map { |location| location.name }
+  def full_street_address
+    "#{city}, #{state}"
   end
 end

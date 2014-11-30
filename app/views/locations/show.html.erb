@@ -1,0 +1,11 @@
+<script>
+  $(function() {
+    calcRoute([<%= @location.latitude %>, <%= @location.longitude %>], [<%= current_user.location.latitude %>, <%= current_user.location.longitude %>])
+  });
+</script>
+
+<div id="directions"></div>
+
+<div class="user">
+  <p><%= render @location %></p>
+</div>
