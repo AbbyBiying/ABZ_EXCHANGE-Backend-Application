@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 
-group :development do
-  gem "better_errors"
-end
-
+gem "better_errors", :group => :development
 gem 'pry-rails', :group => :development
 gem "bullet", :group => "development"
 gem 'geocoder'
