@@ -17,14 +17,13 @@ class CommentsController < ApplicationController
 
   def destroy
     image = Image.find(params[:image_id])
-    image.comments.destroy
+    comment = image.comments.find(params[:id])
+    comment.destroy
 
     redirect_to image
   end
-
 
   def comment_params
     params.require(:comment).permit(:content).merge(user: current_user)
   end
 end
-

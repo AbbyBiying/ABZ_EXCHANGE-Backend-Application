@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'pry-debugger'
+gem "better_errors", :group => :development
 gem 'pry-rails', :group => :development
 gem "bullet", :group => "development"
 gem 'geocoder'
