@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       sign_in(@user)
-      flash[:success] = "Welcome to your dashboard!"
+      flash[:success] = "Update success! Welcome to your dashboard!"
       redirect_to root_path
     else
       redirect_to :back
