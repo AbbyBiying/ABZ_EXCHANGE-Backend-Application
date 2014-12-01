@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+gem 'pry-debugger'
+gem 'pry-rails', :group => :development
+gem "bullet", :group => "development"
 gem 'geocoder'
 gem 'bourbon'
 gem "paperclip", "~> 4.2"
