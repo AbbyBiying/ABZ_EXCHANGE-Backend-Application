@@ -11,12 +11,12 @@ class PasswordReset < ActiveRecord::Base
 
   def generate_unique_token
     self.token = generate_token
-    while PasswordReset.exists?(token: self.token)
+    while PasswordReset.exists?(token: token)
       self.token = generate_token
     end
   end
 
   def generate_token
-    SecureRandom.hex(20).encode('UTF-8')
+    SecureRandom.hex(20).encode("UTF-8")
   end
 end
