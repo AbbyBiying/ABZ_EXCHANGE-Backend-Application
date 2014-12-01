@@ -29,10 +29,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params)
-      sign_in(current_user)
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      sign_in(@user)
       flash[:success] = "Welcome to your dashboard!"
-      redirect_to current_user
+      redirect_to @user
     else
       redirect_to :back
     end
