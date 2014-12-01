@@ -32,6 +32,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
+      if params[:user][:password].present?
+        reset_password(@user, params[:user][:password])
+      end
       sign_in(@user)
       flash[:success] = "Update success! Welcome to your dashboard!"
       redirect_to root_path
@@ -52,7 +55,6 @@ class UsersController < ApplicationController
       :state,
       :country,
       :username,
-      :password,
       :latitude,
       :longitude
       )
