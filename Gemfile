@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :development do
+  gem "better_errors"
+end
+
 gem 'pry-debugger'
 gem 'pry-rails', :group => :development
 gem "bullet", :group => "development"
