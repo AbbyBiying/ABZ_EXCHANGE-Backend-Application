@@ -19,29 +19,19 @@
   </div>
 
   <div>
-    <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.label :bio %>
+    <%= form.text_area :bio %>
   </div>
 
   <div>
-    <%= form.label :street %>
-    <%= form.text_field :street %>
+    <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
   </div>
 
-  <div>
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div>
-    <%= form.label :state %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div>
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
+  <h4> Location not listed? </h4>
+  <%= form.fields_for :location do |location_form| %>
+    <%= location_form.label :city %>
+    <%= location_form.text_field :city %>
+  <% end %>
 
   <div>
     <%= form.label :bio %>
