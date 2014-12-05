@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
   after_validation :geocode
 
   validates :city, presence: true, uniqueness: true
-  validates :state, presence: true, uniqueness: true
+  validates :state, presence: true
 
   def full_street_address
     "#{number}, #{street}, #{city}"

@@ -10,10 +10,6 @@
   <%= link_to "Add Image 添加图片", new_image_path %>
 </div>
 
-<div>
-  <%= link_to "Create New Location", new_location_path %>
-</div>
-
 <h1>User <%= current_user.username %>'s Page</h1>
 
 <% if current_user.location %>
@@ -23,7 +19,7 @@
   <p>Your location: </p>
   <%= render current_user.location %>
 <% else %>
-  <%= link_to "create your location", new_location_path  %>
+  <%= link_to "Create your location", new_location_path %>
 <% end %>
 
 <h3>Here are images you created:</h3>

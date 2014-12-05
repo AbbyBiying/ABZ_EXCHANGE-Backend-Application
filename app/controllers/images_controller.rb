@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to @image
     else
-      redirect_to :back
+      render :new
     end
   end
 
@@ -37,7 +37,7 @@ class ImagesController < ApplicationController
   def destroy
     image = Image.find(params[:id])
     image.destroy
-    redirect_to dashboard_path
+    redirect_to root_path
   end
 
   private

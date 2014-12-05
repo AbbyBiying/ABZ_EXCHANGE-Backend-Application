@@ -1,4 +1,6 @@
 <%= form_for image do |form| %>
+  <%= render "application/form_errors", object: image %>
+
   <div>
     <%= form.label :name, "Image name: " %>
     <%= form.text_field :name %>

@@ -8,5 +8,5 @@
 
 <h1>Where would you like to go?</h1>
 <% @locations.each do |location| %>
-  <%= link_to location.city, location %>
+  <%= link_to location.city.titleize, location %>
 <% end %>
