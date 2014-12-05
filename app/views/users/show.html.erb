@@ -1,0 +1,41 @@
+<div>
+  <%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %>
+</div>
+
+<div>
+  <%= link_to "Create New Location", new_location_path %>
+</div>
+
+<div>
+  <%= link_to "Add Image 添加图片", new_image_path %>
+</div>
+
+<div>
+  <%= link_to "Create New Location", new_location_path %>
+</div>
+
+<h1>User <%= current_user.username %>'s Page</h1>
+
+<% if current_user.location %>
+  <h2>This is your location on google map:</h2>
+  <div id="map"></div>
+
+  <p>Your location: </p>
+  <%= render current_user.location %>
+<% else %>
+  <%= link_to "create your location", new_location_path  %>
+<% end %>
+
+<h3>Here are images you created:</h3>
+<h3>这是你的图片:</h3>
+
+<% current_user.images.each do |image| %>
+  <div>
+    <h1>name: <%= image.name %></h1>
+    <h2>description: <%= image.description %></h2>
+    <%= link_to image do %>
+      <%= image_tag image.url, width:"500" %>
+    <% end %>
+    <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+  </div>
+<% end %>

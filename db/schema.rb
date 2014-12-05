@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130191249) do
+ActiveRecord::Schema.define(version: 20141127173410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,40 +34,25 @@ ActiveRecord::Schema.define(version: 20141130191249) do
   end
 
   create_table "locations", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "city",       null: false
-    t.string   "state",      null: false
+    t.string   "number",     default: "", null: false
+    t.string   "street",     default: "", null: false
+    t.string   "city",       default: "", null: false
+    t.string   "state",      default: "", null: false
+    t.string   "country",    default: "", null: false
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "user_locations", force: true do |t|
-    t.integer  "location_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_locations", ["location_id"], name: "index_user_locations_on_location_id", using: :btree
-  add_index "user_locations", ["user_id"], name: "index_user_locations_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",               null: false
-    t.string   "username",            null: false
-    t.string   "password_digest",     null: false
-    t.string   "city",                null: false
-    t.string   "state",               null: false
-    t.string   "bio",                 null: false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "number"
-    t.string   "street"
-    t.string   "full_street_address"
-    t.string   "country"
+    t.string   "email",                        null: false
+    t.string   "username",                     null: false
+    t.string   "password_digest",              null: false
+    t.string   "bio",             default: "", null: false
+    t.integer  "location_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

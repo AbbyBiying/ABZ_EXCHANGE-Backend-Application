@@ -9,6 +9,9 @@
   });
 </script>
 
-<div id="map"></div>
+<div>
+  <%= link_to "Go To My Page 我的页面", user_path(current_user) %>
+</div>
 
+<div id="map"></div>
 <%= render @users %>
