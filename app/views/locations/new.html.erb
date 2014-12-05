@@ -1,5 +1,6 @@
-<h3>Add a Location: </h3>
 <%= form_for @location do |f| %>
+  <%= render "application/form_errors", object: @location %>
+  <h3>Add a Location: </h3>
 
   <%= f.label :city %>
   <%= f.text_field :city %>

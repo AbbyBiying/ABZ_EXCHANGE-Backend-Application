@@ -31,12 +31,9 @@
   <%= form.fields_for :location do |location_form| %>
     <%= location_form.label :city %>
     <%= location_form.text_field :city %>
+    <%= location_form.label :state %>
+    <%= location_form.text_field :state %>
   <% end %>
-
-  <div>
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
-  </div>
 
   <div>
     <%= form.submit %>
