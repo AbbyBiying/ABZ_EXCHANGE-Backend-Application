@@ -5,4 +5,3 @@
   <%= comment.created_at.strftime("%H:%M, %m/%d/%Y %Z") %></p>
   <%= button_to "Delete This Comment", image_comment_path(@image, comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
 </div>
-

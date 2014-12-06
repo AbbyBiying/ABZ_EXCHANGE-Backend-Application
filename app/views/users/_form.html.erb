@@ -17,12 +17,14 @@
   </div>
 
   <div>
-    <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
-  </div>
-
-  <div>
     <%= form.label :bio %>
     <%= form.text_area :bio %>
+  </div>
+
+  <h4>If you do not find your city, you can add a city later</h4>
+
+  <div>
+    <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
   </div>
 
   <div>

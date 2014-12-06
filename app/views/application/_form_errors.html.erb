@@ -1,8 +1,8 @@
+<ul>
 <% if object.errors.any? %>
   <%= pluralize(object.errors.count, "error") %> prevented your object from being created:
-  <li>
   <% object.errors.full_messages.each do |error_message| %>
-    <%= error_message %>
+     <li><%= error_message %></li>
   <% end %>
-  </li>
 <% end %>
+</ul>

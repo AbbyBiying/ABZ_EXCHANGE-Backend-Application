@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def create
@@ -25,21 +26,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
 
     if @user.update(user_params)
-      if params[:user][:password].present?
-        reset_password(@user, params[:user][:password])
-      end
-      sign_in(@user)
-      flash[:success] = "Update success! Welcome to your dashboard!"
       redirect_to root_path
     else
-      redirect_to :back
+      render :edit
     end
   end
 
@@ -52,8 +48,11 @@ class UsersController < ApplicationController
       :location_id,
       :number,
       :password,
-      :username
+      :username,
+      location_attributes: [
+        :city,
+        :state
+      ]
     )
   end
 end
-

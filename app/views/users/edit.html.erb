@@ -1,12 +1,6 @@
+<h1>Change Your Information</h1>
 <%= form_for current_user do |form| %>
-  <% if current_user.errors.any? %>
-    <%= pluralize(current_user.errors.count, "error") %> prevented your account from being created:
-    <ul>
-      <% current_user.errors.full_messages.each do |error_message| %>
-        <li><%= error_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render "application/form_errors", object: current_user %>
 
   <div>
     <%= form.label :username %>
@@ -21,20 +15,14 @@
   <div>
     <%= form.label :bio %>
     <%= form.text_area :bio %>
-  </div>
-
+    </div>
+  <h3>Change Your Location</h3>
   <div>
     <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
   </div>
 
   <h4> Location not listed? </h4>
-  <%= form.fields_for :location do |location_form| %>
-    <%= location_form.label :city %>
-    <%= location_form.text_field :city %>
-    <%= location_form.label :state %>
-    <%= location_form.text_field :state %>
-  <% end %>
-
+  <h4> <%= link_to "Go add an location", new_location_path %></h4>
   <div>
     <%= form.submit %>
   </div>
