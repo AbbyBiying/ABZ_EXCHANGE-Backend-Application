@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
     if @image.update(image_params)
       redirect_to @image
     else
-      redirect_to :back
+      render :edit
     end
   end
 

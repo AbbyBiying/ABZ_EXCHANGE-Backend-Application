@@ -2,3 +2,8 @@
 <p>State: <%= location.state.upcase %></p>
 <p>Latitude: <%= location.latitude %></p>
 <p>Longitude: <%= location.longitude %></p>
+
+It has
+<% @location.users.each do |user| %>
+  <p>users:  <%= link_to user.username, user_path(user) %></p>
+<% end %>

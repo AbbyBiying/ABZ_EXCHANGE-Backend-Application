@@ -11,18 +11,22 @@
     <%= form.email_field :email %>
   </div>
 
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div>
-    <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
-  </div>
+  <% unless user.persisted? %>
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.label :bio %>
     <%= form.text_area :bio %>
+  </div>
+
+  <h4>If you do not find your city, you can add a city later</h4>
+
+  <div>
+    <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
   </div>
 
   <div>

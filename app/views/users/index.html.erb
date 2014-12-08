@@ -1,14 +1,3 @@
-<script>
-  $(function() {
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    });
-  });
-</script>
-
 <div>
   <%= link_to "Go To My Page 我的页面", user_path(current_user) %>
 </div>

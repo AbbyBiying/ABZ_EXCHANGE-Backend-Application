@@ -10,11 +10,23 @@
   <%= link_to "Add Image 添加图片", new_image_path %>
 </div>
 
-<h1>User <%= @user.username %>'s Page</h1>
+<h1>User <%= current_user.username %>'s Page</h1>
 
-<h3>这是TA的图片:</h3>
+<% if current_user.location %>
+  <h2>This is your location on google map:</h2>
+  <div id="map"></div>
 
-<% @user.images.each do |image| %>
+  <p>Your location: </p>
+  <%= current_user.location.city.titleize %>,
+  <%= current_user.location.state.upcase %>
+<% else %>
+  <%= link_to "Create your location", new_location_path %>
+<% end %>
+
+<h3>Here are images you created:</h3>
+<h3>这是你的图片:</h3>
+
+<% current_user.images.each do |image| %>
   <div>
     <h1>name: <%= image.name %></h1>
     <h2>description: <%= image.description %></h2>
@@ -24,8 +36,3 @@
     <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
   </div>
 <% end %>
-<p>User <%= @user.username %>'s location: </p>
-  <p><%= link_to @user.location.city.titleize,
-     locations_path %>,
-  <%= @user.location.state.upcase %></p>
-<% else %>

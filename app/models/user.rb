@@ -8,10 +8,6 @@ class User < ActiveRecord::Base
   has_many :images
   belongs_to :location
 
-  def location
-    super || NullLocation.new
-  end
-
   def full_street_address
     "#{number}, #{street}, #{city}"
   end
