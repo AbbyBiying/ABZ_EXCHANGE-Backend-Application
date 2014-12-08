@@ -11,10 +11,12 @@
     <%= form.email_field :email %>
   </div>
 
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+  <% unless user.persisted? %>
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.label :bio %>

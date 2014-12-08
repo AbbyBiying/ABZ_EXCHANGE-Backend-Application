@@ -48,11 +48,7 @@ class UsersController < ApplicationController
       :location_id,
       :number,
       :password,
-      :username,
-      location_attributes: [
-        :city,
-        :state
-      ]
+      :username
     )
   end
 end

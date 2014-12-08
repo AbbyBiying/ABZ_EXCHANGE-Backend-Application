@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   has_many :images
   belongs_to :location
 
-  accepts_nested_attributes_for :location
-
   def full_street_address
     "#{number}, #{street}, #{city}"
   end
