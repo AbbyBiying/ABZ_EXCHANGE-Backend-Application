@@ -25,7 +25,7 @@
   </div>
 <% end %>
 <p>User <%= @user.username %>'s location: </p>
-  <p><%= link_to @user.location.city.titleize,
-     locations_path %>,
-  <%= @user.location.state.upcase %></p>
+<p><%= link_to @user.location.city.titleize,
+   location_path(@user.location) %>,
+   <%= @user.location.state.upcase %></p>
 <% else %>
