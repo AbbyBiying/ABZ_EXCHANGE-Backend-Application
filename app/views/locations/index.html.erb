@@ -10,7 +10,7 @@
   <%= link_to "Go To My Page 我的页面", user_path(current_user) %>
 </div>
 
- <div id="map"></div>
+<div id="map"></div>
 
 <h1>Where would you like to go?</h1>
 <% @locations.each do |location| %>
@@ -19,12 +19,5 @@
 <% end %>
 
 <script>
-  $(function() {
-    handler = Gmaps.build('Google');
-    handler.buildMap({provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    });
-  });
+  buildMap(<%= raw @hash.to_json %>);
 </script>
