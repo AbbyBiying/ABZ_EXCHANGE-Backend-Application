@@ -1,5 +1,6 @@
-<div>
-  <%= link_to "Go To My Page 我的页面", user_path(current_user) %>
-</div>
-
 <%= render @users %>
+<div id="map"></div>
+
+<script>
+  buildMap(<%= raw @location_hash.to_json %>);
+</script>

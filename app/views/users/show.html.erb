@@ -1,14 +1,13 @@
-<div>
-  <%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %>
-</div>
+<script>
+  $(function() {
+    calcRoute([<%= @user.latitude %>, <%= @user.longitude %>],
+      [<%= current_user.latitude %>, <%= current_user.longitude %>])
+  });
+</script>
 
-<div>
-  <%= link_to "Create New Location", new_location_path %>
-</div>
+<p><%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %></p>
 
-<div>
-  <%= link_to "Add Image 添加图片", new_image_path %>
-</div>
+<div id="directions"></div>
 
 <h1>User <%= @user.username %>'s Page</h1>
 
@@ -25,7 +24,6 @@
   </div>
 <% end %>
 <p>User <%= @user.username %>'s location: </p>
-<p><%= link_to @user.location.city.titleize,
+<p><%= link_to @user.city.titleize,
    location_path(@user.location) %>,
-   <%= @user.location.state.upcase %></p>
-<% else %>
+   <%= @user.state.upcase %></p>

@@ -23,11 +23,19 @@
     <%= form.text_area :bio %>
   </div>
 
-  <h4>If you do not find your city, you can add a city later</h4>
-
   <div>
     <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
   </div>
+
+  <h4>If you do not find your city, add one here: </h4>
+
+  <%= form.fields_for :location do |location_form| %>
+    <%= location_form.label :city %>
+    <%= location_form.text_field :city %>
+
+    <%= location_form.label :state %>
+    <%= location_form.text_field :state %>
+  <% end %>
 
   <div>
     <%= form.submit "Sign up" %>

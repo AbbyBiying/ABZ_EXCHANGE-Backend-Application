@@ -3,11 +3,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @users = User.all
+    @user.location = Location.new
   end
 
   def index
     @users = User.all
+    @location_hash = Gmap.new(@users).build_map!
   end
 
   def show
@@ -48,7 +49,11 @@ class UsersController < ApplicationController
       :location_id,
       :number,
       :password,
-      :username
+      :username,
+      location_attributes: [
+        :city,
+        :state
+      ]
     )
   end
 end
