@@ -57,6 +57,8 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    js-rails (0.4.0)
+      railties (>= 3.1)
     json (1.8.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -152,6 +154,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+  js-rails
   monban
   monban-generators
   paperclip (~> 4.2)

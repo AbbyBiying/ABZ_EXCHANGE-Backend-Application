@@ -2,28 +2,15 @@
   <%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %>
 </div>
 
-<div>
-  <%= link_to "Create New Location", new_location_path %>
-</div>
+<h1>My Dashboard</h1>
 
-<div>
-  <%= link_to "Add Image 添加图片", new_image_path %>
-</div>
-
-<h1>User <%= current_user.username %>'s Page</h1>
+<div id="map"></div>
 
 <% if current_user.location %>
-  <h2>This is your location on google map:</h2>
-  <div id="map"></div>
-
-  <p>Your location: </p>
-  <%= current_user.location.city.titleize %>,
-  <%= current_user.location.state.upcase %>
-<% else %>
-  <%= link_to "Create your location", new_location_path %>
+  <%= link_to current_user.city.titleize, location_path(current_user.location) %>,
+  <%= current_user.state.upcase %>
 <% end %>
-
-<h3>Here are images you created:</h3>
+<h3>Images I created:</h3>
 <h3>这是你的图片:</h3>
 
 <% current_user.images.each do |image| %>
@@ -36,3 +23,7 @@
     <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
   </div>
 <% end %>
+
+<script>
+  buildMap(<%= raw @location_hash.to_json %>);
+</script>

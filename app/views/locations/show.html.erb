@@ -3,15 +3,7 @@
     calcRoute([<%= @location.latitude %>, <%= @location.longitude %>], [<%= current_user.location.latitude %>, <%= current_user.location.longitude %>])
   });
 </script>
-
-<div>
-  <%= link_to "Go To My Page 我的页面", current_user %>
-</div>
-<div>
-  <%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %>
-</div>
-<h3>Point A is <%= @location.city.titleize %>. Point B is your city. </h3>
-
+<p><%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %></p>
 <div id="directions"></div>
 
 <h2><%= render @location %></h2>

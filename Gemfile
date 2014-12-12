@@ -5,6 +5,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'jbuilder', '~> 2.0'
+gem 'js-rails'
 gem 'jquery-rails'
 gem "paperclip", "~> 4.2"
 gem 'monban-generators'
