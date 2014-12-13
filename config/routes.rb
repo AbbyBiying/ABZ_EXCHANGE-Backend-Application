@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   end
 
   resources :images do
-    resources :comments, only: [:create, :destroy]
+    resources :textcomments, only: [:create]
+    resources :picturecomments, only: [:create]
   end
 
+  resources :comments, only: [:create]
   resource :session, only: [:new, :create, :destroy]
-  resources :users, except: [:destroy]
   resources :locations, only: [:new, :index, :show, :create]
+  resources :users, except: [:destroy]
 end

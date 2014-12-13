@@ -32,5 +32,18 @@ a:visited {
 }
 
 a:hover {
+background: white;
   color: #FF00FF;
+}
+
+.sign-up {
+    width: 300px;
+    height: 22px;
+    background: #3366FF;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+}
+
+.sign-up:hover {
+    width: 950px;
 }
