@@ -15,6 +15,6 @@ class PicturecommentsController < ApplicationController
   end
 
   def picturecomment_params
-    params.require(:picturecomment).permit(:url)
+    params.require(:picturecomment).permit(:url).merge(user: current_user)
   end
 end

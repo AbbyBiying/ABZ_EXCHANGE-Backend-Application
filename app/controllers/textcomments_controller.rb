@@ -15,6 +15,6 @@ class TextcommentsController < ApplicationController
   end
 
   def textcomment_params
-    params.require(:textcomment).permit(:body)
+    params.require(:textcomment).permit(:body).merge(user: current_user)
   end
 end
