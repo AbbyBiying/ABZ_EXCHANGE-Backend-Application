@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :images do
-    resources :textcomments, only: [:create]
-    resources :picturecomments, only: [:create]
+    resources :text_comments, only: [:create]
+    resources :picture_comments, only: [:create]
   end
 
   resources :comments, only: [:create]

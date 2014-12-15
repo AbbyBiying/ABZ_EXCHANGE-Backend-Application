@@ -11,8 +11,8 @@ class ImagesController < ApplicationController
 
   def show
     find_image
-    @textcomment = Textcomment.new
-    @picturecomment = Picturecomment.new
+    @text_comment = TextComment.new
+    @picture_comment = PictureComment.new
   end
 
   def create

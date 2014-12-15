@@ -11,12 +11,12 @@
   <%= button_to "Delete This Image 删除", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
 </div>
 
-<%= form_for [@image, @textcomment] do |form| %>
+<%= form_for [@image, @text_comment] do |form| %>
   <%= form.text_area :body, placeholder: "text comment 文字留言" %>
   <%= form.submit %>
 <% end %>
 
-<%= form_for [@image, @picturecomment] do |form| %>
+<%= form_for [@image, @picture_comment] do |form| %>
   <%= form.text_area :url, placeholder: "picture comment 图片留言" %>
   <%= form.submit %>
 <% end %>

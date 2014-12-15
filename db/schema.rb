@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 20141212195602) do
     t.datetime "updated_at"
   end
 
-  create_table "picturecomments", force: true do |t|
+  create_table "picture_comments", force: true do |t|
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "textcomments", force: true do |t|
+  create_table "text_comments", force: true do |t|
     t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"

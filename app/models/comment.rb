@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   end
 
   def self.textcomments(ids)
-    where(content_type: "Textcomment", content_id: ids)
+    where(content_type: "TextComment", content_id: ids)
   end
 
   def username

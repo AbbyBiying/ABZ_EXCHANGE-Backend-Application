@@ -1,4 +1,4 @@
-class Textcomment < ActiveRecord::Base
+class TextComment < ActiveRecord::Base
   has_one :comment, as: :content
 
   def self.search(query)
