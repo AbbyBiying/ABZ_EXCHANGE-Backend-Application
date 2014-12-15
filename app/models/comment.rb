@@ -5,6 +5,10 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
 
+  def created_time
+    created_at.strftime("%H:%M, %m/%d/%Y %Z")
+  end
+
   def self.textcomments(ids)
     where(content_type: "Textcomment", content_id: ids)
   end
