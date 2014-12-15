@@ -7,7 +7,6 @@ body {
   line-height: 1.5;
   margin: 4em;
   padding-top: 0;
-  z-index: 1001;
 }
 
 #map {
@@ -22,6 +21,10 @@ a:active {
   color: #99FF00;
 }
 
+a:hover {
+  color: #FF00FF;
+}
+
 a:link {
   color: #400D12;
   text-decoration: none;
@@ -31,17 +34,12 @@ a:visited {
   color: #CCFFCC;
 }
 
-a:hover {
-background: white;
-  color: #FF00FF;
-}
-
 .sign-up {
-    width: 300px;
-    height: 22px;
     background: #3366FF;
-    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    height: 22px;
     transition: width 2s;
+    -webkit-transition: width 2s;
+    width: 300px;
 }
 
 .sign-up:hover {

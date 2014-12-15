@@ -23,6 +23,7 @@
     <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
   </div>
 <% end %>
+
 <p>User <%= @user.username %>'s location: </p>
 <p><%= link_to @user.city.titleize,
    location_path(@user.location) %>,

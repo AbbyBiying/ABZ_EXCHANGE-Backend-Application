@@ -1,7 +1,7 @@
 <h1>Image name: <%= @image.name %></h1>
 <h1>Image description: <%= @image.description %></h1>
 <%= image_tag @image.url, width:"500" %>
-<p>This image was created at  图片添加时间为 <%= @image.created_at.strftime("%H:%M, %m/%d/%Y %Z") %></p>
+<p>This image was created at 图片添加时间为 <%= @image.created_at.strftime("%H:%M, %m/%d/%Y %Z") %></p>
 
 <div>
   <%= button_to "Edit This Image 编辑", edit_image_path(@image), :class => "button", :method => :get %>
