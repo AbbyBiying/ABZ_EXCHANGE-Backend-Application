@@ -2,7 +2,7 @@ body {
   background: linear-gradient(#E6005C, #3366FF);
   color: white;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   padding: 7px;
   line-height: 1.5;
   margin: 4em;
@@ -32,5 +32,19 @@ a:visited {
 }
 
 a:hover {
+background: white;
   color: #FF00FF;
+}
+
+.sign-up {
+    width: 300px;
+    height: 50px;
+    background: #3366FF;
+    -webkit-transition: width 3s; /* For Safari 3.1 to 6.0 */
+    transition: width 3s;
+    font-size: 35px;
+}
+
+.sign-up:hover {
+    width: 950px;
 }

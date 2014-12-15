@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_filter :require_permission, only: [:edit, :update, :destroy]
+
   def index
     @images = Image.all
   end
@@ -9,11 +11,13 @@ class ImagesController < ApplicationController
 
   def show
     find_image
-    @comment = @image.comments.build
+    @textcomment = Textcomment.new
+    @picturecomment = Picturecomment.new
   end
 
   def create
     @image = current_user.images.build(image_params)
+
     if @image.save
       redirect_to @image
     else
@@ -37,10 +41,17 @@ class ImagesController < ApplicationController
   def destroy
     image = Image.find(params[:id])
     image.destroy
-    redirect_to root_path
+    redirect_to @images
   end
 
   private
+
+  def require_permission
+    if current_user != Image.find(params[:id]).user
+      flash[:error] = "You do not have the right to do it."
+      redirect_to :back
+    end
+  end
 
   def find_image
     @image ||= Image.find(params[:id])

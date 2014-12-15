@@ -1,6 +1,9 @@
 class Image < ActiveRecord::Base
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  belongs_to :content, polymorphic: true
+  has_many :textcomments
+  has_many :picturecomments
+  has_many :comments, as: :content
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true

@@ -4,17 +4,19 @@
 <p>This image was created at  图片添加时间为 <%= @image.created_at.strftime("%H:%M, %m/%d/%Y %Z") %></p>
 
 <div>
-  <%= button_to "Edit This Image", edit_image_path(@image), :class => "button", :method => :get %>
+  <%= button_to "Edit This Image 编辑", edit_image_path(@image), :class => "button", :method => :get %>
 </div>
 
 <div>
-  <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
+  <%= button_to "Delete This Image 删除", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
 </div>
 
-<%= render @image.comments.by_most_recent %>
+<%= form_for [@image, @textcomment] do |form| %>
+  <%= form.text_area :body, placeholder: "text comment 文字留言" %>
+  <%= form.submit %>
+<% end %>
 
-<%= form_for [@image, @comment] do |f| %>
-  <%= f.label :content, "Add Comment:" %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
+<%= form_for [@image, @picturecomment] do |form| %>
+  <%= form.text_area :url, placeholder: "picture comment 图片留言" %>
+  <%= form.submit %>
 <% end %>

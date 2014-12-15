@@ -1,9 +1,11 @@
-<div>
+<div class="edit">
   <%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %>
 </div>
 
-<h1>My Dashboard</h1>
+<h1>My Dashboard 我的页面</h1>
+<style>
 
+</style>
 <div id="map"></div>
 
 <% if current_user.location %>
@@ -11,19 +13,21 @@
   <%= current_user.state.upcase %>
 <% end %>
 <h3>Images I created:</h3>
-<h3>这是你的图片:</h3>
+<h3>这是你创建的图片:</h3>
 
 <% current_user.images.each do |image| %>
   <div>
-    <h1>name: <%= image.name %></h1>
-    <h2>description: <%= image.description %></h2>
+    <h2>name 名字: <%= image.name %></h2>
+    <h2>description 描述: <%= image.description %></h2>
     <%= link_to image do %>
       <%= image_tag image.url, width:"500" %>
     <% end %>
-    <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+    <p>This image was created at 创建于 <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
   </div>
 <% end %>
 
 <script>
   buildMap(<%= raw @location_hash.to_json %>);
 </script>
+
+<%= render current_user.comments %>
