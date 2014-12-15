@@ -2,7 +2,6 @@
 <h2>User's bio: <%= user.bio %></h2>
 
 <p>
-  <%= link_to user.city.titleize,
-    location_path(user.location) %>,
+  <%= link_to user.city.titleize, location_path(user.location) %>,
   <%= user.state.upcase %>
 </p>

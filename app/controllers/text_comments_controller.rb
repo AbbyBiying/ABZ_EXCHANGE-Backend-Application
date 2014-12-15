@@ -7,7 +7,7 @@ class TextCommentsController < ApplicationController
 
     if @text_comment.save
       current_user.comments.
-      create(content: @text_comment, image_id: @image.id)
+        create(content: @text_comment, image_id: @image.id)
       redirect_to @image
     else
       redirect_to :new

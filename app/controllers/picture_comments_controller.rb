@@ -7,7 +7,7 @@ class PictureCommentsController < ApplicationController
 
     if @picture_comment.save
       current_user.comments.
-      create(content: @picture_comment, image_id: @image.id)
+        create(content: @picture_comment, image_id: @image.id)
       redirect_to @image
     else
       redirect_to :new

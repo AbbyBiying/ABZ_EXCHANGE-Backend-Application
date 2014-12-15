@@ -26,10 +26,10 @@
   </div>
 <% end %>
 
-<script>
-  buildMap(<%= raw @location_hash.to_json %>);
-</script>
-
 <% current_user.comments.each do|comment|%>
   My comment: <%= render comment.content%>
 <%end%>
+
+<script>
+  buildMap(<%= raw @location_hash.to_json %>);
+</script>
