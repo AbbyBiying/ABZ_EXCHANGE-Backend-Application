@@ -10,7 +10,7 @@ class PicturecommentsController < ApplicationController
       create(content: @picturecomment, image_id: @image.id)
       redirect_to @image
     else
-      redirect_to :back
+      redirect_to :new
     end
   end
 
