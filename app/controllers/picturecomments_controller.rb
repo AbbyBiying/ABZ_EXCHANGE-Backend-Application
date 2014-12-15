@@ -4,10 +4,9 @@ class PicturecommentsController < ApplicationController
   def create
     @image = Image.find(params[:image_id])
     @picturecomment = Picturecomment.new(picturecomment_params)
-    @textcomment = Textcomment.new
 
     if @picturecomment.save
-      @image.comments.create(content: @picturecomment)
+      current_user.comments.create(content: @picturecomment, image_id: @image.id)
       redirect_to @image
     else
       redirect_to :back
@@ -15,6 +14,6 @@ class PicturecommentsController < ApplicationController
   end
 
   def picturecomment_params
-    params.require(:picturecomment).permit(:url).merge(user: current_user)
+    params.require(:picturecomment).permit(:url)
   end
 end

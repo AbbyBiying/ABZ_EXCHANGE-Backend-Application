@@ -5,6 +5,10 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
 
+  def self.textcomments(ids)
+    where(content_type: "Textcomment", content_id: ids)
+  end
+
   def username
     user.username
   end
