@@ -50,15 +50,23 @@ ActiveRecord::Schema.define(version: 20141212195602) do
 
   create_table "picturecomments", force: true do |t|
     t.string   "url"
+    t.integer  "user_id"
+    t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "picturecomments", ["user_id"], name: "index_picturecomments_on_user_id", using: :btree
+
   create_table "textcomments", force: true do |t|
     t.string   "body"
+    t.integer  "user_id"
+    t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "textcomments", ["user_id"], name: "index_textcomments_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                        null: false

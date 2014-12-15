@@ -3,11 +3,12 @@ class TextcommentsController < ApplicationController
 
   def create
     @image = Image.find(params[:image_id])
-    @textcomment = Textcomment.new(textcomment_params)
-    @picturecomment = Picturecomment.new
+    @textcomment = @image.textcomments.build(textcomment_params)
+    @picturecomment = @image.picturecomments.new
 
     if @textcomment.save
-      @image.comments.create(content: @textcomment)
+      current_user.comments.create(content: @textcomment)
+      flash[:notice] = "Thanks for commenting!"
       redirect_to @image
     else
       redirect_to :back
@@ -15,6 +16,6 @@ class TextcommentsController < ApplicationController
   end
 
   def textcomment_params
-    params.require(:textcomment).permit(:body).merge(user: current_user)
+    params.require(:textcomment).permit(:body)
   end
 end

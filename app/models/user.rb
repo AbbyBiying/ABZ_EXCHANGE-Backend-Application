@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
   def full_street_address
     "#{number}, #{street}, #{city}"
   end
+
+  def to_param
+  username
+  end
 end

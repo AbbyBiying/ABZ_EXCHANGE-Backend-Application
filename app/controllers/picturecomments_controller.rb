@@ -5,6 +5,7 @@ class PicturecommentsController < ApplicationController
     @image = Image.find(params[:image_id])
     @picturecomment = Picturecomment.new(picturecomment_params)
     @textcomment = Textcomment.new
+    @picturecomment.user = current_user
 
     if @picturecomment.save
       @image.comments.create(content: @picturecomment)

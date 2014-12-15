@@ -17,6 +17,7 @@ class ImagesController < ApplicationController
 
   def create
     @image = current_user.images.build(image_params)
+
     if @image.save
       redirect_to @image
     else
@@ -40,7 +41,7 @@ class ImagesController < ApplicationController
   def destroy
     image = Image.find(params[:id])
     image.destroy
-    redirect_to root_path
+    redirect_to @images
   end
 
   private
@@ -48,7 +49,7 @@ class ImagesController < ApplicationController
   def require_permission
     if current_user != Image.find(params[:id]).user
       flash[:error] = "You do not have the right to do it."
-      redirect_to dashboard_path
+      redirect_to :back
     end
   end
 

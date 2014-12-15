@@ -4,7 +4,6 @@
       [<%= current_user.latitude %>, <%= current_user.longitude %>])
   });
 </script>
-
 <p><%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %></p>
 
 <div id="directions"></div>
@@ -23,6 +22,7 @@
     <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
   </div>
 <% end %>
+
 <p>User <%= @user.username %>'s location: </p>
 <p><%= link_to @user.city.titleize,
    location_path(@user.location) %>,

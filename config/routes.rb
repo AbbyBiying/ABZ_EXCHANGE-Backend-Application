@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:create]
+  resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
   resources :locations, only: [:new, :index, :show, :create]
   resources :users, except: [:destroy]

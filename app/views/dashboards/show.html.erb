@@ -30,6 +30,4 @@
   buildMap(<%= raw @location_hash.to_json %>);
 </script>
 
-<% current_user.comments.each do|comment|%>
-  <%= render comment.content%>
-<%end%>
+<%= render current_user.comments %>
