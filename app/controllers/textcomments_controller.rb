@@ -6,7 +6,8 @@ class TextcommentsController < ApplicationController
     @textcomment = Textcomment.new(textcomment_params)
 
     if @textcomment.save
-      current_user.comments.create(content: @textcomment, image_id: @image.id)
+      current_user.comments.
+      create(content: @textcomment, image_id: @image.id)
       redirect_to @image
     else
       redirect_to :back

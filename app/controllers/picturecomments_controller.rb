@@ -6,7 +6,8 @@ class PicturecommentsController < ApplicationController
     @picturecomment = Picturecomment.new(picturecomment_params)
 
     if @picturecomment.save
-      current_user.comments.create(content: @picturecomment, image_id: @image.id)
+      current_user.comments.
+      create(content: @picturecomment, image_id: @image.id)
       redirect_to @image
     else
       redirect_to :back
