@@ -20,9 +20,10 @@
     <%= link_to image do %>
       <%= image_tag image.url, width:"500" %>
     <% end %>
-    <p>This image was created at <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
+    <p>This image was created at <%= image.created_time %></p>
   </div>
 <% end %>
+
 <p>User <%= @user.username %>'s location: </p>
 <p><%= link_to @user.city.titleize,
    location_path(@user.location) %>,

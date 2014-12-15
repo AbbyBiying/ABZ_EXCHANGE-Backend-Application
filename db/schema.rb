@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127173410) do
+ActiveRecord::Schema.define(version: 20141215222152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.text     "content"
-    t.integer  "user_id"
     t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "content_type"
+    t.integer  "content_id"
+    t.integer  "user_id"
   end
 
   create_table "images", force: true do |t|
@@ -41,6 +42,18 @@ ActiveRecord::Schema.define(version: 20141127173410) do
     t.string   "country",    default: "", null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "picture_comments", force: true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_comments", force: true do |t|
+    t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
