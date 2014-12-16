@@ -19,6 +19,14 @@
     <div class="sign-up">Not a User 还不是用户? <%= link_to "Sign Up 来登记吧", new_user_path %></div>
   <% end %>
 
+  <% if signed_in? %>
+    <%= form_tag search_path, method: :get do %>
+      <%= text_field_tag :search, params[:search] %>
+
+      <%= submit_tag "search" %>
+    <% end %>
+  <% end %>
+
   <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
   <p><%= link_to "User Index 查看所有用户", users_path %></p>
   <p><%= link_to "Location Index 查看所有地点", locations_path %></p>

@@ -9,20 +9,11 @@
 
 <div id="directions"></div>
 
+<%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
+
 <h1>User <%= @user.username %>'s Page</h1>
 
 <h3>这是TA的图片:</h3>
-
-<% @user.images.each do |image| %>
-  <div>
-    <h1>name: <%= image.name %></h1>
-    <h2>description: <%= image.description %></h2>
-    <%= link_to image do %>
-      <%= image_tag image.url, width:"500" %>
-    <% end %>
-    <p>This image was created at <%= image.created_time %></p>
-  </div>
-<% end %>
 
 <p>User <%= @user.username %>'s location: </p>
 <p><%= link_to @user.city.titleize,
