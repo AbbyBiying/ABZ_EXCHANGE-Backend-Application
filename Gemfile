@@ -11,7 +11,6 @@ gem "paperclip", "~> 4.2"
 gem 'monban-generators'
 gem 'monban'
 gem 'pg'
-gem "paperclip", "~> 4.2"
 gem 'pry-rails', :group => :development
 gem 'rails_12factor', group: :production
 gem 'rmagick', '2.13.2'
