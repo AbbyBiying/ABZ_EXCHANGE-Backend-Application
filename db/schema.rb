@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215222152) do
+ActiveRecord::Schema.define(version: 20141217021939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20141215222152) do
     t.integer  "content_id"
     t.integer  "user_id"
   end
+
+  create_table "follow_relationships", force: true do |t|
+    t.integer "follower_id"
+    t.integer "followed_user_id"
+  end
+
+  add_index "follow_relationships", ["followed_user_id"], name: "index_follow_relationships_on_followed_user_id", using: :btree
+  add_index "follow_relationships", ["follower_id"], name: "index_follow_relationships_on_follower_id", using: :btree
 
   create_table "images", force: true do |t|
     t.string   "name",        null: false
