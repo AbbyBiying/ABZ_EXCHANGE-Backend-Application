@@ -28,11 +28,13 @@
   <% end %>
 
   <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
+  <p><%= link_to "Offer Index 查看所有用户", offers_path %></p>
   <p><%= link_to "User Index 查看所有用户", users_path %></p>
   <p><%= link_to "Location Index 查看所有地点", locations_path %></p>
   <p><%= link_to "Image Index 去图片页面", images_path %></p>
   <p><%= link_to "Go To My Page 我的页面", root_path %></p>
   <p><%= link_to "Add Image 添加图片", new_image_path %></p>
+  <p><%= link_to "Make Offer", new_offer_path %></p>
   <p><%= link_to "Create New Location 创建新地点", new_location_path %></p>
   <%= yield %>
 </body>

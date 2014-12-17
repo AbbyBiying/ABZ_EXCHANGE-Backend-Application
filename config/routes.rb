@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :picture_comments, only: [:create]
   end
 
+  resources :offers do
+    resources :counteroffers, only: [:create, :edit, :destroy]
+  end
+
   resources :comments, only: [:create]
   resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
