@@ -7,10 +7,14 @@
 
 <%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
 
-
 <% current_user.comments.each do|comment|%>
   My comment: <%= render comment.content%>
-<%end%>
+<% end %>
+
+<%= render current_user.comments %>
+
+<p>People follows me: <%= render current_user.followers %></p>
+<p>I follow: <%= render current_user.followed_users %></p>
 
 <script>
   buildMap(<%= raw @location_hash.to_json %>);

@@ -20,5 +20,10 @@ Rails.application.routes.draw do
   resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
   resources :locations, only: [:new, :index, :show, :create]
-  resources :users, except: [:destroy]
+  resources :users, except: [:destroy] do
+    member do
+      post "follow" => "follows#create"
+      delete "follow" => "follows#destroy"
+    end
+  end
 end

@@ -9,13 +9,17 @@
 
 <div id="directions"></div>
 
-<%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
-
 <h1>User <%= @user.username %>'s Page</h1>
 
-<h3>这是TA的图片:</h3>
+<% if current_user.followings?(@user) %>
+  <%= button_to "unfollow", follow_user_path(@user), method: :delete %>
+<% else %>
+  <%= button_to "follow!", follow_user_path(@user) %>
+<% end %>
 
 <p>User <%= @user.username %>'s location: </p>
 <p><%= link_to @user.city.titleize,
    location_path(@user.location) %>,
    <%= @user.state.upcase %></p>
+
+<%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
