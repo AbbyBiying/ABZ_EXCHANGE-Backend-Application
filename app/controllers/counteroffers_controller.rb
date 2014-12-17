@@ -19,10 +19,9 @@ class CounteroffersController < ApplicationController
     @counteroffer.update(offer_id: @offer.id)
 
     if @counteroffer.save
-
       redirect_to @offer
     else
-      render :new
+      redirect_to @offer
     end
   end
 
@@ -37,7 +36,7 @@ class CounteroffersController < ApplicationController
   end
 
   def find_counteroffer
-    @counteroffer ||= counteroffer.find(params[:id])
+    @counteroffer ||= Counteroffer.find(params[:id])
   end
 
   def counteroffer_params

@@ -8,4 +8,7 @@ class Counteroffer < ActiveRecord::Base
   def self.by_most_recent
     order(created_at: :desc)
   end
+   def created_time
+    created_at.strftime("%H:%M, %m/%d/%Y %Z")
+  end
 end

@@ -1,10 +1,10 @@
 <h1>Offer name: <%= @offer.name %></h1>
-<h1>Offer description: <%= @offer.description %></h1>
+<h2>Offer description: <%= @offer.description %></h2>
 <%= image_tag @offer.url, width:"500" %>
 <p>This offer was created at 添加时间为 <%= @offer.created_time %></p>
 
 <div>
-  <%= button_to "Edit this offer 编辑", edit_offer_path(@offer), :class => "button", :method => :get %>
+  <%= button_to "Edit this offer 编辑", edit_offer_path(@offer), :method => :get %>
 </div>
 
 <div>
