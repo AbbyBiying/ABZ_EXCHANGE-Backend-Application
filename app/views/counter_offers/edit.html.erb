@@ -1,0 +1,14 @@
+<%= form_for [@offer, @counter_offer] do |form| %>
+  <div>
+    <%= form.text_field :name, placeholder: "type name here"%>
+  </div>
+
+  <div>
+    <%= form.text_area :description, placeholder: "type description here" %>
+  </div>
+
+  <div>
+    <%= form.text_field :url, placeholder: "type url here" %>
+  </div>
+  <%= form.submit %>
+<% end %>

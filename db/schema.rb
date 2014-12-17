@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217021939) do
+ActiveRecord::Schema.define(version: 20141217210756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20141217021939) do
     t.string   "content_type"
     t.integer  "content_id"
     t.integer  "user_id"
+  end
+
+  create_table "counter_offers", force: true do |t|
+    t.string   "name",        null: false
+    t.integer  "user_id",     null: false
+    t.text     "description", null: false
+    t.integer  "offer_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "follow_relationships", force: true do |t|
@@ -50,6 +60,15 @@ ActiveRecord::Schema.define(version: 20141217021939) do
     t.string   "country",    default: "", null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "offers", force: true do |t|
+    t.string   "name",        null: false
+    t.integer  "user_id",     null: false
+    t.text     "description", null: false
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
