@@ -1,7 +1,7 @@
-<h1>This is user: <%= link_to user.username, user_path(user) %></h1>
+<h1>User: <%= link_to user.username, user_path(user) %></h1>
 <h2>User's bio: <%= user.bio %></h2>
 
 <p>
-  <%= link_to user.city.titleize, location_path(user.location) %>,
+  Location: <%= link_to user.city.titleize, location_path(user.location) %>,
   <%= user.state.upcase %>
 </p>

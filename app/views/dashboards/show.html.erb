@@ -3,28 +3,10 @@
 </div>
 
 <h1>My Dashboard 我的页面</h1>
-<style>
-
-</style>
 <div id="map"></div>
 
-<% if current_user.location %>
-  <%= link_to current_user.city.titleize, location_path(current_user.location) %>,
-  <%= current_user.state.upcase %>
-<% end %>
-<h3>Images I created:</h3>
-<h3>这是你创建的图片:</h3>
+<%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
 
-<% current_user.images.each do |image| %>
-  <div>
-    <h2>name 名字: <%= image.name %></h2>
-    <h2>description 描述: <%= image.description %></h2>
-    <%= link_to image do %>
-      <%= image_tag image.url, width:"500" %>
-    <% end %>
-    <p>This image was created at 创建于 <%= image.created_at.strftime("%H:%M %m/%d/%Y %Z") %></p>
-  </div>
-<% end %>
 
 <% current_user.comments.each do|comment|%>
   My comment: <%= render comment.content%>

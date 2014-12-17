@@ -3,6 +3,4 @@
 <%= link_to image do %>
   <%= image_tag image.url, width:"500" %>
 <% end %>
-<p>Upload by user: <%= link_to image.user.username, image.user %></p>
-
 <p>This image was created at <%= image.created_time %></p>

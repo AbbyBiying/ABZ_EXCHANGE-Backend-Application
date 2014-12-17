@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   validates :location, presence: true
   validates :password_digest, presence: true
 
+  def self.find_user(search)
+    where("username ILIKE ?", "%#{search}%")
+  end
+
   def full_street_address
     "#{number}, #{street}, #{city}"
   end
