@@ -54,7 +54,7 @@ class CounterOffersController < ApplicationController
     if current_user != find_counter_offer.user
       flash[:error] = "You do not have the right to do it."
 
-      redirect_to @offer
+      redirect_to @counter_offer.offer
     end
   end
 
