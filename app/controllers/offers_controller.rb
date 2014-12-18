@@ -24,7 +24,7 @@ class OffersController < ApplicationController
   end
 
   def edit
-    find_offer
+    @offer = find_offer
   end
 
   def update

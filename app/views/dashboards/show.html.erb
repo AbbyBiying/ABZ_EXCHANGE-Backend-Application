@@ -13,7 +13,8 @@
 
 <%= render current_user.comments %>
 
-<%= render current_user.offers %>
+<%= render(current_user.offers) || "<p> You do not make offer yet. </p>".html_safe %>
+<%= render(current_user.counter_offers) || "<p> You do not make counter offer yet. </p>".html_safe %>
 
 <p>People follows me: <%= render current_user.followers %></p>
 <p>I follow: <%= render current_user.followed_users %></p>

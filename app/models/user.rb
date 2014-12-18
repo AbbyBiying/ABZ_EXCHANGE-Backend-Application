@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   )
 
   has_many :followers, through: :follower_relationships
+  has_many :trades
 
   validates :email, presence: true, uniqueness: true
   validates :location, presence: true
@@ -38,6 +39,10 @@ class User < ActiveRecord::Base
 
   def full_street_address
     "#{number}, #{street}, #{city}"
+  end
+
+  def can_accept?(possible_offer)
+    offers.include?(possible_offer)
   end
 
   def followings?(user)

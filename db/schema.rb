@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217210756) do
+ActiveRecord::Schema.define(version: 20141218204959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(version: 20141217210756) do
 
   create_table "text_comments", force: true do |t|
     t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trades", force: true do |t|
+    t.integer  "offer_id",         null: false
+    t.integer  "counter_offer_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

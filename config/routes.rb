@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     resources :counter_offers, except: [:index, :show]
   end
 
+  resources :counter_offers, only: [] do
+    member do
+      post "accept" => "accept_trades#create"
+    end
+  end
+
   resources :comments, only: [:create]
   resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
