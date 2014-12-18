@@ -15,7 +15,7 @@ class CounterOffersController < ApplicationController
 
   def create
     find_offer
-    @counter_offer = current_user.counter_offers.new(counter_offer_params)
+    @counter_offer = @offer.counter_offers.new(counter_offer_params)
 
     if @counter_offer.save
       redirect_to @offer
@@ -70,9 +70,8 @@ class CounterOffersController < ApplicationController
     params.require(:counter_offer).permit(
       :description,
       :name,
-      :offer_id,
       :url,
       :user_id
-      ).merge(offer: @offer)
+      ).merge(offer: @offer, user: current_user)
   end
 end
