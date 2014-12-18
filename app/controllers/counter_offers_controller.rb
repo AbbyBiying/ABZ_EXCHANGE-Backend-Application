@@ -44,8 +44,7 @@ class CounterOffersController < ApplicationController
       :name,
       :offer_id,
       :url,
-      :user_id,
-      :counter_offer_id
+      :user_id
       ).merge(offer: @offer)
   end
 end

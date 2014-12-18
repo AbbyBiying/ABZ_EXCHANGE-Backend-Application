@@ -11,7 +11,9 @@
   <%= button_to "Delete this offer 删除", offer_path(@offer), method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %>
 </div>
 <br>
+
 <div>
+<h3>Make an counter offer</h3>
 <%= form_for [@offer, @counter_offer] do |form| %>
   <div>
     <%= form.text_field :name, placeholder: "type name here"%>

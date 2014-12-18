@@ -65,10 +65,9 @@ ActiveRecord::Schema.define(version: 20141217210756) do
   end
 
   create_table "offers", force: true do |t|
-    t.string   "name",             null: false
-    t.integer  "user_id",          null: false
-    t.text     "description",      null: false
-    t.integer  "counter_offer_id"
+    t.string   "name",        null: false
+    t.integer  "user_id",     null: false
+    t.text     "description", null: false
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
