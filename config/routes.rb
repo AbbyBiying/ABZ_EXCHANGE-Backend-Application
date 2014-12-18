@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :offers do
-    resources :counter_offers, only: [:create, :edit, :destroy]
+    resources :counter_offers, except: [:index, :show]
   end
 
   resources :comments, only: [:create]

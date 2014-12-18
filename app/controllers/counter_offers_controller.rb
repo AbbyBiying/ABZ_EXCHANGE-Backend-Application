@@ -14,7 +14,7 @@ class CounterOffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.find(params[:offer_id])
+    find_offer
     @counter_offer = current_user.counter_offers.new(counter_offer_params)
 
     if @counter_offer.save
@@ -22,6 +22,30 @@ class CounterOffersController < ApplicationController
     else
       redirect_to @offer
     end
+  end
+
+  def edit
+    find_offer
+    @counter_offer = @offer.counter_offers.find(params[:id])
+  end
+
+  def update
+    find_offer
+    @counter_offer = @offer.counter_offers.find(params[:id])
+
+    if @counter_offer.update(counter_offer_params)
+      redirect_to @offer
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    offer = Offer.find(params[:offer_id])
+    counter_offer = offer.counter_offers.find(params[:id])
+    counter_offer.destroy
+
+    redirect_to offer
   end
 
   private
@@ -34,8 +58,12 @@ class CounterOffersController < ApplicationController
     end
   end
 
+  def find_offer
+    @offer = Offer.find(params[:offer_id])
+  end
+
   def find_counter_offer
-    @counter_offer ||= Counter_offer.find(params[:id])
+    @counter_offer ||= CounterOffer.find(params[:id])
   end
 
   def counter_offer_params
