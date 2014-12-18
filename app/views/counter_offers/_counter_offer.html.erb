@@ -9,9 +9,13 @@
 <p>This counter offer was created at <%= counter_offer.created_time %></p>
 
 <div>
-  <%= button_to "Edit this counter offer 编辑", edit_offer_counter_offer_path(counter_offer.offer, counter_offer), method: :get %>
+  <%= button_to "Edit this counter offer 编辑",
+    edit_offer_counter_offer_path(counter_offer.offer, counter_offer),
+    method: :get %>
 </div>
 
 <div>
-  <%= button_to "Delete this counter offer 删除", offer_counter_offer_path(counter_offer.offer, counter_offer), method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %>
+  <%= button_to "Delete this counter offer 删除",
+    offer_counter_offer_path(counter_offer.offer, counter_offer),
+    method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %>
 </div>

@@ -10,14 +10,14 @@ class OffersController < ApplicationController
   end
 
   def show
-    find_offer
+    @offer = find_offer
     @counter_offer = CounterOffer.new
   end
 
   def create
-    @offer = current_user.offers.build(offer_params)
-    if @offer.save
-      redirect_to @offer
+    offer = current_user.offers.build(offer_params)
+    if offer.save
+      redirect_to offer
     else
       render :new
     end
@@ -28,16 +28,16 @@ class OffersController < ApplicationController
   end
 
   def update
-    find_offer
-    if @offer.update(offer_params)
-      redirect_to @offer
+    offer = find_offer
+    if offer.update(offer_params)
+      redirect_to offer
     else
       render :edit
     end
   end
 
   def destroy
-    offer = Offer.find(params[:id])
+    offer = find_offer
     offer.destroy
 
     redirect_to root_path
@@ -54,7 +54,7 @@ class OffersController < ApplicationController
   end
 
   def find_offer
-    @offer ||= Offer.find(params[:id])
+    offer ||= Offer.find(params[:id])
   end
 
   def offer_params
