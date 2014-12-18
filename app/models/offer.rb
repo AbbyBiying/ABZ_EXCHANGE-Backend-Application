@@ -1,6 +1,6 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
-  has_many :counteroffers
+  has_many :counter_offers
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true

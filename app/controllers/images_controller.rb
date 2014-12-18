@@ -46,7 +46,7 @@ class ImagesController < ApplicationController
   private
 
   def require_permission
-    if current_user != Image.find(params[:id]).user
+    if current_user != find_image.user
       flash[:error] = "You do not have the right to do it."
       redirect_to dashboard_path
     end

@@ -1,4 +1,4 @@
-class Counteroffer < ActiveRecord::Base
+class CounterOffer < ActiveRecord::Base
   belongs_to :user
   belongs_to :offer
 

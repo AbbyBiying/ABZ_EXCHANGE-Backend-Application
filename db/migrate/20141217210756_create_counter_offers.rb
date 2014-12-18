@@ -1,6 +1,6 @@
-class CreateCounteroffers < ActiveRecord::Migration
+class CreateCounterOffers < ActiveRecord::Migration
   def change
-    create_table :counteroffers do |t|
+    create_table :counter_offers do |t|
       t.string :name, null: false
       t.references :user, null: false
       t.text :description, null: false

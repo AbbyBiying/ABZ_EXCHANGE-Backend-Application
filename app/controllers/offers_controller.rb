@@ -11,7 +11,7 @@ class OffersController < ApplicationController
 
   def show
     find_offer
-    @counteroffer = Counteroffer.new
+    @counter_offer = CounterOffer.new
   end
 
   def create
@@ -46,7 +46,7 @@ class OffersController < ApplicationController
   private
 
   def require_permission
-    if current_user != Offer.find(params[:id]).user
+    if current_user != find_offer.user
       flash[:error] = "You do not have the right to do it."
 
       redirect_to dashboard_path
@@ -61,9 +61,9 @@ class OffersController < ApplicationController
     params.require(:offer).permit(
       :description,
       :name,
+      :offer_id,
       :url,
-      :user_id,
-      :offer_id
+      :user_id
       )
   end
 end

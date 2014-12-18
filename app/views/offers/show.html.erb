@@ -4,7 +4,7 @@
 <p>This offer was created at 添加时间为 <%= @offer.created_time %></p>
 
 <div>
-  <%= button_to "Edit this offer 编辑", edit_offer_path(@offer), :method => :get %>
+  <%= button_to "Edit this offer 编辑", edit_offer_path(@offer), method: :get %>
 </div>
 
 <div>
@@ -12,7 +12,7 @@
 </div>
 <br>
 <div>
-<%= form_for [@offer, @counteroffer] do |form| %>
+<%= form_for [@offer, @counter_offer] do |form| %>
   <div>
     <%= form.text_field :name, placeholder: "type name here"%>
   </div>
@@ -28,4 +28,4 @@
 <% end %>
 
 </div>
-<%= render @offer.counteroffers %>
+<%= render @offer.counter_offers %>

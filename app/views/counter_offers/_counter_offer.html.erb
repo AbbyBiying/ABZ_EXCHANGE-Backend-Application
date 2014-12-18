@@ -1,0 +1,9 @@
+<%= link_to counter_offer do %>
+  <h1>name: <%= counter_offer.name %></h1>
+  <h2>description: <%= counter_offer.description %></h2>
+  <%= image_tag counter_offer.url, width:"500" %>
+<% end %>
+
+<p>Counter offer by user: <%= link_to counter_offer.user.username, counter_offer.user %></p>
+
+<p>This counter offer was created at <%= counter_offer.created_time %></p>

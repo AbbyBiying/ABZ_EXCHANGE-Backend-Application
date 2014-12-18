@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :images
   has_many :offers
-  has_many :counteroffers
+  has_many :counter_offers
 
   has_many(
     :followed_relationships,
