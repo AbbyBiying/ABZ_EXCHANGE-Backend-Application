@@ -54,7 +54,7 @@ class OffersController < ApplicationController
   end
 
   def find_offer
-    offer ||= Offer.find(params[:id])
+    Offer.find(params[:id])
   end
 
   def offer_params
