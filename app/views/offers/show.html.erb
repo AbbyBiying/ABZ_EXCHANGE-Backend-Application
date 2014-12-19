@@ -16,20 +16,22 @@
 <br>
 
 <div>
-<h3>Make an counter offer</h3>
-<%= form_for [@offer, @counter_offer] do |form| %>
-  <div>
-    <%= form.text_field :name, placeholder: "type name here"%>
-  </div>
+<% unless @offer.user == current_user %>
+  <h3>Make an counter offer</h3>
+  <%= form_for [@offer, @counter_offer] do |form| %>
+    <div>
+      <%= form.text_field :name, placeholder: "type name here"%>
+    </div>
 
-  <div>
-    <%= form.text_area :description, placeholder: "type description here" %>
-  </div>
+    <div>
+      <%= form.text_area :description, placeholder: "type description here" %>
+    </div>
 
-  <div>
-    <%= form.text_field :url, placeholder: "type url here" %>
-  </div>
-  <%= form.submit %>
+    <div>
+      <%= form.text_field :url, placeholder: "type url here" %>
+    </div>
+    <%= form.submit %>
+  <% end %>
 <% end %>
 
 </div>
