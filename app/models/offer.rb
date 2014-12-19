@@ -1,6 +1,7 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
   has_many :counter_offers
+  has_one :trade
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
@@ -11,5 +12,9 @@ class Offer < ActiveRecord::Base
 
   def self.by_most_recent
     order(created_at: :desc)
+  end
+
+  def accepted?
+    trade.present?
   end
 end

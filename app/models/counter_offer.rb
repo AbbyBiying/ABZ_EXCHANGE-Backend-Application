@@ -2,6 +2,8 @@ class CounterOffer < ActiveRecord::Base
   belongs_to :user
   belongs_to :offer
 
+  delegate :accepted?, to: :offer
+
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
 
