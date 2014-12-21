@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
   def new
+    @locations = Location.all
+    @location_hash = Gmap.new(@locations).build_map!
     @location = Location.new
   end
 
