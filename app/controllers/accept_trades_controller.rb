@@ -2,9 +2,9 @@ class AcceptTradesController < ApplicationController
   before_filter :require_permission, only: [:create]
 
   def create
-    Trade.create(offer: offer, counter_offer: counter_offer)
+    trade = Trade.create(offer: offer, counter_offer: counter_offer)
 
-    redirect_to offer
+    redirect_to trade_path(trade)
   end
 
   def require_permission

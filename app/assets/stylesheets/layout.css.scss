@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(#E6005C, #3366FF);
+  background: linear-gradient(#E6005C, #3366FF) 50% 0 no-repeat fixed;
   color: white;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -38,8 +38,17 @@ a:visited {
     background: #3366FF;
     height: 22px;
     transition: width 2s;
-    -webkit-transition: width 2s;
     width: 300px;
+
+    -webkit-animation: myfirst 8s;
+    animation: myfirst 15s;
+}
+
+@-webkit-keyframes myfirst {
+    0%   {background: yellow;}
+    25%  {background: red;}
+    50%  {background: blue;}
+    100% {background: green;}
 }
 
 .sign-up:hover {

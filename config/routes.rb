@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :trades, only: [:show]
+
   resources :comments, only: [:create]
   resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
