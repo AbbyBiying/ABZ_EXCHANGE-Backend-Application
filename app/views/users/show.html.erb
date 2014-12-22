@@ -21,5 +21,6 @@
 <p><%= link_to @user.city.titleize,
    location_path(@user.location) %>,
    <%= @user.state.upcase %></p>
+<p>bio: <%= @user.bio %></p>
 
 <%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>

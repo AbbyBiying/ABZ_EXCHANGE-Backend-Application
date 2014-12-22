@@ -1,4 +1,5 @@
 class Image < ActiveRecord::Base
+  belongs_to :guest_user
   belongs_to :user
   has_many :comments
 
