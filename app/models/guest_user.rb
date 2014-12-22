@@ -11,7 +11,7 @@ class GuestUser
     0.0
   end
 
-  def followings?(user)
+  def followings?(_user)
     false
   end
 end
