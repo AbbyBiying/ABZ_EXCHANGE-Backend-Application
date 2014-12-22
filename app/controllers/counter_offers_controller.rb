@@ -1,4 +1,5 @@
 class CounterOffersController < ApplicationController
+  before_action :require_login
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index

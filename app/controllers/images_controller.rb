@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :require_login, except: [:index]
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
