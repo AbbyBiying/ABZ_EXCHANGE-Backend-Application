@@ -26,7 +26,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trades, only: [:show]
+  resources :trades, only: [:show] do
+    member do
+      post "complete" => "complete_trades#create"
+    end
+  end
 
   resources :comments, only: [:create]
   resource :search, only: [:show]

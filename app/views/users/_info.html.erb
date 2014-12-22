@@ -1,0 +1,14 @@
+<div class="edit">
+  <%= link_to "Edit Your Information", edit_user_path(@user) %>
+</div>
+<%= render (@user.comments) || "<p>No comments yet. </p>".html_safe %>
+
+<%= render(@user.offers) || "<p>No offer yet. </p>".html_safe %>
+
+<%= render(@user.counter_offers) || "<p>No counter offer yet. </p>".html_safe %>
+
+<h2>Followers: </h2><%= render(@user.followers) || "<p>No followers yet. </p>".html_safe %>
+
+<h2>Following: </h2><%= render(current_user.followed_users) || "<p>Not following anyone yet. </p>".html_safe %>
+
+<%= render(partial: "images/user_image", collection: @user.images) || "<p>No image yet. </p>".html_safe %>
