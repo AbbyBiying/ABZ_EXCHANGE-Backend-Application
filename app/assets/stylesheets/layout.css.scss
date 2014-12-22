@@ -9,12 +9,19 @@ body {
   padding-top: 0;
 }
 
-#map {
-  height: 20em;
+li {
+  float: left;
+  font-size: 16.5px;
+  padding-right: 28px;
+  padding-bottom: 14px;
 }
 
-#directions {
-  height: 20em;
+li:last-child {
+  padding-right: 0;
+}
+
+li:first-child {
+  padding-left: 0;
 }
 
 a:active {
@@ -34,23 +41,33 @@ a:visited {
   color: #CCFFCC;
 }
 
-.sign-up {
-    background: #3366FF;
-    height: 22px;
-    transition: width 2s;
-    width: 300px;
-
-    -webkit-animation: myfirst 8s;
-    animation: myfirst 15s;
+ul {
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  list-style-position: inside;
+  padding: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
-@-webkit-keyframes myfirst {
-    0%   {background: yellow;}
-    25%  {background: red;}
-    50%  {background: blue;}
-    100% {background: green;}
+.clearfix:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.user {
+  border: 2px solid white;
+  padding: 18px;
+  width: 320px;
 }
 
-.sign-up:hover {
-    width: 950px;
-}

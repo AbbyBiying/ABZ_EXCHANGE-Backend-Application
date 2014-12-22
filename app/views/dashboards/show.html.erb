@@ -1,24 +1,8 @@
-<div class="edit">
-  <%= link_to "Edit Your Information 编辑你的信息", edit_user_path(current_user) %>
-</div>
-
 <h1>Welcome <%= current_user.username %>!</h1>
 <div id="map"></div>
-
-<%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
-
-<% current_user.comments.each do|comment|%>
-  My comment: <%= render comment.content%>
-<% end %>
-
-<%= render current_user.comments %>
-
-<%= render(current_user.offers) || "<p> You do not make offer yet. </p>".html_safe %>
-<%= render(current_user.counter_offers) || "<p> You do not make counter offer yet. </p>".html_safe %>
-
-<p>People follows me: <%= render current_user.followers %></p>
-<p>I follow: <%= render current_user.followed_users %></p>
 
 <script>
   buildMap(<%= raw @location_hash.to_json %>);
 </script>
+
+<%= render "users/info", user: @user %>

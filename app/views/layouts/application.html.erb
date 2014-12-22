@@ -12,30 +12,34 @@
 </head>
 
 <body>
+  <h1>Hello <%= current_user.username %>!</h1>
   <% if signed_in? %>
-    <%= link_to "Sign out 退出", session_path, method: :delete %>
+    <%= link_to "Sign out", session_path, method: :delete %>
   <% else %>
-    <%= link_to "Sign in 登录", new_session_path %>
-    <div class="sign-up">Not a User 还不是用户? <%= link_to "Sign Up 来登记吧", new_user_path %></div>
+    <%= link_to "Sign in", new_session_path %>
+    <div class="sign-up">Not a User?  <%= link_to "Sign Up", new_user_path %></div>
   <% end %>
 
   <% if signed_in? %>
     <%= form_tag search_path, method: :get do %>
       <%= text_field_tag :search, params[:search] %>
-
       <%= submit_tag "search" %>
     <% end %>
   <% end %>
 
   <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
-  <p><%= link_to "Offer Index 查看所有用户", offers_path %></p>
-  <p><%= link_to "User Index 查看所有用户", users_path %></p>
-  <p><%= link_to "Location Index 查看所有地点", locations_path %></p>
-  <p><%= link_to "Image Index 去图片页面", images_path %></p>
-  <p><%= link_to "Go To My Page 我的页面", root_path %></p>
-  <p><%= link_to "Add Image 添加图片", new_image_path %></p>
-  <p><%= link_to "Make Offer", new_offer_path %></p>
-  <p><%= link_to "Create New Location 创建新地点", new_location_path %></p>
+  <ul class="clearfix">
+    <li><%= link_to "Offer Index", offers_path %></li>
+    <li><%= link_to "Make Offer", new_offer_path %></li>
+    <li><%= link_to "User Index", users_path %></li>
+    <li><%= link_to "Location Index", locations_path %></li>
+    <li><%= link_to "Add Location", new_location_path %></li>
+    <li><%= link_to "Image Index", images_path %></li>
+    <li><%= link_to "Add Image", new_image_path %></li>
+    <li><%= link_to "Go To My Page", root_path %></li>
+  </ul>
+
   <%= yield %>
+
 </body>
 </html>

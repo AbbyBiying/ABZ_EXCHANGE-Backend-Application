@@ -23,4 +23,4 @@
    <%= @user.state.upcase %></p>
 <p>bio: <%= @user.bio %></p>
 
-<%= render(partial: "images/user_image", collection: @user.images) || "<p> User does not have image yet. </p>".html_safe %>
+<%= render "info", user: @user %>
