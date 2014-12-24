@@ -1,14 +1,21 @@
 <div class="edit">
   <%= link_to "Edit Your Information", edit_user_path(@user) %>
 </div>
-<%= render (@user.comments) || "<p>No comments yet. </p>".html_safe %>
-
-<%= render(@user.offers) || "<p>No offer yet. </p>".html_safe %>
-
-<%= render(@user.counter_offers) || "<p>No counter offer yet. </p>".html_safe %>
-
-<h2>Followers: </h2><%= render(@user.followers) || "<p>No followers yet. </p>".html_safe %>
-
-<h2>Following: </h2><%= render(current_user.followed_users) || "<p>Not following anyone yet. </p>".html_safe %>
-
-<%= render(partial: "images/user_image", collection: @user.images) || "<p>No image yet. </p>".html_safe %>
+<br>
+<div class="offer">
+  <h2>User's offer: </h2><%= render(@user.offers) || "<p>No offer yet.</p>".html_safe %>
+  <h2>User's counter offer: </h2><%= render(@user.counter_offers) || "<p>No counter offer yet.</p>".html_safe %>
+</div>
+<br>
+<div class="follow">
+  <h2>User's followers: </h2><%= render(@user.followers) || "<p>No followers yet. </p>".html_safe %>
+  <h2>User's following: </h2><%= render(@user.followed_users) || "<p>Not following anyone yet. </p>".html_safe %>
+</div>
+<br>
+<div class="image">
+  <h2>Images: </h2><%= render(partial: "images/user_image", collection: @user.images) || "<p>No image yet.</p>".html_safe %>
+</div>
+<br>
+<div class="comment">
+  <h2>User's comment: </h2><%= render(@user.comments) || "<p>No comments yet.</p>".html_safe %>
+</div>

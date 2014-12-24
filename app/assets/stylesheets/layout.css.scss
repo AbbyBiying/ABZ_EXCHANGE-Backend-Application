@@ -41,6 +41,27 @@ a:visited {
   color: #CCFFCC;
 }
 
+.comment {
+  border: 1px solid blue;
+  border-radius: 5px;
+  padding: 20px;
+  width: 900px;
+}
+
+.follow {
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 20px;
+  width: 900px;
+}
+
+.offer {
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 20px;
+  width: 900px;
+}
+
 ul {
   margin-left: auto;
   margin-right: auto;
@@ -65,9 +86,20 @@ ul {
 .clearfix { display: block; }
 /* close commented backslash hack */
 
+.image {
+  border: 1px solid purple;
+  border-radius: 5px;
+  padding: 20px;
+  width: 900px;
+}
+
+.offer-show {
+  border-bottom: dotted #ff0000;
+  width: 900px;
+}
+
 .user {
-  border: 2px solid white;
-  padding: 18px;
-  width: 320px;
+  border-bottom: dotted #ff0000;
+  width: 900px;
 }
 

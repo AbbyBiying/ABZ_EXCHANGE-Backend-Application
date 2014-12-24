@@ -1,7 +1,7 @@
 float max_distance;
 
 void setup() {
-  size(950, 200);
+  size(900, 200);
   noStroke();
   max_distance = dist(0, 0, width, height);
 }

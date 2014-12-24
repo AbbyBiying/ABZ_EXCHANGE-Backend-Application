@@ -1,9 +1,11 @@
-<%= link_to offer do %>
-  <h1>Offer name: <%= offer.name %></h1>
-  <h2>Offer description: <%= offer.description %></h2>
-  <%= image_tag offer.url, width:"500" %>
-<% end %>
+<div class="offer-show">
+  <%= link_to offer do %>
+    <h1>Offer name: <%= offer.name %></h1>
+    <h2>Offer description: <%= offer.description %></h2>
+    <%= image_tag offer.url, width:"500" %>
+  <% end %>
 
-<p>Offered by user: <%= link_to offer.user.username, offer.user %></p>
+  <p>Offered by user: <%= link_to offer.user.username, offer.user %></p>
 
-<p>This offer was created at <%= offer.created_time %></p>
+  <p>This offer was created at <%= offer.created_time %></p>
+</div>
