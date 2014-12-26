@@ -2,7 +2,7 @@
   <%= link_to offer do %>
     <h1>Offer name: <%= offer.name %></h1>
     <h2>Offer description: <%= offer.description %></h2>
-    <%= image_tag offer.url, width:"500" %>
+    <%= image_tag offer.url, width:"300" %>
   <% end %>
 
   <p>Offered by user: <%= link_to offer.user.username, offer.user %></p>

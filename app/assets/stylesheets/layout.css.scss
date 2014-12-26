@@ -1,29 +1,3 @@
-body {
-  background: linear-gradient(#E6005C, #3366FF) 50% 0 no-repeat fixed;
-  color: white;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  padding: 7px;
-  line-height: 1.5;
-  margin: 4em;
-  padding-top: 0;
-}
-
-li {
-  float: left;
-  font-size: 16px;
-  padding-right: 26px;
-  padding-bottom: 14px;
-}
-
-li:last-child {
-  padding-right: 0;
-}
-
-li:first-child {
-  padding-left: 0;
-}
-
 a:active {
   color: #99FF00;
 }
@@ -41,25 +15,78 @@ a:visited {
   color: #CCFFCC;
 }
 
+body {
+  background: linear-gradient(#E6005C, #3366FF) 50% 0 no-repeat fixed;
+  color: white;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  line-height: 1.5;
+  padding: 7px 150px;
+  margin: 4em;
+  padding-top: 0;
+}
+
+.clearfix:after {
+   clear: both;
+   content: " ";
+   display: block;
+   font-size: 0;
+   height: 0;
+   visibility: hidden;
+}
+
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.clearfix li {
+  float: left;
+  font-size: 20px;
+  padding-right: 16px;
+  padding-bottom: 14px;
+}
+
 .comment {
   border: 1px solid blue;
   border-radius: 5px;
   padding: 20px;
-  width: 900px;
+  width: 1150px;
 }
 
 .follow {
   border: 1px solid red;
   border-radius: 5px;
   padding: 20px;
-  width: 900px;
+  width: 1150px;
+}
+
+li:last-child {
+  padding-right: 0;
+}
+
+li:first-child {
+  padding-left: 0;
+}
+
+.image {
+  border: 1px solid purple;
+  border-radius: 5px;
+  padding: 20px;
+  width: 1150px;
 }
 
 .offer {
   border: 1px solid red;
   border-radius: 5px;
   padding: 20px;
-  width: 900px;
+  width: 1150px;
+}
+
+.offer-show {
+  border-bottom: dotted #ff0000;
+  width: 1150px;
 }
 
 ul {
@@ -72,34 +99,7 @@ ul {
   padding-right: 0px;
 }
 
-.clearfix:after {
-   visibility: hidden;
-   display: block;
-   font-size: 0;
-   content: " ";
-   clear: both;
-   height: 0;
-}
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
-
-.image {
-  border: 1px solid purple;
-  border-radius: 5px;
-  padding: 20px;
-  width: 900px;
-}
-
-.offer-show {
-  border-bottom: dotted #ff0000;
-  width: 900px;
-}
-
 .user {
   border-bottom: dotted #ff0000;
-  width: 900px;
+  width: 1150px;
 }
-

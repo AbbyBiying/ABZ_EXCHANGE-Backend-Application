@@ -1,7 +1,7 @@
 <h2>Image name: <%= image.name %></h2>
 <h2>Image description: <%= image.description %></h2>
 <%= link_to image do %>
-  <%= image_tag image.url, width:"500" %>
+  <%= image_tag image.url, width:"700" %>
 <% end %>
 <p>Upload by user: <%= link_to image.user.username, image.user %></p>
 
