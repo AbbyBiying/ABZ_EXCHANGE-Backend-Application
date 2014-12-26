@@ -15,10 +15,12 @@
   <%= button_to "follow!", follow_user_path(@user) %>
 <% end %>
 
-<p>User <%= @user.username %>'s location: </p>
-<p><%= link_to @user.city.titleize,
-   location_path(@user.location) %>,
-   <%= @user.state.upcase %></p>
-<p>bio: <%= @user.bio %></p>
+<div class="user-show">
+  <p>User <%= @user.username %>'s location: </p>
+  <p><%= link_to @user.city.titleize,
+     location_path(@user.location) %>,
+     <%= @user.state.upcase %></p>
+  <p>Bio: <%= @user.bio %></p>
+</div>
 
 <%= render "info", user: @user %>

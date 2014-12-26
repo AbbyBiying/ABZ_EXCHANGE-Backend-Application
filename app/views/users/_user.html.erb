@@ -1,6 +1,7 @@
 <div class="user">
   <h2>User: <i><%= link_to user.username, user_path(user) %></i></h2>
-  <h3>User's bio: </h3><h4><i><%= user.bio %></i></h4>
+  <h3>User's bio: </h3>
+  <h4><i><%= user.bio %></i></h4>
 
   <p>
     Location: <%= link_to user.city.titleize, location_path(user.location) %>,

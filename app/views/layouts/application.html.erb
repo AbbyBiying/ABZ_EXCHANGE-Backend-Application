@@ -37,6 +37,12 @@
     <li><%= link_to "Image Index", images_path %></li>
     <li><%= link_to "Add Image", new_image_path %></li>
     <li><%= link_to "Go To My Page", root_path %></li>
+
+    <% if signed_in? %>
+      <div class="edit">
+        <%= link_to "Edit Your Information", edit_user_path(current_user) %>
+      </div>
+    <% end %>
   </ul>
 
   <%= yield %>

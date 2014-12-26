@@ -1,6 +1,6 @@
 <h1>Offer name: <%= @offer.name %></h1>
 <h2>Offer description: <%= @offer.description %></h2>
-<%= image_tag @offer.url, width:"500" %>
+<%= image_tag @offer.url, width:"300" %>
 <p>This offer was created at 添加时间为 <%= @offer.created_time %></p>
 <p>Offer made by user: <%= link_to @offer.user.username, @offer.user %></p>
 
@@ -16,23 +16,23 @@
 <br>
 
 <div>
-<% unless @offer.user == current_user %>
-  <h3>Make an counter offer</h3>
-  <%= form_for [@offer, @counter_offer] do |form| %>
-    <div>
-      <%= form.text_field :name, placeholder: "type name here"%>
-    </div>
+  <% unless @offer.user == current_user %>
+    <h3>Make an counter offer</h3>
+    <%= form_for [@offer, @counter_offer] do |form| %>
+      <div>
+        <%= form.text_field :name, placeholder: "type name here"%>
+      </div>
 
-    <div>
-      <%= form.text_area :description, placeholder: "type description here" %>
-    </div>
+      <div>
+        <%= form.text_area :description, placeholder: "type description here" %>
+      </div>
 
-    <div>
-      <%= form.text_field :url, placeholder: "type url here" %>
-    </div>
-    <%= form.submit %>
+      <div>
+        <%= form.text_field :url, placeholder: "type url here" %>
+      </div>
+      <%= form.submit %>
+    <% end %>
   <% end %>
-<% end %>
-
 </div>
+
 <%= render @offer.counter_offers %>
