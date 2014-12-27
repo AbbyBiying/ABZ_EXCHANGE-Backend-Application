@@ -4,7 +4,7 @@
   <%= image_tag counter_offer.url, width:"500" %>
 <% end %>
 
-<p>Counter offer by user: <%= link_to counter_offer.user.username, counter_offer.user %></p>
+<p>Counter offer by user: <b class="username"><%= link_to counter_offer.user.username, counter_offer.user %></b></p>
 
 <p>This counter offer was created at <%= counter_offer.created_time %></p>
 

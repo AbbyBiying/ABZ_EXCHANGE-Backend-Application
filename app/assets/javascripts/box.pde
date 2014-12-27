@@ -1,5 +1,5 @@
 void setup() {
-  size(900, 360, P3D);
+  size(1150, 360, P3D);
   noStroke();
 }
 

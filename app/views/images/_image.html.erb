@@ -1,8 +1,10 @@
 <h2>Image name: <%= image.name %></h2>
 <h2>Image description: <%= image.description %></h2>
 <%= link_to image do %>
-  <%= image_tag image.url, width:"700" %>
+  <div class="image-show">
+    <%= image_tag image.url, width:"400" %>
+  </div>
 <% end %>
-<p>Upload by user: <%= link_to image.user.username, image.user %></p>
+<p>Upload by user: <i class="username"><%= link_to image.user.username, image.user %></i></p>
 
 <p>This image was created at <%= image.created_time %></p>

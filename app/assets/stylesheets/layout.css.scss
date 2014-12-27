@@ -1,8 +1,4 @@
-a:active {
-  color: #99FF00;
-}
-
-a:hover {
+a:active, a:hover {
   color: #FF00FF;
 }
 
@@ -12,7 +8,7 @@ a:link {
 }
 
 a:visited {
-  color: #CCFFCC;
+  color: white;
 }
 
 body {
@@ -21,18 +17,17 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 25px;
   line-height: 1.5;
-  padding: 7px 150px;
+  padding: 7px 80px;
   margin: 4em;
-  padding-top: 0;
 }
 
 .clearfix:after {
-   clear: both;
-   content: " ";
-   display: block;
-   font-size: 0;
-   height: 0;
-   visibility: hidden;
+  clear: both;
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
 }
 
 .clearfix { display: inline-block; }
@@ -70,11 +65,21 @@ li:first-child {
   padding-left: 0;
 }
 
+.location a:hover, a:active{
+  color: red;
+}
+
 .image {
   border: 1px solid purple;
   border-radius: 5px;
   padding: 20px;
   width: 1150px;
+}
+
+.image-show:hover {
+  -webkit-transform:scale(1.2);
+  transform: scale(2);
+  text-align: center;
 }
 
 .offer {
@@ -89,6 +94,10 @@ li:first-child {
   width: 1150px;
 }
 
+.sign-in a:hover, .sign-in a:active, {
+  color: red;
+}
+
 ul {
   margin-left: auto;
   margin-right: auto;
@@ -99,7 +108,15 @@ ul {
   padding-right: 0px;
 }
 
+ul.clearfix a:hover, ul.clearfix a:active {
+  color: red;
+}
+
 .user {
   border-bottom: dotted #ff0000;
   width: 1150px;
+}
+
+.username a:hover, .username a:active {
+  color: red;
 }

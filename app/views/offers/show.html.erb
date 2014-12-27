@@ -2,7 +2,7 @@
 <h2>Offer description: <%= @offer.description %></h2>
 <%= image_tag @offer.url, width:"500" %>
 <p>This offer was created at 添加时间为 <%= @offer.created_time %></p>
-<p>Offer made by user: <%= link_to @offer.user.username, @offer.user %></p>
+<p>Offer made by user: <b class="username"><%= link_to @offer.user.username, @offer.user %></b></p>
 
 <div>
   <%= button_to "Edit this offer 编辑", edit_offer_path(@offer), method: :get %>

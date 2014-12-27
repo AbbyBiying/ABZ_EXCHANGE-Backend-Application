@@ -16,7 +16,7 @@
 <% end %>
 
 <p>User <%= @user.username %>'s location: </p>
-<p><%= link_to @user.city.titleize,
+<p><b class="location"><%= link_to @user.city.titleize,
    location_path(@user.location) %>,
    <%= @user.state.upcase %></p>
 <p>bio: <%= @user.bio %></p>

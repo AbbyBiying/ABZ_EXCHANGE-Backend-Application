@@ -6,7 +6,7 @@ float fillGap = 2.5;
 color c;
 
 void setup() {
-  size(900, 360);
+  size(1150, 360);
   background(300);
 }
 
