@@ -1,7 +1,7 @@
 <%= link_to counter_offer.user do %>
-  <h1>Counter offer name: <%= counter_offer.name %></h1>
-  <h2>Counter offer description: <%= counter_offer.description %></h2>
-  <%= image_tag counter_offer.url, width:"500" %>
+  <h2>Counter offer name: <%= counter_offer.name %></h2>
+  <h3>Counter offer description: <%= counter_offer.description %></h3>
+  <%= image_tag counter_offer.url, width:"100" %>
 <% end %>
 
 <p>Counter offer by user: <b class="username"><%= link_to counter_offer.user.username, counter_offer.user %></b></p>

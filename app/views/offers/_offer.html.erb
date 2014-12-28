@@ -1,8 +1,8 @@
 <div class="offer-show">
   <%= link_to offer do %>
-    <h1>Offer name: <%= offer.name %></h1>
-    <h2>Offer description: <%= offer.description %></h2>
-    <%= image_tag offer.url, width:"300" %>
+    <h2>Offer name: <%= offer.name %></h2>
+    <h3>Offer description: <%= offer.description %></h3>
+    <%= image_tag offer.url, width:"100" %>
   <% end %>
 
   <p>Offered by user: <b class="username"><%= link_to offer.user.username, offer.user %></b></p>

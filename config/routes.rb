@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     root "sessions#new"
   end
 
+  resource :about, only: [:show]
+
   resources :images do
     resources :text_comments, only: [:create]
     resources :picture_comments, only: [:create]

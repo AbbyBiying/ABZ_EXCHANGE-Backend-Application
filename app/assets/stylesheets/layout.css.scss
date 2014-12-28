@@ -38,9 +38,10 @@ body {
 
 .clearfix li {
   float: left;
-  font-size: 20px;
-  padding-right: 16px;
+  font-size: 30px;
+  padding-right: 180px;
   padding-bottom: 14px;
+  background-color: black;
 }
 
 .comment {
@@ -119,4 +120,8 @@ ul.clearfix a:hover, ul.clearfix a:active {
 
 .username a:hover, .username a:active {
   color: red;
+}
+
+h1 {
+  text-align: center;
 }
