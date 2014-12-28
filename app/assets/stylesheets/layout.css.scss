@@ -17,8 +17,8 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 25px;
   line-height: 1.5;
-  padding: 7px 80px;
-  margin: 4em;
+  width: 100%;
+  margin: 0;
 }
 
 .clearfix:after {
@@ -38,35 +38,44 @@ body {
 
 .clearfix li {
   float: left;
-  font-size: 30px;
-  padding-right: 180px;
-  padding-bottom: 14px;
-  background-color: black;
+  font-size: 22px;
+  padding-left: 145px;
+  padding-top: 15px;
 }
 
 .comment {
   border: 1px solid blue;
   border-radius: 5px;
   padding: 20px;
-  width: 1150px;
+  width: 950px;
+}
+
+.edit a:hover, a:active{
+  color: red;
 }
 
 .follow {
   border: 1px solid red;
   border-radius: 5px;
   padding: 20px;
-  width: 1150px;
+  width: 950px;
 }
 
-li:last-child {
-  padding-right: 0;
+.hello {
+  font-size: 12px;
+  margin-left: 180px;
+  margin-top: 10px;
 }
 
-li:first-child {
-  padding-left: 0;
+h1 {
+  text-align: center;
 }
 
 .location a:hover, a:active{
+  color: red;
+}
+
+.listing a:hover, .username a:active {
   color: red;
 }
 
@@ -74,7 +83,7 @@ li:first-child {
   border: 1px solid purple;
   border-radius: 5px;
   padding: 20px;
-  width: 1150px;
+  width: 950px;
 }
 
 .image-show:hover {
@@ -83,30 +92,53 @@ li:first-child {
   text-align: center;
 }
 
-.offer {
+nav {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.listing {
   border: 1px solid red;
   border-radius: 5px;
   padding: 20px;
-  width: 1150px;
+  width: 950px;
 }
 
 .offer-show {
   border-bottom: dotted #ff0000;
-  width: 1150px;
+  width: 950px;
+}
+
+.search {
+  margin-top: -270px;
+  margin-left: 1000px;
+}
+
+section {
+  padding: 7px 80px;
+  margin: 4em;
+}
+
+.session {
+  margin-top: 200px;
 }
 
 .sign-in a:hover, .sign-in a:active, {
   color: red;
 }
 
+.sign-out {
+  font-size:13px;
+  margin-left: 180px;
+  margin-top: 20px;
+}
+
 ul {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
   list-style-type: none;
   list-style-position: inside;
-  padding: 12px;
-  padding-left: 0px;
-  padding-right: 0px;
+  width: 100%;
 }
 
 ul.clearfix a:hover, ul.clearfix a:active {
@@ -115,13 +147,13 @@ ul.clearfix a:hover, ul.clearfix a:active {
 
 .user {
   border-bottom: dotted #ff0000;
-  width: 1150px;
+  width: 950px;
+}
+
+.user-new {
+  margin-top: 200px;
 }
 
 .username a:hover, .username a:active {
   color: red;
-}
-
-h1 {
-  text-align: center;
 }

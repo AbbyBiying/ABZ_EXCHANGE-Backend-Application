@@ -1,11 +1,26 @@
-<div class="offer-show">
-  <%= link_to offer do %>
-    <h2>Offer name: <%= offer.name %></h2>
-    <h3>Offer description: <%= offer.description %></h3>
-    <%= image_tag offer.url, width:"100" %>
-  <% end %>
+<%= link_to offer.user do %>
+  <h2>Offer name: <%= offer.name %></h2>
+  <h3>Offer description: <%= offer.description %></h3>
+  <%= image_tag offer.url, width:"100" %>
+<% end %>
 
-  <p>Offered by user: <b class="username"><%= link_to offer.user.username, offer.user %></b></p>
+<p>Offer by user: <b class="username"><%= link_to offer.user.username, offer.user %></b></p>
 
-  <p>This offer was created at <%= offer.created_time %></p>
+<p>This offer was created at <%= offer.created_time %></p>
+
+<div>
+  <%= button_to "Edit this offer",
+    edit_listing_offer_path(offer.listing, offer),
+    method: :get %>
 </div>
+
+<div>
+  <%= button_to "Delete this offer",
+    listing_offer_path(offer.listing, offer),
+    method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %>
+</div>
+
+<% if !offer.accepted? && current_user.can_accept?(offer.listing) %>
+  <p><%= button_to "ACCEPT", accept_offer_path(offer), data: { confirm: 'Are you sure?'} %></p>
+<% end %>
+<%= flash[:notice] %>

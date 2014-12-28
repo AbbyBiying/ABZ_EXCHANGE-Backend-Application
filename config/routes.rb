@@ -18,11 +18,11 @@ Rails.application.routes.draw do
     resources :picture_comments, only: [:create]
   end
 
-  resources :offers do
-    resources :counter_offers, except: [:index, :show]
+  resources :listings do
+    resources :offers, except: [:index, :show]
   end
 
-  resources :counter_offers, only: [] do
+  resources :offers, only: [] do
     member do
       post "accept" => "accept_trades#create"
     end

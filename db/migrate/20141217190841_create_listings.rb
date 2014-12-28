@@ -1,6 +1,6 @@
-class CreateOffers < ActiveRecord::Migration
+class CreateListings < ActiveRecord::Migration
   def change
-    create_table :offers do |t|
+    create_table :listings do |t|
       t.string :name, null: false
       t.references :user, null: false
       t.text :description, null: false

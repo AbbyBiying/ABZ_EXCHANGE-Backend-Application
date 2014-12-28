@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :images
   has_many :offers
-  has_many :counter_offers
+  has_many :listings
 
   has_many(
     :followed_relationships,
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def can_accept?(possible_offer)
-    offers.include?(possible_offer)
+    listings.include?(possible_offer)
   end
 
   def followings?(user)

@@ -1,0 +1,38 @@
+<h2>Listing name: <%= @listing.name %></h2>
+<h3>Listing description: <%= @listing.description %></h3>
+<%= image_tag @listing.url, width:"100" %>
+<p>This listing was created at <%= @listing.created_time %></p>
+<p>listing made by user: <b class="username"><%= link_to @listing.user.username, @listing.user %></b></p>
+
+<div>
+  <%= button_to "Edit this listing", edit_listing_path(@listing), method: :get %>
+</div>
+
+<div>
+  <%= button_to "Delete this listing", listing_path(@listing),
+    method: :delete,
+    data: { confirm: 'Are you sure you want to delete this listing?' } %>
+</div>
+<br>
+
+<div>
+<% unless @listing.user == current_user %>
+  <h3>Make an offer</h3>
+  <%= form_for [@listing, @offer] do |form| %>
+    <div>
+      <%= form.text_field :name, placeholder: "type name here"%>
+    </div>
+
+    <div>
+      <%= form.text_area :description, placeholder: "type description here" %>
+    </div>
+
+    <div>
+      <%= form.text_field :url, placeholder: "type url here" %>
+    </div>
+    <%= form.submit %>
+  <% end %>
+<% end %>
+
+</div>
+<%= render @listing.offers %>

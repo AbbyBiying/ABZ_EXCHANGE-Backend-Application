@@ -1,0 +1,11 @@
+<div class="listing-show">
+  <%= link_to listing do %>
+    <h3>listing name: <%= listing.name %></h3>
+    <h4>listing description: <%= listing.description %></h4>
+    <%= image_tag listing.url, width:"100" %>
+  <% end %>
+
+  <p>Listing by user: <b class="username"><%= link_to listing.user.username, listing.user %></b></p>
+
+  <p>This listing was created at <%= listing.created_time %></p>
+</div>

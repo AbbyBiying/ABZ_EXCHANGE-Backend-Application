@@ -1,8 +1,9 @@
-<h1>Welcome <%= current_user.username %>!</h1>
 <div id="map"></div>
 
 <script>
   buildMap(<%= raw @location_hash.to_json %>);
 </script>
-
+<br>
+<b class="edit"><%= link_to "Edit Your Information", edit_user_path(current_user) %></b>
+<br>
 <%= render "users/info", user: @user %>

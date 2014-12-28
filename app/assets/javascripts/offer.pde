@@ -3,7 +3,7 @@ int count;
 Module[] mods;
 
 void setup() {
-  size(1150, 360);
+  size(950, 360);
   noStroke();
   int wideCount = width / unit;
   int highCount = height / unit;

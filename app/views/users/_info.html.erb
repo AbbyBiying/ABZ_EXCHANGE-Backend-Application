@@ -1,7 +1,7 @@
 <br>
-<div class="offer">
+<div class="listing">
+  <h2>User's listing: </h2><%= render(@user.listings) || "<p>No listing yet.</p>".html_safe %>
   <h2>User's offer: </h2><%= render(@user.offers) || "<p>No offer yet.</p>".html_safe %>
-  <h2>User's counter offer: </h2><%= render(@user.counter_offers) || "<p>No counter offer yet.</p>".html_safe %>
 </div>
 <br>
 <div class="follow">
