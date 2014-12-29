@@ -4,6 +4,7 @@
   buildMap(<%= raw @location_hash.to_json %>);
 </script>
 <br>
-<b class="edit"><%= link_to "Edit Your Information", edit_user_path(current_user) %></b>
+<b class="edit"><%= link_to "Edit Your Information", edit_user_path(current_user) %>
+  <p><%= link_to "Add Image", new_image_path %></p></b>
 <br>
 <%= render "users/info", user: @user %>

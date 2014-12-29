@@ -51,6 +51,7 @@ body {
 }
 
 .edit a:hover, a:active{
+  background-color: white;
   color: red;
 }
 
@@ -72,7 +73,17 @@ h1 {
 }
 
 .location a:hover, a:active{
+  border: 1px solid red;
   color: red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.listing {
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 20px;
+  width: 950px;
 }
 
 .listing a:hover, .username a:active {
@@ -86,23 +97,10 @@ h1 {
   width: 950px;
 }
 
-.image-show:hover {
-  -webkit-transform:scale(1.2);
-  transform: scale(2);
-  text-align: center;
-}
-
 nav {
   margin: 0;
   width: 100%;
   padding: 0;
-}
-
-.listing {
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 20px;
-  width: 950px;
 }
 
 .offer-show {
