@@ -3,7 +3,9 @@
 <p>Latitude: <%= location.latitude %></p>
 <p>Longitude: <%= location.longitude %></p>
 
-It has
-<% @location.users.each do |user| %>
-  <p>User: <b class="username"><%= link_to user.username, user_path(user) %></b></p>
+<% if location.users.present? %>
+  It has
+  <% @location.users.each do |user| %>
+    <p>User: <b class="username"><%= link_to user.username, user_path(user) %></b></p>
+  <% end %>
 <% end %>

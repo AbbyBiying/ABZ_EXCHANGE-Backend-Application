@@ -7,6 +7,10 @@
       <%= location.state.upcase %></b></p>
 <% end %>
 
+<b class="location">
+  <%= link_to "Add a new location", new_location_path %>
+</b>
+
 <script>
   buildMap(<%= raw @location_hash.to_json %>);
 </script>

@@ -3,24 +3,24 @@ class AcceptTradesController < ApplicationController
   before_filter :require_permission, only: [:create]
 
   def create
-    trade = Trade.create(offer: offer, counter_offer: counter_offer)
+    trade = Trade.create(offer: offer, listing: listing)
 
     redirect_to trade_path(trade)
   end
 
   def require_permission
-    if current_user != offer.user
+    if current_user != listing.user
       flash[:notice] = "You do not have the right to do it."
 
-      redirect_to offer
+      redirect_to listing
     end
   end
 
-  def counter_offer
-    @counter_offer ||= CounterOffer.find(params[:id])
+  def offer
+    @offer ||= Offer.find(params[:id])
   end
 
-  def offer
-    @offer ||= counter_offer.offer
+  def listing
+    @listing ||= offer.listing
   end
 end

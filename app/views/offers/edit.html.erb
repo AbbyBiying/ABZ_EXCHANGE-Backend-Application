@@ -1,1 +1,14 @@
-<%= render "form", offer: @offer %>
+<%= form_for [@listing, @ffer] do |form| %>
+  <div>
+    <%= form.text_field :name, placeholder: "type name here"%>
+  </div>
+
+  <div>
+    <%= form.text_area :description, placeholder: "type description here" %>
+  </div>
+
+  <div>
+    <%= form.text_field :url, placeholder: "type url here" %>
+  </div>
+  <%= form.submit %>
+<% end %>

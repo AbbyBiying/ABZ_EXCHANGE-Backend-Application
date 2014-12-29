@@ -1,12 +1,12 @@
-<%= link_to @offer do %>
+<%= link_to @listing do %>
+  <h1>listing name: <%= @trade.listing.name %></h1>
+  <h2>listing description: <%= @trade.listing.description %></h2>
+  <%= image_tag @trade.listing.url, width:"200" %>
+<% end %>
+
+<%= link_to @trade.offer.user do %>
   <h1>Offer name: <%= @trade.offer.name %></h1>
   <h2>Offer description: <%= @trade.offer.description %></h2>
   <%= image_tag @trade.offer.url, width:"200" %>
-<% end %>
-
-<%= link_to @trade.counter_offer.user do %>
-  <h1>Counter offer name: <%= @trade.counter_offer.name %></h1>
-  <h2>Counter offer description: <%= @trade.counter_offer.description %></h2>
-  <%= image_tag @trade.counter_offer.url, width:"200" %>
 <% end %>
 

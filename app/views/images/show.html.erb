@@ -1,19 +1,19 @@
 <%= render @image %>
 <div>
-  <%= button_to "Edit This Image 编辑", edit_image_path(@image), method: :get %>
+  <%= button_to "Edit This Image", edit_image_path(@image), method: :get %>
 </div>
 
 <div>
-  <%= button_to "Delete This Image 删除", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
+  <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
 </div>
 
 <%= form_for [@image, @text_comment] do |form| %>
-  <%= form.text_area :body, placeholder: "text comment 文字留言" %>
+  <%= form.text_area :body, placeholder: "text comment" %>
   <%= form.submit %>
 <% end %>
 
 <%= form_for [@image, @picture_comment] do |form| %>
-  <%= form.text_area :url, placeholder: "picture comment 图片留言" %>
+  <%= form.text_area :url, placeholder: "picture comment" %>
   <%= form.submit %>
 <% end %>
 

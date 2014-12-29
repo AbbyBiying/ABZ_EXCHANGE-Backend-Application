@@ -1,4 +1,5 @@
-<%= form_for [@offer, @counter_offer] do |form| %>
+<%= form_for listing do |form| %>
+  <%= render "application/form_errors", object: listing %>
   <div>
     <%= form.text_field :name, placeholder: "type name here"%>
   </div>

@@ -12,33 +12,39 @@
 </head>
 
 <body>
-  <ul class="clearfix">
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Listings", offers_path %></li>
-    <li><%= link_to "Users", users_path %></li>
-    <li><%= link_to "Locations", locations_path %></li>
-    <li><%= link_to "MyPage", root_path %></li>
-  </ul>
-  <h1 class="title">ABZ EXCHANGE</h1>
-  <h2>Hello <%= current_user.username %>!</h2>
-  <% if signed_in? %>
-    <%= link_to "Sign out", session_path, method: :delete %>
-  <% else %>
-    <p class="sign-in">
-      <%= link_to "Sign in", new_session_path %>
-    </p>
-    <div class="sign-up">Not a User?  <%= link_to "Sign Up", new_user_path %></div>
-  <% end %>
+  <header>
+    <div class="sign-out">
+      <% if signed_in? %>
+        <%= link_to "Sign out", session_path, method: :delete %>
+      <% else %>
+        <div class="sign-up">Not a User?  <%= link_to "Sign Up", new_user_path %></div>
+      <% end %>
+    </div>
+    <div class="hello">Hello <%= current_user.username %>!</div>
+    <h1 class="title">ABZ EXCHANGE</h1>
+  </header>
 
-  <% if signed_in? %>
-    <%= form_tag search_path, method: :get do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "search" %>
-    <% end %>
-  <% end %>
+  <nav>
+    <ul class="clearfix">
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Listings", listings_path %></li>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "Locations", locations_path %></li>
+      <li><%= link_to "MyPage", root_path %></li>
+    </ul>
 
+    <div class="search">
+      <% if signed_in? %>
+        <%= form_tag search_path, method: :get do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "search" %>
+        <% end %>
+      <% end %>
+    </div>
+  </nav>
 
+  <section>
   <%= yield %>
-
+  </section>
 </body>
 </html>

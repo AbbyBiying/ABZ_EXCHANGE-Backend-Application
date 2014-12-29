@@ -3,7 +3,7 @@ int lastBar = -1;
 
 void setup()
 {
-  size(1150, 360);
+  size(950, 360);
   colorMode(HSB, height, height, height);
   noStroke();
   background(0);

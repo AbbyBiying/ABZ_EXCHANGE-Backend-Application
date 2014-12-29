@@ -25,16 +25,6 @@ ActiveRecord::Schema.define(version: 20141218204959) do
     t.integer  "user_id"
   end
 
-  create_table "counter_offers", force: true do |t|
-    t.string   "name",        null: false
-    t.integer  "user_id",     null: false
-    t.text     "description", null: false
-    t.integer  "offer_id"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "follow_relationships", force: true do |t|
     t.integer "follower_id"
     t.integer "followed_user_id"
@@ -48,6 +38,15 @@ ActiveRecord::Schema.define(version: 20141218204959) do
     t.integer  "user_id",     null: false
     t.string   "url",         null: false
     t.text     "description", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "listings", force: true do |t|
+    t.string   "name",        null: false
+    t.integer  "user_id",     null: false
+    t.text     "description", null: false
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141218204959) do
     t.string   "name",        null: false
     t.integer  "user_id",     null: false
     t.text     "description", null: false
+    t.integer  "listing_id"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20141218204959) do
   end
 
   create_table "trades", force: true do |t|
-    t.integer  "offer_id",         null: false
-    t.integer  "counter_offer_id", null: false
+    t.integer  "listing_id", null: false
+    t.integer  "offer_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
