@@ -37,24 +37,20 @@ class User < ActiveRecord::Base
   validates :location, presence: true
   validates :password_digest, presence: true
 
-  def full_street_address
-    "#{number}, #{street}, #{city}"
-  end
-
   def can_accept?(possible_offer)
     listings.include?(possible_offer)
   end
 
-  def followings?(user)
-    user.followers.include?(self)
-  end
-
-  def timeline
-    Comment.where(user_id: includes_myself).order(created_at: :desc)
-  end
-
   def includes_myself
     [id] + followed_user_ids
+  end
+
+  def self.find_user(search)
+    where("username ILIKE ?", "%#{search}%")
+  end
+
+  def followings?(user)
+    user.followers.include?(self)
   end
 
   def follow(user)
@@ -67,5 +63,9 @@ class User < ActiveRecord::Base
 
   def following?(user)
     followed_users.include? user
+  end
+
+  def timeline
+    Comment.where(user_id: includes_myself).order(created_at: :desc)
   end
 end
