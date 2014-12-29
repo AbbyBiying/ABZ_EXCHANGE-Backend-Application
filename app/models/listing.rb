@@ -6,6 +6,10 @@ class Listing < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
 
+  def accepted?
+    trade.present?
+  end
+
   def created_time
     created_at.strftime("%H:%M, %m/%d/%Y %Z")
   end
@@ -14,7 +18,7 @@ class Listing < ActiveRecord::Base
     order(created_at: :desc)
   end
 
-  def accepted?
-    trade.present?
+  def self.find_listing(search)
+    where("name ILIKE ?", "%#{search}%")
   end
 end
