@@ -1,9 +1,4 @@
-<h2>Listing name: <%= @listing.name %></h2>
-<h3>Listing description: <%= @listing.description %></h3>
-<%= image_tag @listing.url, width:"100" %>
-<p>This listing was created at <%= @listing.created_time %></p>
-<p>listing made by user: <b class="username"><%= link_to @listing.user.username, @listing.user %></b></p>
-
+<%= render @listing %>
 <div>
   <%= button_to "Edit this listing", edit_listing_path(@listing), method: :get %>
 </div>
