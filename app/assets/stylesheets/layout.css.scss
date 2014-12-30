@@ -53,6 +53,13 @@ body {
   color: red;
 }
 
+.edit p {
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 20px;
+  width: 255px;
+}
+
 .follow {
   border: 1px solid red;
   border-radius: 5px;
@@ -74,11 +81,19 @@ h1 {
   color: red;
 }
 
-.listing {
+.listing-index h1 {
   border: 1px solid red;
   border-radius: 5px;
   padding: 20px;
   width: 950px;
+}
+
+.listing-index a:hover, a:active {
+  color: red;
+}
+
+.listing-index {
+  margin-top: 250px;
 }
 
 .image {
@@ -111,6 +126,10 @@ section {
 
 .session {
   margin-top: 200px;
+}
+
+.session p {
+  font-size: 15px;
 }
 
 .sign-in a:hover, .sign-in a:active, {
