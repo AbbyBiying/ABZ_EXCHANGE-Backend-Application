@@ -9,8 +9,7 @@
 
 <div class="button">
   <b><%= link_to "Edit this offer",
-    edit_listing_offer_path(offer.listing, offer),
-    method: :get %></b><br>
+    edit_listing_offer_path(offer.listing, offer) %></b><br>
   <b><%= link_to "Delete this offer",
     listing_offer_path(offer.listing, offer),
     method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %></b>
