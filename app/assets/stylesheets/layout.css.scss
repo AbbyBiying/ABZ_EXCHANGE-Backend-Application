@@ -20,6 +20,10 @@ body {
   margin: 0;
 }
 
+.button a:hover {
+  color:red
+}
+
 .clearfix:after {
   clear: both;
   content: " ";

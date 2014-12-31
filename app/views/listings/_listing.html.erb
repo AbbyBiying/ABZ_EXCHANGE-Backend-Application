@@ -1,8 +1,8 @@
 <%= link_to listing do %>
-  <h3>listing name: <%= listing.name %></h3>
-  <h4>listing description: <%= listing.description %></h4>
-  <%= image_tag listing.url, width:"100" %>
+  <h5>Listing name: <%= listing.name %>,
+    description: <%= listing.description %></h5>
+  <%= image_tag listing.url, width:"200" %>
 <% end %>
 
-<p>Listing by user: <b class="username"><%= link_to listing.user.username, listing.user %>,</b>
-  was created at <%= listing.created_time %></p>
+<h6>Listing by user: <b class="username"><%= link_to listing.user.username, listing.user %>,</b>
+  was created at <%= listing.created_time %></h6>

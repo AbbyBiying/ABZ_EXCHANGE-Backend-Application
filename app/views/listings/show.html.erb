@@ -1,12 +1,10 @@
 <%= render @listing %>
-<div>
-  <%= button_to "Edit this listing", edit_listing_path(@listing), method: :get %>
-</div>
+<div class="button">
+  <b><%= link_to "Edit this listing", edit_listing_path(@listing), method: :get %></b><br>
 
-<div>
-  <%= button_to "Delete this listing", listing_path(@listing),
+  <b><%= link_to "Delete this listing", listing_path(@listing),
     method: :delete,
-    data: { confirm: 'Are you sure you want to delete this listing?' } %>
+    data: { confirm: 'Are you sure you want to delete this listing?' } %></b>
 </div>
 <br>
 
