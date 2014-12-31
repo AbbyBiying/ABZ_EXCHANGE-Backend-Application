@@ -91,11 +91,10 @@ h1 {
   color: red;
 }
 
-.listing-index h1 {
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 20px;
+.make-list a {
+  padding: 5px;
   width: 950px;
+  text-align: center;
 }
 
 .listing-index a:hover, a:active {
@@ -103,7 +102,7 @@ h1 {
 }
 
 .listing-index {
-  margin-top: 250px;
+  margin-top: 100px;
 }
 
 .image {

@@ -1,5 +1,7 @@
 <div class="listing-index">
-  <h1><%= link_to "Make New Listing", new_listing_path %></h1>
+  <% if signed_in? %>
+    <h1 class= "make-list"><%= link_to "Make New Listing", new_listing_path %></h1>
+  <% end %>
 
   <h3>All the Listings:</h3>
 
