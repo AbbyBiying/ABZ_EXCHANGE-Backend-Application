@@ -47,7 +47,7 @@ body {
 }
 
 .comment {
-  border: 1px solid blue;
+  border: 1px solid #660099;
   border-radius: 5px;
   padding: 20px;
   width: 950px;
@@ -97,6 +97,13 @@ h1 {
   text-align: center;
 }
 
+.listing {
+  border: 1px solid #CA278C;
+  border-radius: 5px;
+  padding: 20px;
+  width: 950px;
+}
+
 .listing-index a:hover, a:active {
   color: red;
 }
@@ -106,7 +113,7 @@ h1 {
 }
 
 .image {
-  border: 1px solid purple;
+  border: 1px solid #A80000 ;
   border-radius: 5px;
   padding: 20px;
   width: 950px;
