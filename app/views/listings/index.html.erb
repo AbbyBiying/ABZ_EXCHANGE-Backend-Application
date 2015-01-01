@@ -1,9 +1,6 @@
 <div class="listing-index">
   <% if signed_in? %>
-    <h1 class= "make-list"><%= link_to "Make New Listing", new_listing_path %></h1>
+    <h2 class= "make-list"><%= link_to "Make New Listing", new_listing_path %></h2>
   <% end %>
-
-  <h3>All the Listings:</h3>
-
   <%= render @listings %>
 </div>

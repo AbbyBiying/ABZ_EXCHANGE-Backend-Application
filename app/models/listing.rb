@@ -1,13 +1,13 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
   has_many :offers
-  has_one :trade
+  has_one :exchange
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
 
   def accepted?
-    trade.present?
+    exchange.present?
   end
 
   def created_time

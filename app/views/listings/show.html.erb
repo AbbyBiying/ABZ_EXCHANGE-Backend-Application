@@ -3,8 +3,7 @@
   <b><%= link_to "Edit this listing", edit_listing_path(@listing), method: :get %></b><br>
 
   <b><%= link_to "Delete this listing", listing_path(@listing),
-    method: :delete,
-    data: { confirm: 'Are you sure you want to delete this listing?' } %></b>
+       method: :delete, data: { confirm: 'Are you sure you want to delete this listing?' } %></b>
 </div>
 <br>
 
@@ -26,6 +25,6 @@
     <%= form.submit %>
   <% end %>
 <% end %>
-
 </div>
+
 <%= render @listing.offers %>

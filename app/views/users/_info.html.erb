@@ -1,18 +1,14 @@
 <br>
-<div class="listing">
-  <h2>User's listing: </h2><%= render(@user.listings) || "<p>No listing yet.</p>".html_safe %>
-  <h2>User's offer: </h2><%= render(@user.offers) || "<p>No offer yet.</p>".html_safe %>
-</div>
+User's listing: <%= render(@user.listings) || "<p>No listing yet.</p>".html_safe %></p>
+User's offer: <%= render(@user.offers) || "<p>No offer yet.</p>".html_safe %></p>
+
 <br>
 <div class="follow">
-  <h2>User's followers: </h2><%= render(@user.followers) || "<p>No followers yet. </p>".html_safe %>
-  <h2>User's following: </h2><%= render(@user.followed_users) || "<p>Not following anyone yet. </p>".html_safe %>
+  User's followers: <%= render(@user.followers) || "<p>No followers yet. </p>".html_safe %>
+  User's following: <%= render(@user.followed_users) || "<p>Not following anyone yet. </p>".html_safe %>
 </div>
 <br>
-<div class="image">
-  <h2>Images: </h2><%= render(partial: "images/user_image", collection: @user.images) || "<p>No image yet.</p>".html_safe %>
-</div>
+User's Images: <%= render(partial: "images/user_image", collection: @user.images) || "<p>No image yet.</p>".html_safe %>
+
 <br>
-<div class="comment">
-  <h2>User's comment: </h2><%= render(@user.comments) || "<p>No comments yet.</p>".html_safe %>
-</div>
+User's comment: <%= render(@user.comments) || "<p>No comments yet.</p>".html_safe %>

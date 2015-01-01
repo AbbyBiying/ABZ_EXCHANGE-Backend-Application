@@ -20,12 +20,13 @@
         <div class="sign-up">Not a User?  <%= link_to "Sign Up", new_user_path %></div>
       <% end %>
     </div>
-    <div class="hello">Welcome <%= current_user.username %>!</div>
+    <div class="welcome">Welcome <%= current_user.username %>!</div>
     <h1 class="title">ABZ EXCHANGE</h1>
   </header>
 
   <nav>
     <ul class="clearfix">
+      <li><%= link_to "SuccessfulExchanges", successful_exchanges_path %></li>
       <li><%= link_to "Listings", listings_path %></li>
       <li><%= link_to "Users", users_path %></li>
       <li><%= link_to "Locations", locations_path %></li>

@@ -41,8 +41,8 @@ body {
 
 .clearfix li {
   float: left;
-  font-size: 22px;
-  padding-left: 145px;
+  font-size: 18px;
+  padding-left: 100px;
   padding-top: 15px;
 }
 
@@ -73,18 +73,13 @@ body {
 
 .footer {
   font-size: 15px;
-  text-align: center;
+  margin-top: 100px;
   padding-bottom: 20px;
-}
-
-.hello {
-  font-size: 12px;
-  margin-left: 180px;
-  margin-top: 10px;
+  padding-left: 500px;
 }
 
 h1 {
-  text-align: center;
+  padding-left:400px;
 }
 
 .location a:hover, a:active{
@@ -93,8 +88,8 @@ h1 {
 
 .make-list a {
   padding: 5px;
-  width: 950px;
   text-align: center;
+  width: 950px;
 }
 
 .listing {
@@ -121,8 +116,15 @@ h1 {
 
 nav {
   margin: 0;
-  width: 100%;
   padding: 0;
+  width: 100%;
+}
+
+.offer {
+  border: 1px solid #A80000 ;
+  border-radius: 5px;
+  padding: 20px;
+  width: 950px;
 }
 
 .offer-show {
@@ -131,13 +133,13 @@ nav {
 }
 
 .search {
-  margin-top: -270px;
   margin-left: 1000px;
+  margin-top: -260px;
 }
 
 section {
-  padding: 7px 80px;
-  margin: 4em;
+  margin-top: 100px;
+  padding: 7px 140px;
 }
 
 .session {
@@ -148,24 +150,37 @@ section {
   font-size: 15px;
 }
 
-.sign-in a:hover, .sign-in a:active, {
+.sign-in a:hover, a:active, {
   color: red;
 }
 
 .sign-out {
   font-size:13px;
-  margin-left: 180px;
+  margin-left: 50px;
   margin-top: 20px;
 }
 
+.successful-exchange {
+  border: 5px solid #BF00FF;
+  border-radius: 5px;
+  padding: 20px;
+  width: 950px;
+}
+
+.welcome {
+  font-size: 12px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
 ul {
-  margin: 0;
   list-style-type: none;
   list-style-position: inside;
+  margin: 0;
   width: 100%;
 }
 
-ul.clearfix a:hover, ul.clearfix a:active {
+ul.clearfix a:hover, a:active {
   color: red;
 }
 
@@ -178,6 +193,6 @@ ul.clearfix a:hover, ul.clearfix a:active {
   margin-top: 200px;
 }
 
-.username a:hover, .username a:active {
+.username a:hover, a:active {
   color: red;
 }

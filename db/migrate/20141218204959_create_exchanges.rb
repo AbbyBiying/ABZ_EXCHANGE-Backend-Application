@@ -1,6 +1,6 @@
-class CreateTrades < ActiveRecord::Migration
+class CreateExchanges < ActiveRecord::Migration
   def change
-    create_table :trades do |t|
+    create_table :exchanges do |t|
       t.references :listing, null: false
       t.references :offer, null: false
 
