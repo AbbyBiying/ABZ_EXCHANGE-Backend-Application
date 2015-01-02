@@ -3,6 +3,7 @@ class Offer < ActiveRecord::Base
   belongs_to :listing
 
   delegate :accepted?, to: :listing
+  delegate :username, to: :user
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
