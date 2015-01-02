@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem "paperclip", "~> 4.2"
 gem 'monban-generators'
 gem 'monban'
+gem 'newrelic_rpm'
 gem 'pg'
 gem 'pry-rails', :group => :development
 gem 'rails_12factor', group: :production
