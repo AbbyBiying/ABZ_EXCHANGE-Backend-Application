@@ -1,5 +1,5 @@
 <%= render @listing %>
-<% if current_user == @listing.user %>
+<% unless @listing.user == current_user && @listing.accepted? %>
   <div class="button">
     <b><%= link_to "Edit this listing", edit_listing_path(@listing), method: :get %></b><br>
 
