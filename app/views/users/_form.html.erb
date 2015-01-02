@@ -25,10 +25,10 @@
     </div>
 
     <div>
-      <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
+      Please select your city <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
     </div>
 
-    <h4>If you do not find your city, add one here: </h4>
+    <p>If you do not find your city, add one here: </p>
 
     <%= form.fields_for :location do |location_form| %>
       <%= location_form.label :city %>
