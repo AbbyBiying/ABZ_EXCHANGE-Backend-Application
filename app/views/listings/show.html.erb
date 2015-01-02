@@ -1,5 +1,14 @@
+<% if @listing.exchange.present? %>
+  <b>exchange in processing</b>
+<% end %>
+
+<% if current_user == @listing.user %>
+  <p> If you want to complete this exchange, hit the button</p>
+  <%= button_to "exchange page", exchange_path(@listing.exchange), method: :get %>
+<% end %>
+
 <%= render @listing %>
-<% unless @listing.user == current_user && @listing.accepted? %>
+<% if (@listing.user != current_user && !@listing.accepted?) %>
   <div class="button">
     <b><%= link_to "Edit this listing", edit_listing_path(@listing), method: :get %></b><br>
 
@@ -10,7 +19,7 @@
 <br>
 
 <div>
-  <% unless @listing.user == current_user && @listing.accepted? %>
+  <% if (@listing.user != current_user && !@listing.accepted?) %>
     <h3>Make an offer</h3>
     <%= form_for [@listing, @offer] do |form| %>
       <div>
