@@ -3,5 +3,5 @@
   <% if signed_in? %>
     <h2 class= "make-list"><%= link_to "Make New Listing", new_listing_path %></h2>
   <% end %>
-  <%= render @listings %>
+  <%= render @listings.by_most_recent %>
 </div>

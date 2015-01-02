@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     [id] + followed_user_ids
   end
 
+  def self.by_most_recent
+    order(created_at: :desc)
+  end
+
   def self.find_user(search)
     where("username ILIKE ?", "%#{search}%")
   end

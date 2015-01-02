@@ -1,5 +1,5 @@
 <div id="map"></div>
-<%= render @users %>
+<%= render @users.by_most_recent %>
 
 <script>
   buildMap(<%= raw @location_hash.to_json %>);

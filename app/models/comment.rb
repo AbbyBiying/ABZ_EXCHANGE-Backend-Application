@@ -9,6 +9,10 @@ class Comment < ActiveRecord::Base
     created_at.strftime("%H:%M, %m/%d/%Y %Z")
   end
 
+  def self.by_most_recent
+    order(created_at: :desc)
+  end
+
   def self.text_comments(ids)
     where(content_type: "TextComment", content_id: ids)
   end
