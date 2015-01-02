@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
   )
 
   has_many :followers, through: :follower_relationships
-  has_many :trades
+  has_many :exchanges
+  has_many :successful_exchanges
 
   validates :email, presence: true, uniqueness: true
   validates :location, presence: true

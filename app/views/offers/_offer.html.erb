@@ -1,21 +1,26 @@
-<%= link_to offer.user do %>
-  <h5>Offer name: <%= offer.name %>,
-    description: <%= offer.description %></h5>
-  <%= image_tag offer.url, width:"200" %>
-<% end %>
+<div class="offer">
+  <%= link_to offer.user do %>
+    <h5>Offer name: <%= offer.name %>,
+      description: <%= offer.description %></h5>
+    <%= image_tag offer.url, width:"200" %>
+  <% end %>
 
-<h6>Offer by user: <b class="username"><%= link_to offer.user.username, offer.user %></b>
-  was created at <%= offer.created_time %></h6>
+  <h6>Offer by user: <b class="username"><%= link_to offer.user.username, offer.user %></b>
+    was created at <%= offer.created_time %></h6>
+  <% if @user == current_user %>
+    <div class="button">
+      <b><%= link_to "Edit this offer",
+        edit_listing_offer_path(offer.listing, offer) %></b><br>
+      <b><%= link_to "Delete this offer",
+        listing_offer_path(offer.listing, offer),
+        method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %></b>
+    </div>
+  <% end %>
 
-<div class="button">
-  <b><%= link_to "Edit this offer",
-    edit_listing_offer_path(offer.listing, offer) %></b><br>
-  <b><%= link_to "Delete this offer",
-    listing_offer_path(offer.listing, offer),
-    method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %></b>
+  <% if !offer.accepted? && current_user.can_accept?(offer.listing) %>
+    <p><%= button_to "ACCEPT", accept_offer_path(offer), data: { confirm: 'Are you sure you want to accept this offer?'} %></p>
+  <% end %>
+
+  <%= flash[:notice] %>
 </div>
-
-<% if !offer.accepted? && current_user.can_accept?(offer.listing) %>
-  <p><%= button_to "ACCEPT", accept_offer_path(offer), data: { confirm: 'Are you sure?'} %></p>
-<% end %>
-<%= flash[:notice] %>
+<br>

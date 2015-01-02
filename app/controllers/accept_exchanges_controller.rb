@@ -1,11 +1,11 @@
-class AcceptTradesController < ApplicationController
+class AcceptExchangesController < ApplicationController
   before_action :require_login
   before_filter :require_permission, only: [:create]
 
   def create
-    trade = Trade.create(offer: offer, listing: listing)
+    exchange = Exchange.create(offer: offer, listing: listing)
 
-    redirect_to trade_path(trade)
+    redirect_to exchange_path(exchange)
   end
 
   def require_permission

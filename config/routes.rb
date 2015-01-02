@@ -22,13 +22,15 @@ Rails.application.routes.draw do
 
   resources :offers, only: [] do
     member do
-      post "accept" => "accept_trades#create"
+      post "accept" => "accept_exchanges#create"
     end
   end
 
-  resources :trades, only: [:show] do
+  resources :successful_exchanges, only: [:index]
+
+  resources :exchanges, only: [:show] do
     member do
-      post "complete" => "complete_trades#create"
+      post "complete" => "complete_exchanges#create"
     end
   end
 

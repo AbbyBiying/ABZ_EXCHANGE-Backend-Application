@@ -1,0 +1,21 @@
+<div class="exchange">
+  <%= link_to exchange.listing do %>
+    Listing name: <%= exchange.listing.name %>,
+      description: <%= exchange.listing.description %>
+    <p><%= image_tag exchange.listing.url, width:"200" %></p>
+  <% end %>
+
+  <%= link_to exchange.offer.user do %>
+    Offer name: <%= exchange.offer.name %>,
+      description: <%= exchange.offer.description %>
+    <p><%= image_tag exchange.offer.url, width:"200" %></p>
+  <% end %>
+</div>
+<p>If you complete this exchange, please hit the complete button.</p>
+<% if current_user.id == exchange.listing.user_id && !exchange.completed? %>
+  <p><%= button_to "COMPLETE", complete_exchange_path(exchange), data: { confirm: 'Are you sure you have completed this exchange?'} %></p>
+<% end %>
+
+<% if current_user.id == exchange.offer.user_id && !exchange.completed? %>
+  <p><%= button_to "COMPLETE", complete_exchange_path(exchange), data: { confirm: 'Are you sure you have completed this exchange?'} %></p>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218204959) do
+ActiveRecord::Schema.define(version: 20150101224120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20141218204959) do
     t.string   "content_type"
     t.integer  "content_id"
     t.integer  "user_id"
+  end
+
+  create_table "exchanges", force: true do |t|
+    t.integer  "listing_id", null: false
+    t.integer  "offer_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "follow_relationships", force: true do |t|
@@ -79,15 +86,14 @@ ActiveRecord::Schema.define(version: 20141218204959) do
     t.datetime "updated_at"
   end
 
-  create_table "text_comments", force: true do |t|
-    t.string   "body"
+  create_table "successful_exchanges", force: true do |t|
+    t.integer  "exchange_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "trades", force: true do |t|
-    t.integer  "listing_id", null: false
-    t.integer  "offer_id",   null: false
+  create_table "text_comments", force: true do |t|
+    t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
