@@ -41,8 +41,8 @@ body {
 
 .clearfix li {
   float: left;
-  font-size: 18px;
-  padding-left: 100px;
+  font-size: 16px;
+  padding-left: 90px;
   padding-top: 15px;
 }
 
@@ -72,10 +72,10 @@ body {
 }
 
 .footer {
-  font-size: 15px;
+  font-size: 10px;
   margin-top: 100px;
   padding-bottom: 20px;
-  padding-left: 500px;
+  padding-left: 130px;
 }
 
 h1 {
@@ -104,7 +104,8 @@ h1 {
 }
 
 .listing-index {
-  margin-top: 100px;
+  margin-top: 170px;
+  margin-left: -10px;
 }
 
 .image {
@@ -144,10 +145,11 @@ section {
 
 .session {
   margin-top: 200px;
+  margin-left: -10px;
 }
 
 .session p {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .sign-in a:hover, a:active, {
@@ -158,6 +160,11 @@ section {
   font-size:13px;
   margin-left: 50px;
   margin-top: 20px;
+}
+
+.success {
+  margin-top: 200px;
+  margin-left: -10px;
 }
 
 .successful-exchange {
