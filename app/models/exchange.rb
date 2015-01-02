@@ -1,6 +1,7 @@
 class Exchange < ActiveRecord::Base
   belongs_to :listing
   belongs_to :offer
+
   has_one :successful_exchange
 
   validates_uniqueness_of :offer, scope: :listing

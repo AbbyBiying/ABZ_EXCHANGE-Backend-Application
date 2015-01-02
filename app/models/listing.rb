@@ -1,5 +1,8 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
+
+  delegate :username, to: :user
+
   has_many :offers
   has_one :exchange
 
