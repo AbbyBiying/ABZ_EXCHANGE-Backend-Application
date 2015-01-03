@@ -5,7 +5,7 @@
     <%= image_tag listing.url, width:"200" %>
   <% end %>
 
-  <p>Listing by user: <b class="username"><%= link_to listing.username, listing.user %>,</b>
+  <p>Listing by user: <span class="username"><%= link_to listing.username, listing.user %>,</span>
     was created at <%= listing.created_time %></p>
 </div>
 <br>
