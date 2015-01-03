@@ -43,8 +43,8 @@ body {
 
 .clearfix li {
   float: left;
-  font-size: 16px;
-  margin-left: 90px;
+  font-size: 30px;
+  margin-left: 50px;
   padding-top: 15px;
 }
 
@@ -77,7 +77,7 @@ body {
   font-size: 10px;
   margin-top: 100px;
   padding-bottom: 20px;
-  padding-left: 130px;
+  text-align: center;
 }
 
 h1 {
@@ -107,7 +107,7 @@ h1 {
 }
 
 .listing-index {
-  margin-top: 170px;
+  margin-top: 20px;
   margin-left: -10px;
 }
 
@@ -141,13 +141,12 @@ nav {
 }
 
 section {
-  margin-top: 100px;
-  padding: 7px 140px;
+  padding: 5px 100px;
 }
 
 .session {
-  margin-top: 200px;
   margin-left: -10px;
+  padding-top: 20px;
 }
 
 .session p {
@@ -164,7 +163,7 @@ section {
 }
 
 .success {
-  margin-top: 200px;
+  margin-top: 20px;
   margin-left: -10px;
 }
 
