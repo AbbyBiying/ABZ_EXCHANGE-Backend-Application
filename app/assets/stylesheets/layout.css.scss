@@ -18,6 +18,8 @@ body {
   font-size: 25px;
   line-height: 1.5;
   margin: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .button a:hover {
@@ -79,7 +81,7 @@ body {
 }
 
 h1 {
-  padding-left:350px;
+  text-align:center;
 }
 
 .location a:hover, a:active{
@@ -134,8 +136,7 @@ nav {
 }
 
 .search {
-  margin-left: 1000px;
-  margin-top: -260px;
+  float: right;
 }
 
 section {
@@ -157,9 +158,8 @@ section {
 }
 
 .sign-out {
-  font-size:13px;
-  margin-left: 50px;
-  margin-top: 20px;
+  font-size: 10px;
+  padding-left:10px;
 }
 
 .success {
@@ -175,9 +175,7 @@ section {
 }
 
 .welcome {
-  font-size: 12px;
-  margin-left: 50px;
-  margin-top: 10px;
+  padding-left:10px;
 }
 
 ul {
