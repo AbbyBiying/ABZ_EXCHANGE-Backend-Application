@@ -42,10 +42,10 @@ body {
 /* close commented backslash hack */
 
 .clearfix li {
-  float: left;
-  font-size: 13px;
-  margin-left: 42px;
-  padding-top: 15px;
+  float: right;
+  font-size: 15px;
+  margin-right: 30px;
+  padding-top: 20px;
 }
 
 .comment {
@@ -66,10 +66,6 @@ body {
   width: 255px;
 }
 
-.introduction {
-  font-size: 20px;
-}
-
 .follow {
   border: 2px solid white;
   border-radius: px;
@@ -78,25 +74,41 @@ body {
 }
 
 .footer {
-  font-size: 10px;
+  background-color: #F7DCB4;
+  font-size: 15px;
   margin-top: 100px;
   padding-bottom: 20px;
+  padding: 20px;
   text-align: center;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 80px;
   text-align: center;
+}
+
+.image {
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 20px;
+  width: 850px;
+}
+
+input {
+  font-size: 20px;
+  height: 20px;
+}
+
+.introduction {
+  font-size: 20px;
 }
 
 .location a:hover, a:active{
   color: red;
 }
 
-.make-list a {
-  padding: 5px;
-  text-align: center;
-  width: 850px;
+.location-info {
+  font-size: 20px;
 }
 
 .listing {
@@ -115,18 +127,20 @@ h1 {
   margin-left: -10px;
 }
 
-.image {
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 20px;
+.make-list a {
+  padding: 5px;
+  text-align: center;
   width: 850px;
 }
 
 nav {
   margin: 0;
   padding: 0;
+  background-color: #F7DCB4;
+  margin-top:-25px;
+  padding: 10px;
   width: 100%;
-}
+ }
 
 .offer {
   border: 2px solid white;
@@ -141,9 +155,11 @@ nav {
 }
 
 .search {
-  float: right;
-  font-size: 30px;
-  margin-top: -7px;
+  float: left;
+  font-size: 17px;
+  margin-left: 20px;
+  margin-top: 40px;
+  width: 300px;
 }
 
 section {
@@ -161,6 +177,8 @@ section {
 
 .sign-in {
   background: #99FF00;
+  font-size: 25px;
+  padding: 5px;
 }
 
 .sign-in a:hover, a:active, {
@@ -170,11 +188,19 @@ section {
 .sign-out {
   font-size: 14px;
   float: left;
-  margin-top: 15px;
+  margin-top: 45px;
+  margin-left: 20px;
 }
 
 .sign-up {
   background: #99FF00;
+  font-size: 25px;
+  padding: 5px;
+  margin-top: -20px;
+}
+
+.sign-up a:hover, a:active, {
+  color: red;
 }
 
 .small {
@@ -194,13 +220,14 @@ section {
 }
 
 .welcome {
-  padding-left:10px;
+  padding-left: 10px;
 }
 
 ul {
   list-style-type: none;
   list-style-position: inside;
-  margin: 0;
+  padding: 10px 10px -5px 10px;
+  margin-left: -30px;
   width: 100%;
 }
 
@@ -219,7 +246,7 @@ ul.clearfix a:hover, a:active {
 }
 
 .username {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .username a:hover, a:active {

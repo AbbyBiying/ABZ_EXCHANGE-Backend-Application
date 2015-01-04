@@ -1,6 +1,5 @@
 <div class="comment">
   <%= render comment.content %>
-  <p>Commented at <%= comment.created_time %></p>
   <p>by: <b class="username"><%= link_to comment.username, comment.user %></b></p>
-  <p class="small">was created at <%= time_ago_in_words(comment.created_at) %> ago</p>
+  <p class="small">Commented at <%= comment.created_time %>, at <%= time_ago_in_words(comment.created_at) %> ago</p>
 </div>

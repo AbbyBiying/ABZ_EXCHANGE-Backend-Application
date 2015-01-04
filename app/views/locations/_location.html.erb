@@ -1,11 +1,13 @@
-<p>City: <%= location.city.titleize %></p>
-<p>State: <%= location.state.upcase %></p>
-<p>Latitude: <%= location.latitude %></p>
-<p>Longitude: <%= location.longitude %></p>
+<div class="location-info">
+  <p>City: <%= location.city.titleize %></p>
+  <p>State: <%= location.state.upcase %></p>
+  <p>Latitude: <%= location.latitude %></p>
+  <p>Longitude: <%= location.longitude %></p>
 
-<% if location.users.present? %>
-  It has
-  <% @location.users.each do |user| %>
-    <p>User: <b class="username"><%= link_to user.username, user_path(user) %></b></p>
+  <% if location.users.present? %>
+    It has
+    <% @location.users.each do |user| %>
+      <p>User: <span class="username"><%= link_to user.username, user_path(user) %></span></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
