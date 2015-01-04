@@ -1,12 +1,22 @@
 #directions {
   height: 12em;
   margin: 20px auto;
-  width: 800px;
+  width: 1200px;
 }
 
 #map {
   height: 12em;
   padding-top: 40px;
   margin: 20px auto;
-  width: 800px;
+  width: 1200px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  #directions {
+    width: 800px;
+  }
+
+  #map {
+    width: 800px;
+  }
 }
