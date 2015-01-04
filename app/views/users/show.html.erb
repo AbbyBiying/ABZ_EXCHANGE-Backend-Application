@@ -4,6 +4,7 @@
       [<%= current_user.latitude %>, <%= current_user.longitude %>])
   });
 </script>
+
 <% if signed_in? %>
   <div id="directions"></div>
 <% end %>
