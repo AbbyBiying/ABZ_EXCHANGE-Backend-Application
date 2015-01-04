@@ -4,13 +4,14 @@ require "monban/constraints/signed_out"
 Rails.application.routes.draw do
 
   constraints Monban::Constraints::SignedIn.new do
-    root "dashboards#show", as: :dashboard
+    root "homes#show", as: :home
   end
 
   constraints Monban::Constraints::SignedOut.new do
     root "sessions#new"
   end
 
+  resources :dashboards, only: [:show]
   resources :images do
     resources :text_comments, only: [:create]
     resources :picture_comments, only: [:create]

@@ -1,15 +1,15 @@
 <div class="successful-exchange">
   <%= link_to successful_exchange.listing.user do %>
-    Listing name: <%= successful_exchange.listing.name %>,
+    Listing: <%= successful_exchange.listing.name %>,
       description: <%= successful_exchange.listing.description %>
     <p><%= image_tag successful_exchange.listing.url, width:"200" %></p>
   <% end %>
 
   <%= link_to successful_exchange.offer.user do %>
-    Offer name: <%= successful_exchange.offer.name %>,
+    Offer: <%= successful_exchange.offer.name %>,
       description: <%= successful_exchange.offer.description %>
     <p><%= image_tag successful_exchange.offer.url, width:"200" %></p>
   <% end %>
-  <p>This successful exchange was created at <%= successful_exchange.created_time %></p>
+  <p class="small">This successful exchange was created at <%= successful_exchange.created_time %></p>
 </div>
 <br>

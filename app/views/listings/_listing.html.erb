@@ -1,11 +1,11 @@
 <div class ="listing">
   <%= link_to listing do %>
-    <p>Listing name: <%= listing.name %>,
+    <p>Listing: <%= listing.name %>,
       description: <%= listing.description %></p>
     <%= image_tag listing.url, width:"200" %>
   <% end %>
 
-  <p>Listing by user: <span class="username"><%= link_to listing.username, listing.user %>,</span>
-    was created at <%= listing.created_time %></p>
+  <p>by user <span class="username"><%= link_to listing.username, listing.user %>,</span></p>
+  <p><span class="small">was created at <%= listing.created_time %></span></p>
 </div>
 <br>
