@@ -15,4 +15,8 @@ class Offer < ActiveRecord::Base
   def created_time
     created_at.strftime("%H:%M, %m/%d/%Y %Z")
   end
+
+  def self.find_offer(search)
+    where("name ILIKE ?", "%#{search}%")
+  end
 end

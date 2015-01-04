@@ -1,6 +1,7 @@
-<h1>search results for <% params[:search] %></h1>
+<h2>search results for <% params[:search] %></h2>
 
 <p><%= render(@comments) || "no comments found".html_safe %></p>
 <p><%= render(@users) || "no users found".html_safe %></p>
 <p><%= render(@listings) || "no listings found".html_safe %></p>
+<p><%= render(@offers) || "no offers found".html_safe %></p>
 <p><%= render(@images) || "no images found".html_safe %></p>
