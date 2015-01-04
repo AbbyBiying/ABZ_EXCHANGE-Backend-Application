@@ -1,12 +1,12 @@
 <div class="offer">
   <%= link_to offer.user do %>
-    <p>Offer name: <%= offer.name %>,
+    <p>Offer: <%= offer.name %>,
       description: <%= offer.description %></p>
     <%= image_tag offer.url, width:"200" %>
   <% end %>
 
-  <p>Offer by user: <span class="username"><%= link_to offer.username, offer.user %></span>
-    was created at <%= offer.created_time %></p>
+  <p>by user: <span class="username"><%= link_to offer.username, offer.user %></span></p>
+  <p><span class="small">was created at <%= offer.created_time %></span></p>
 
   <% if @user == current_user %>
     <div class="button">

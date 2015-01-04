@@ -4,10 +4,11 @@
       [<%= current_user.latitude %>, <%= current_user.longitude %>])
   });
 </script>
+<% if signed_in? %>
+  <div id="directions"></div>
+<% end %>
 
-<div id="directions"></div>
-
-<h2>User <%= @user.username %>'s Page</h2>
+<p>User <%= @user.username %>'s Page</p>
 
 <% if @user != current_user %>
   <% if current_user.followings?(@user) %>

@@ -12,36 +12,34 @@
 </head>
 
 <body>
-  <header>
-    <div class="search">
-      <% if signed_in? %>
-        <%= form_tag search_path, method: :get do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "search" %>
-        <% end %>
+  <div class="sign-out">
+    <% if signed_in? %>
+      <%= link_to "Sign out", session_path, method: :delete %>
+    <% else %>
+      <div class="sign-up"><%= link_to "Sign Up", new_user_path %></div>
+      <div class="sign-in"><%= link_to "Sign In", new_session_path %></div>
+    <% end %>
+  </div>
+
+  <div class="search">
+    <% if signed_in? %>
+      <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "search" %>
       <% end %>
-    </div>
-
-    <div class="sign-out">
-      <% if signed_in? %>
-        <%= link_to "Sign out", session_path, method: :delete %>
-      <% else %>
-        <div class="sign-up">Not a User?  <%= link_to "Sign Up", new_user_path %></div>
-      <% end %>
-    </div>
-
-    <p class="welcome">Welcome <%= current_user.username %>!</p>
-
-    <div><h1>ABZ EXCHANGE</h1></div>
-  </header>
+    <% end %>
+  </div>
 
   <nav>
     <ul class="clearfix">
-      <li><%= link_to "SuccessfulExchanges", successful_exchanges_path %></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Successful Exchanges", successful_exchanges_path %></li>
       <li><%= link_to "Listings", listings_path %></li>
       <li><%= link_to "Users", users_path %></li>
       <li><%= link_to "Locations", locations_path %></li>
-      <li><%= link_to "MyPage", root_path %></li>
+      <% if signed_in? %>
+        <li><%= link_to "My Page", dashboard_path(current_user) %></li>
+      <% end %>
       <li><a href="mailto:abbyzhangnyc@gmail.com">Contact</a></li>
     </ul>
   </nav>

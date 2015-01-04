@@ -3,18 +3,18 @@ a:active, a:hover {
 }
 
 a:link {
-  color: #400D12;
+  color: #3366FF;
   text-decoration: none;
 }
 
 a:visited {
-  color: white;
+  color: #3366FF;
 }
 
 body {
-  background: linear-gradient(#E6005C, #3366FF) 50% 0 no-repeat fixed;
-  color: white;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background-color: #93E2D5;
+  color: #3366FF;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 25px;
   line-height: 1.5;
   margin: 0;
@@ -43,13 +43,13 @@ body {
 
 .clearfix li {
   float: left;
-  font-size: 30px;
-  margin-left: 50px;
+  font-size: 13px;
+  margin-left: 42px;
   padding-top: 15px;
 }
 
 .comment {
-  border: 1px solid #660099;
+  border: 2px solid white;
   border-radius: 5px;
   padding: 20px;
   width: 850px;
@@ -60,15 +60,19 @@ body {
 }
 
 .edit p {
-  border: 1px solid red;
+  border: 2px solid white;
   border-radius: 4px;
   padding: 20px;
   width: 255px;
 }
 
+.introduction {
+  font-size: 20px;
+}
+
 .follow {
-  border: 1px solid red;
-  border-radius: 5px;
+  border: 2px solid white;
+  border-radius: px;
   padding: 20px;
   width: 850px;
 }
@@ -81,7 +85,7 @@ body {
 }
 
 h1 {
-  font-size: 110px;
+  font-size: 50px;
   text-align: center;
 }
 
@@ -96,7 +100,7 @@ h1 {
 }
 
 .listing {
-  border: 1px solid #CA278C;
+  border: 2px solid white;
   border-radius: 5px;
   padding: 20px;
   width: 850px;
@@ -112,7 +116,7 @@ h1 {
 }
 
 .image {
-  border: 1px solid #A80000 ;
+  border: 2px solid white;
   border-radius: 5px;
   padding: 20px;
   width: 850px;
@@ -125,23 +129,25 @@ nav {
 }
 
 .offer {
-  border: 1px solid #A80000 ;
+  border: 2px solid white;
   border-radius: 5px;
   padding: 20px;
   width: 850px;
 }
 
 .offer-show {
-  border-bottom: dotted #ff0000;
+  border-bottom: dotted white;
   width: 850px;
 }
 
 .search {
   float: right;
+  font-size: 30px;
+  margin-top: -7px;
 }
 
 section {
-  padding: 5px 100px;
+  padding: 5px 97px;
 }
 
 .session {
@@ -153,13 +159,26 @@ section {
   font-size: 13px;
 }
 
+.sign-in {
+  background: #99FF00;
+}
+
 .sign-in a:hover, a:active, {
   color: red;
 }
 
 .sign-out {
-  font-size: 10px;
-  padding-left:10px;
+  font-size: 14px;
+  float: left;
+  margin-top: 15px;
+}
+
+.sign-up {
+  background: #99FF00;
+}
+
+.small {
+  font-size: 15px;
 }
 
 .success {
@@ -168,7 +187,7 @@ section {
 }
 
 .successful-exchange {
-  border: 5px solid #BF00FF;
+  border: 5px solid white;
   border-radius: 5px;
   padding: 20px;
   width: 850px;
@@ -190,12 +209,13 @@ ul.clearfix a:hover, a:active {
 }
 
 .user {
-  border-bottom: dotted #ff0000;
+  border-bottom: dotted white;
   width: 850px;
 }
 
 .user-new {
   margin-top: 30px;
+  margin-left: -10px;
 }
 
 .username {
