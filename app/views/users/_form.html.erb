@@ -1,46 +1,48 @@
-<div class="user-new">
-  <%= form_for user do |form| %>
-    <%= render "application/form_errors", object: user %>
+<div class="form">
+  <div class="user-new">
+    <%= form_for user do |form| %>
+      <%= render "application/form_errors", object: user %>
 
-    <div>
-      <%= form.label :username %>
-      <%= form.text_field :username %>
-    </div>
-
-    <div>
-      <%= form.label :email %>
-      <%= form.email_field :email %>
-    </div>
-
-    <% unless user.persisted? %>
       <div>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+      </div>
+
+      <div>
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+      </div>
+
+      <% unless user.persisted? %>
+        <div>
+          <%= form.label :password %>
+          <%= form.password_field :password %>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :bio %>
+        <%= form.text_area :bio %>
+      </div>
+
+      <div>
+        Please select your city <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
+      </div>
+
+      <p class="small">If you selecte a city in the dropdown please empty the text field below.<br>
+        If you do not find your city in the dropdown, add new city in the text field: </p>
+
+      <%= form.fields_for :location do |location_form| %>
+        <%= location_form.label :city %>
+        <%= location_form.text_field :city, placeholder: "" %>
+        <br>
+        <%= location_form.label :state %>
+        <%= location_form.text_field :state, placeholder: "" %>
+      <% end %>
+
+      <div>
+        <%= form.submit %>
       </div>
     <% end %>
-
-    <div>
-      <%= form.label :bio %>
-      <%= form.text_area :bio %>
-    </div>
-
-    <div>
-      Please select your city <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
-    </div>
-
-    <p class="small">If you selecte a city in the dropdown please empty the text field below.<br>
-      If you do not find your city in the dropdown, add new city in the text field: </p>
-
-    <%= form.fields_for :location do |location_form| %>
-      <%= location_form.label :city %>
-      <%= location_form.text_field :city %>
-
-      <%= location_form.label :state %>
-      <%= location_form.text_field :state %>
-    <% end %>
-
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
+  </div>
 </div>

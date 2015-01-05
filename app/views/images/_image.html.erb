@@ -1,12 +1,13 @@
-<div class="image">
-  <p>Image: <%= image.name %>
-    description: <%= image.description %></p>
+<div class="listing">
   <%= link_to image do %>
-    <div class="image-show">
-      <%= image_tag image.url, width:"200" %>
+    <div class="listing-image">
+      <%= image_tag image.url %>
     </div>
+  <div class="listing-description">
+    <p><strong>Image:</strong><%= image.name %></p>
+     <p><strong>description:</strong><%= image.description %></p>
   <% end %>
-  <p>by user: <i class="username"><%= link_to image.user.username, image.user %></i></p>
-
-  <p class="small">was created at <%= image.created_time %></p>
+    <p><strong>posted by<%= link_to image.user.username, image.user %></p>
+    <p>was created at <%= image.created_time %></p>
+  </div>
 </div>

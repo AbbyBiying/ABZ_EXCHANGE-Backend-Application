@@ -1,22 +1,42 @@
 #directions {
   height: 12em;
-  margin: 20px auto;
-  width: 1130px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 180px;
+  width: 1077px;
+}
+
+.users-map {
+  margin-left: 180px;
+}
+
+.location-map {
+  margin-left: 180px;
 }
 
 #map {
   height: 12em;
   padding-top: 40px;
-  margin: 20px auto;
-  width: 1130px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 1077px;
 }
 
-@media only screen and (max-device-width: 480px) {
+.location a:hover, a:active{
+  color: red;
+}
+
+.location-info {
+  font-size: 20px;
+}
+
+@media only screen and (max-device-width: 1500px) {
   #directions {
-    width: 800px;
+    width: 985px;
   }
 
   #map {
-    width: 800px;
+    width: 985px;
+
   }
 }

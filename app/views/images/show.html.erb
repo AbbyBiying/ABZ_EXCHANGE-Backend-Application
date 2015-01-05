@@ -1,20 +1,21 @@
 <%= render @image %>
-<div>
-  <%= button_to "Edit This Image", edit_image_path(@image), method: :get %>
+<div class="user">
+  <div>
+    <%= button_to "Edit This Image", edit_image_path(@image), method: :get %>
+  </div>
+
+  <div>
+    <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
+  </div>
+
+  <%= form_for [@image, @text_comment] do |form| %>
+    <%= form.text_area :body, placeholder: "type text comment here" %>
+    <%= form.submit %>
+  <% end %>
+
+  <%= form_for [@image, @picture_comment] do |form| %>
+    <%= form.text_area :url, placeholder: "type image url for picture comment here" %>
+    <%= form.submit %>
+  <% end %>
 </div>
-
-<div>
-  <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
-</div>
-
-<%= form_for [@image, @text_comment] do |form| %>
-  <%= form.text_area :body, placeholder: "type text comment here" %>
-  <%= form.submit %>
-<% end %>
-
-<%= form_for [@image, @picture_comment] do |form| %>
-  <%= form.text_area :url, placeholder: "type image url for picture comment here" %>
-  <%= form.submit %>
-<% end %>
-
 <%= render @image.comments.by_most_recent %>

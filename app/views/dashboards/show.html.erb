@@ -1,11 +1,33 @@
-<p>Welcome <%= current_user.username %>!</p>
-<div id="map"></div>
+<div class="dashboard-container">
+  <p>Welcome <%= current_user.username %>!</p>
+  <p>Your current location is: <%= @user.city.titleize %></p>
 
-<script>
-  buildMap(<%= raw @location_hash.to_json %>);
-</script>
-<br>
-<b class="edit">
-  <p><%= link_to "Edit Your Information", edit_user_path(current_user) %></p>
-  <p><%= link_to "Add Image", new_image_path %></p></b>
+  <script>
+    buildMap(<%= raw @location_hash.to_json %>);
+  </script>
+
+  <div class="button-container">
+    <ul>
+      <li>
+        <%= link_to "Listings", "#user-listings" %>
+      </li>
+
+      <li>
+        <%= link_to "Offers", "#user-offers" %>
+      </li>
+
+      <li>
+        <%= link_to "Images", "#user-images" %>
+      </li>
+
+      <li>
+        <%= link_to "Follows/Followers", "#user-follows" %>
+      </li>
+
+      <li>
+        <%= link_to "Edit my info", edit_user_path(current_user) %>
+      </li>
+    </ul>
+  </div>
+</div>
 <%= render "users/info", user: @user %>

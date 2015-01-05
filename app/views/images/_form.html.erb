@@ -1,16 +1,18 @@
-<%= form_for image do |form| %>
-  <%= render "application/form_errors", object: image %>
+<div class="form">
+  <%= form_for image do |form| %>
+    <%= render "application/form_errors", object: image %>
 
-  <div>
-    <%= form.text_field :name, placeholder: "type image name here"%>
-  </div>
+    <div>
+      <%= form.text_field :name, placeholder: "type image name here"%>
+    </div>
 
-  <div>
-    <%= form.text_area :description, placeholder: "type image description here" %>
-  </div>
+    <div>
+      <%= form.text_area :description, placeholder: "type image description here" %>
+    </div>
 
-  <div>
-    <%= form.text_field :url, placeholder: "type image url here" %>
-  </div>
-  <%= form.submit %>
-<% end %>
+    <div>
+      <%= form.text_field :url, placeholder: "type image url here" %>
+    </div>
+    <%= form.submit %>
+  <% end %>
+</div>

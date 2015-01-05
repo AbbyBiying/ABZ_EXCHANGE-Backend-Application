@@ -1,26 +1,19 @@
-<br>
-<% if @listing.exchange.present? %>
-  <b>Exchange in process</b>
-<% end %>
+<div class="exchange-in-process">
+  <% if @listing.exchange.present? %>
+    <b>Exchange in process</b>
+  <% end %>
 
-<% if (current_user == @listing.user && @listing.accepted?) %>
-  <p> If you want to complete this exchange, hit the button</p>
-  <%= button_to "exchange page", exchange_path(@listing.exchange), method: :get %>
-<% end %>
-<br>
+  <% if (current_user == @listing.user && @listing.accepted?) %>
+    <p> If you want to complete this exchange, hit the button</p>
+    <%= button_to "exchange page", exchange_path(@listing.exchange), method: :get %>
+  <% end %>
+</div>
+
 <%= render @listing %>
-<% unless (@listing.user != current_user || @listing.accepted?) %>
-  <b class="edit-listing">
-    <p><%= link_to "Edit this listing", edit_listing_path(@listing), method: :get %></p>
 
-    <p><%= link_to "Delete this listing", listing_path(@listing),
-         method: :delete, data: { confirm: 'Are you sure you want to delete this listing?' } %></p>
-  </b>
-<% end %>
-
-<div>
+<div class="user">
   <% unless (@listing.user == current_user ||  @listing.accepted?) %>
-    <h3>Make an offer</h3>
+    <p>Make an offer</p>
     <%= form_for [@listing, @offer] do |form| %>
       <div>
         <%= form.text_field :name, placeholder: "type offer name here"%>

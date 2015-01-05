@@ -1,24 +1,38 @@
-<br>
-<div class="exchange">
-  <%= link_to exchange.listing do %>
-    Listing name: <%= exchange.listing.name %>,
-      description: <%= exchange.listing.description %>
-    <p><%= image_tag exchange.listing.url, width:"200" %></p>
-  <% end %>
+<div class="listing">
+  <ul>
+    <li>
+      <%= link_to exchange.listing do %>
+        <div class="listing-image">
+          <%= image_tag exchange.listing.url %>
+        </div>
 
-  <%= link_to exchange.offer.user do %>
-    Offer name: <%= exchange.offer.name %>,
-      description: <%= exchange.offer.description %>
-    <p><%= image_tag exchange.offer.url, width:"200" %></p>
-  <% end %>
+        <div class="listing-description">
+          <p><strong>Listing name: </strong><%= exchange.listing.name %></p>
+          <p><strong>Description: </strong><%= exchange.listing.description %></p>
+      <% end %>
+          <p><strong>posted by </strong><%= link_to exchange.listing.username, exchange.listing.user %></p>
+          <p>was created at <%= exchange.listing.created_time %></p>
+        </div>
+    </li>
+    <br>
+    <li>
+      <%= link_to exchange.offer.user do %>
+        <div class="listing-image">
+          <%= image_tag exchange.offer.url %>
+        </div>
+
+        <div class="listing-description">
+          <p><strong>Offer name: <strong><%= exchange.offer.name %></p>
+          <p><strong>description: </strong><%= exchange.offer.description %></p>
+      <% end %>
+          <p><strong>posted by </strong><%= link_to exchange.listing.username, exchange.listing.user %></p><p>was created at <%= exchange.listing.created_time %></p>
+
+          <p class="exchange-in-process">If you have completed this exchange, please hit the complete button.</p>
+          <% if current_user.id == exchange.listing.user_id && !exchange.completed? %>
+            <p><%= button_to "COMPLETE", complete_exchange_path(exchange), data: { confirm: 'Are you sure you have completed this exchange?'} %></p>
+          <% end %>
+
+          <% if current_user.id == exchange.offer.user_id && !exchange.completed? %>
+            <p><%= button_to "COMPLETE", complete_exchange_path(exchange), data: { confirm: 'Are you sure you have completed this exchange?'} %></p>
+          <% end %>
 </div>
-
-<p>If you have completed this exchange, please hit the complete button.</p>
-
-<% if current_user.id == exchange.listing.user_id && !exchange.completed? %>
-  <p><%= button_to "COMPLETE", complete_exchange_path(exchange), data: { confirm: 'Are you sure you have completed this exchange?'} %></p>
-<% end %>
-
-<% if current_user.id == exchange.offer.user_id && !exchange.completed? %>
-  <p><%= button_to "COMPLETE", complete_exchange_path(exchange), data: { confirm: 'Are you sure you have completed this exchange?'} %></p>
-<% end %>

@@ -20,7 +20,7 @@ class ListingsController < ApplicationController
     if listing.save
       redirect_to listing
     else
-      render :new
+      redirect_to listing
     end
   end
 

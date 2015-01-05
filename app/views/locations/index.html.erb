@@ -1,15 +1,19 @@
-<div id="map"></div>
+<div class="location-map">
+  <div id="map"></div>
+</div>
 
-<h2>Where would you like to go?</h2>
-<% @locations.each do |location| %>
-  <p class="location">
-    <b class="location"><%= link_to location.city.titleize, location %>,
-      <%= location.state.upcase %></b></p>
-<% end %>
+<div class="user">
+  <h2>Where would you like to go?</h2>
+  <% @locations.each do |location| %>
+    <p class="location">
+      <b class="location"><%= link_to location.city.titleize, location %>,
+        <%= location.state.upcase %></b></p>
+  <% end %>
 
-<b class="location">
-  <%= link_to "Add a new location", new_location_path %>
-</b>
+  <b class="create-location-button">
+    <%= link_to "Add a new location", new_location_path %>
+  </b>
+</div>
 
 <script>
   buildMap(<%= raw @location_hash.to_json %>);

@@ -1,24 +1,24 @@
-<%= form_for @location do |f| %>
-  <%= render "application/form_errors", object: @location %>
+<div class="new-location">
+  <%= form_for @location do |f| %>
+    <%= render "application/form_errors", object: @location %>
 
-  <h3>Add a Location: </h3>
+    <p>Add a new location</p>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
 
-  <%= f.label :state %>
-  <%= f.text_field :state %>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
 
-  <%= f.label :country %>
-  <%= f.text_field :country %>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
 
-<br>
-<div id="map"></div>
-
-<script>
-  buildMap(<%= raw @location_hash.to_json %>);
-</script>
+  <div id="map"></div>
+</div>
+  <script>
+    buildMap(<%= raw @location_hash.to_json %>);
+  </script>
 
