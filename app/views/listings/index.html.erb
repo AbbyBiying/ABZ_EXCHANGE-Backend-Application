@@ -1,7 +1,7 @@
 <div class="listing-index">
-  <h2>All the listings</h2>
+  <h3>All the listings</h3>
   <% if signed_in? %>
-    <h2 class= "make-list"><%= link_to "Make New Listing", new_listing_path %></h2>
-  <% end %>
+    <b class= "make-list"><%= link_to "Make New Listing", new_listing_path %></b>
+  <% end %><br><br>
   <%= render @listings.by_most_recent %>
 </div>

@@ -9,13 +9,13 @@
   <p><span class="small">was created at <%= offer.created_time %></span></p>
 
   <% if @user == current_user %>
-    <div class="button">
-      <b><%= link_to "Edit this offer",
-        edit_listing_offer_path(offer.listing, offer) %></b><br>
-      <b><%= link_to "Delete this offer",
+    <b class="edit-offer">
+      <p><%= link_to "Edit this offer",
+        edit_listing_offer_path(offer.listing, offer) %></p>
+      <p><%= link_to "Delete this offer",
         listing_offer_path(offer.listing, offer),
-        method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %></b>
-    </div>
+        method: :delete, data: { confirm: 'Are you sure you want to delete this offer?' } %></p>
+    </b>
   <% end %>
 
   <% if !offer.accepted? && current_user.can_accept?(offer.listing) %>
