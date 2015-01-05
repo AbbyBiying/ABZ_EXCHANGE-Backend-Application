@@ -1,3 +1,4 @@
+<br>
 <% if @listing.exchange.present? %>
   <b>Exchange in process</b>
 <% end %>
@@ -6,7 +7,7 @@
   <p> If you want to complete this exchange, hit the button</p>
   <%= button_to "exchange page", exchange_path(@listing.exchange), method: :get %>
 <% end %>
-
+<br>
 <%= render @listing %>
 <% unless (@listing.user != current_user || @listing.accepted?) %>
   <b class="edit-listing">
@@ -16,7 +17,6 @@
          method: :delete, data: { confirm: 'Are you sure you want to delete this listing?' } %></p>
   </b>
 <% end %>
-<br>
 
 <div>
   <% unless (@listing.user == current_user ||  @listing.accepted?) %>
@@ -37,5 +37,5 @@
     <% end %>
   <% end %>
 </div>
-
+<br>
 <%= render @listing.offers.by_most_recent %>

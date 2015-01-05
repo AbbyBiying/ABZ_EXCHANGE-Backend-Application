@@ -145,10 +145,12 @@ input {
   margin-left: -10px;
 }
 
-.make-list a {
-  padding: 5px;
-  text-align: center;
-  width: 850px;
+.make-list {
+  border: 2px solid white;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 10px;
+  width: 168px;
 }
 
 @media only screen and (max-device-width: 480px) {
