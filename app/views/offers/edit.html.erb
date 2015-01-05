@@ -1,14 +1,14 @@
 <%= form_for [@offer.listing, @offer] do |form| %>
   <div>
-    <%= form.text_field :name, placeholder: "type name here"%>
+    <%= form.text_field :name, placeholder: "type offer name here"%>
   </div>
 
   <div>
-    <%= form.text_area :description, placeholder: "type description here" %>
+    <%= form.text_area :description, placeholder: "type offer description here" %>
   </div>
 
   <div>
-    <%= form.text_field :url, placeholder: "type url here" %>
+    <%= form.text_field :url, placeholder: "type offer image url here" %>
   </div>
   <%= form.submit %>
 <% end %>

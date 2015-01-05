@@ -8,12 +8,12 @@
 </div>
 
 <%= form_for [@image, @text_comment] do |form| %>
-  <%= form.text_area :body, placeholder: "text comment" %>
+  <%= form.text_area :body, placeholder: "type text comment here" %>
   <%= form.submit %>
 <% end %>
 
 <%= form_for [@image, @picture_comment] do |form| %>
-  <%= form.text_area :url, placeholder: "picture comment" %>
+  <%= form.text_area :url, placeholder: "type image url for picture comment here" %>
   <%= form.submit %>
 <% end %>
 
