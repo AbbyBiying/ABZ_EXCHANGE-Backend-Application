@@ -1,0 +1,18 @@
+<div class="new-location">
+  <%= form_for location do |f| %>
+    <%= render "application/form_errors", object: location %>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <div id="map"></div>
+</div>
+  <script>
+    buildMap(<%= raw @location_hash.to_json %>);
+  </script>

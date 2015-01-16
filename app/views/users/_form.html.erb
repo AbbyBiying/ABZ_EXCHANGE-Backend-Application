@@ -2,7 +2,6 @@
   <div class="user-new">
     <%= form_for user do |form| %>
       <%= render "application/form_errors", object: user %>
-
       <div>
         <%= form.label :username %>
         <%= form.text_field :username %>
@@ -27,6 +26,10 @@
 
       <div>
         Please select your city <%= form.collection_select :location_id, Location.all, :id, :city, prompt: true %>
+      </div>
+
+      <div>
+        Please select your city <%= form.collection_select :location_id, Location.all, :id, :state, prompt: true %>
       </div>
 
       <p class="small">If you selecte a city in the dropdown please empty the text field below.<br>

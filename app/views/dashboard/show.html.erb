@@ -1,6 +1,6 @@
 <div class="dashboard-container">
   <p>Welcome <%= current_user.username %>!</p>
-  <p>Your current location is: <%= @user.city.titleize %></p>
+  <p>Your current location is: <%= @user.city.titleize %>, <%= @user.state.upcase %></p>
 
   <script>
     buildMap(<%= raw @location_hash.to_json %>);
