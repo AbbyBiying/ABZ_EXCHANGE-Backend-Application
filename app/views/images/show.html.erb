@@ -9,12 +9,12 @@
   </div>
 
   <%= form_for [@image, @text_comment] do |form| %>
-    <%= form.text_area :body, placeholder: "type text comment here" %>
+    <%= form.text_area :body, placeholder: "type text comment" %>
     <%= form.submit %>
   <% end %>
 
   <%= form_for [@image, @picture_comment] do |form| %>
-    <%= form.text_area :url, placeholder: "type image url for picture comment here" %>
+    <%= form.text_area :url, placeholder: "type image url" %>
     <%= form.submit %>
   <% end %>
 </div>

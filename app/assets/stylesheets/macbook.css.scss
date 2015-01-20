@@ -30,8 +30,10 @@
   }
 
   input {
-    font-size: 12px;
-    height: 20px;
+    font-size: 8px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: white;
   }
 
   .introduction {
@@ -57,6 +59,10 @@
 
   .session {
     margin-left: 35px;
+    #session_password, #session_username {
+      width: 15%;
+      font-size: 18px;
+    }
     li {
     float: right;
     }

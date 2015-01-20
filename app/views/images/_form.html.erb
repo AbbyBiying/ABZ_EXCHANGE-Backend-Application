@@ -3,15 +3,15 @@
     <%= render "application/form_errors", object: image %>
 
     <div>
-      <%= form.text_area :name, placeholder: "type image name here"%>
+      <%= form.text_area :name, placeholder: "type image name"%>
     </div>
 
     <div>
-      <%= form.text_area :description, placeholder: "type image description here" %>
+      <%= form.text_area :description, placeholder: "type image description" %>
     </div>
 
     <div>
-      <%= form.text_area :url, placeholder: "type image url here" %>
+      <%= form.text_area :url, placeholder: "type image url" %>
     </div>
     <%= form.submit %>
   <% end %>
