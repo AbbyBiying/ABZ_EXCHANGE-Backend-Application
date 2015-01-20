@@ -2,15 +2,15 @@
   <%= form_for listing do |form| %>
     <%= render "application/form_errors", object: listing %>
     <div>
-      <%= form.text_area :name, placeholder: "type listing name here"%>
+      <%= form.text_area :name, placeholder: "type listing name"%>
     </div>
 
     <div>
-      <%= form.text_area :description, placeholder: "type listing description here" %>
+      <%= form.text_area :description, placeholder: "type listing description" %>
     </div>
 
     <div>
-      <%= form.text_area :url, placeholder: "type listing image url here" %>
+      <%= form.text_area :url, placeholder: "type listing image url" %>
     </div>
     <%= form.submit %>
   <% end %>

@@ -1,9 +1,9 @@
 .container {
   margin: auto 10em;
+}
 
-  .user-follows {
-    margin-left: 7em;
-  }
+.container .user-follows {
+  margin-left: 7em;
 }
 
 .exchange-in-process {
@@ -24,10 +24,8 @@ a:visited {
   color: #177F75;
 }
 
-.create-button {
-  a:active, a:hover {
-    color: #177F75;
-  }
+.create-button a:active, a:hover {
+  color: #177F75;
 }
 
 body {
@@ -46,10 +44,11 @@ body {
   padding: 40px;
   margin-left: 181px;
   width: 1000px;
-  li {
-    margin-bottom: 50px;
-    margin-bottom: 50px;
-  }
+}
+
+.follow li {
+  margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .footer {
@@ -92,20 +91,23 @@ h4 {
 
 .button-container {
   margin-left: -8px;
-  li {
-    border-radius: 5px;
-    background-color: #F1603B;
-    font-size: 20px;
-    display: inline;
-    padding: 10px;
-    margin-right: 55px;
-    a {
-      color: #EBEBEB;
-    }
-    a:active, a:hover {
-      color: #177F75;
-    }
-  }
+}
+
+.button-container li {
+  border-radius: 5px;
+  background-color: #F1603B;
+  font-size: 20px;
+  display: inline;
+  padding: 10px;
+  margin-right: 55px;
+}
+
+.button-container a {
+  color: #EBEBEB;
+}
+
+.button-container a:active, a:hover {
+  color: #177F75;
 }
 
 .edit-listing p {
@@ -126,9 +128,10 @@ h4 {
   padding: 10px;
   margin-right: 5px;
   width: 155px;
-  a {
-    color: #EBEBEB;
-  }
+}
+
+.edit-offer a {
+  color: #EBEBEB;
 }
 
 .edit-offer a:hover {
@@ -188,7 +191,7 @@ h4 {
 input {
   color: #177F75;;
   font-size: 20px;
-  height: 20px;
+  height: 25px;
 }
 
 .search-result {
@@ -199,10 +202,11 @@ input {
   margin-left: 200px;
   font-size: 20px;
   width: 100%;
-  .title {
-    font-size: 160px;
-    text-align: center;
-  }
+}
+
+.introduction .title {
+  font-size: 160px;
+  text-align: center;
 }
 
 .location a:hover, a:active{
@@ -219,9 +223,10 @@ input {
   font-size: 20px;
   padding: 10px;
   width: 160px;
-  a {
-      color: #EBEBEB;
-    }
+}
+
+.create-location-button a {
+  color: #EBEBEB;
 }
 
 .create-button {
@@ -231,9 +236,10 @@ input {
   padding: 10px;
   width: 160px;
   margin-left: 181px;
-  a {
-      color: #EBEBEB;
-    }
+}
+
+.create-buttona {
+  color: #EBEBEB;
 }
 
 .make-list {
@@ -243,9 +249,10 @@ input {
   margin-left: 177px;
   padding: 10px;
   width: 168px;
-  a {
-    color: #EBEBEB;
-  }
+}
+
+.make-list a {
+  color: #EBEBEB;
 }
 
 hr {
@@ -257,19 +264,21 @@ nav {
   margin-top:-25px;
   padding: 10px;
   width: 100%;
-  .clearfix a {
-    color: #EBEBEB;
+}
+
+nav .clearfix a {
+  color: #EBEBEB;
+}
+
+nav .search {
+  float: left;
+  font-size: 20px;
+  margin-left: 320px;
+  margin-top: 45px;
+  #search {
+    width: 400px;
   }
-  .search {
-    float: left;
-    font-size: 20px;
-    margin-left: 320px;
-    margin-top: 45px;
-    #search {
-      width: 400px;
-    }
-  }
- }
+}
 
 .offer {
   padding: 20px;
@@ -312,9 +321,10 @@ section {
   float: left;
   margin-top: 45px;
   margin-left: 20px;
-  a {
-    color: #EBEBEB;
-  }
+}
+
+.sign-out  a {
+  color: #EBEBEB;
 }
 
 .sign-up {
@@ -370,16 +380,17 @@ ul.clearfix a:hover, a:active {
   text-align: center;
   margin-top: 30px;
   margin-left: 280px;
-  p {
-    font-size: 25px;
-  }
+}
+
+.success p {
+  font-size: 25px;
 }
 
 .successful-exchange {
   padding: 20px;
   width: 1000px;
-  .successful-listing{
-    width: 400px;
-  }
 }
 
+.successful-exchange .successful-listing{
+  width: 400px;
+}
