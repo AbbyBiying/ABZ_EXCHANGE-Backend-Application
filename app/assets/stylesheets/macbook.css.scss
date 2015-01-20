@@ -9,46 +9,21 @@
   }
 
   .container {
-    margin-left: 0;
-  }
-
-  .form {
-    margin-left: 17.5em;
-  }
-
-  .new-location {
-    margin-left: 176px;
-  }
-
-  hr {
-    width: 985px;
-  }
-
-  .clearfix li {
-    font-size: 16px;
-    margin-right: 18px;
+    margin: 0 auto;
   }
 
   input {
-    font-size: 12px;
-    height: 20px;
+    font-size: 8px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: white;
   }
 
   .introduction {
-    margin-left: 127px;
-    font-size: 20px;
+    font-size: 0.7em;
     .title {
-      font-size: 130px;
-      margin-left: -250px;
+      font-size: 6em;
     }
-  }
-
-  .dashboard-container {
-    margin-left: 177px;
-  }
-
-  .user-listings {
-    margin-left: -100px;
   }
 
   .listing {
@@ -56,77 +31,47 @@
   }
 
   .session {
-    margin-left: 35px;
+    #session_password, #session_username {
+      width: 15%;
+      font-size: 18px;
+    }
     li {
-    float: right;
+      float: right;
     }
   }
 
   .success {
-    margin-left: 94px;
     .font-mid {
       font-size: 50px;
     }
   }
 
   .session-introduction {
-    margin-left: 20em;
-    margin-top: -8em;
-    p {
-      font-size: 17px;
+    margin-top: -7em;
+    li {
+      font-size: 1em;
+      padding-bottom: 0.3em;
     }
 
-    .title{
-      font-size: 95px;
+    .title {
+      font-size: 2em;
     }
-  }
-
-  .user-new {
-    margin-left: -16em;
-  }
-
-  .form {
-    margin-left: 550px;
-  }
-
-  .new {
-    margin-left: 548px;
-  }
-
-  .new-listing {
-    margin-left: 520px;
   }
 
   .offer-edit {
     margin-top: 20px;
-    margin-left: 0px;
-  }
-
-  .listing-form {
-    margin-left: 21.5em;
-  }
-
-  .listing-description {
-    .exchange-in-process {
-      margin-left: -28px;
-    }
   }
 
   .by-user {
     font-size: 15px;
   }
 
-  .exchange-in-process {
-    margin-left: 147px;
-  }
-
   .follows {
-    margin-left: 180px;
     background-color: #D9FFD7;
     padding: 40px;
-    width: 1000px;
+    width: 36em;
+
     li {
-      margin-bottom: 50px;
       margin-bottom: 50px;
     }
   }

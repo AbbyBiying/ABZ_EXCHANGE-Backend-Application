@@ -4,37 +4,19 @@
   }
 
   .container {
-    margin-left: -8em;
-    width:100%;
-
-    h4 {
-      margin-left: 10em;
-    }
-
-    .user-listings {
-      margin-left: 163px;
-    }
-
-    .create-button {
-      margin-left: 11em;
-    }
-
-    .user {
-      margin-left: 230px;
-    }
+    margin: 0 auto;
+    width: 80%;
 
     .listing {
       width: 34em;
-      margin-left: 9em;
     }
 
     .follows {
-      width: 34em;
-      margin-left: 9em;
+      width: 15.3em;
     }
 
-    .exchange-in-process {
-      margin-left: 8em;
+    .user-follows {
+      width: 34em;
     }
   }
 
@@ -46,38 +28,26 @@
       }
     }
 
-    .clearfix li {
-      font-size: 10px;
-      margin-right: 4px;
+    .clearfix a {
+      font-size: 1.2em;
+      margin-right: 1.2em;
     }
   }
 
   .dashboard-container {
-    margin-left: 10em;
     .button-container {
-      margin-left: -8px;
       li {
         font-size: 10px;
-        margin-right: 55px;
+        margin-right: 20px;
       }
     }
   }
 
-  .form {
-    margin-left: 17.5em;
-  }
-
-  .new-location {
-    margin-left: 9em;
-  }
-
-  hr {
-    width: 985px;
-  }
-
   input {
-    font-size: 8px;
-    height: 20px;
+    font-size: 10px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
   }
 
   .introduction {
@@ -86,74 +56,55 @@
     width: 75%;
     .title {
       font-size: 28px;
-      margin-left: 10em;
     }
 
     p {
       font-size: 10px;
-      margin-left: 30em;
     }
   }
 
   .session {
-    margin-left: 383px;
+    #session_password, #session_username {
+      width: 20%;
+      font-size: 10px;
+    }
     li {
-    float: right;
-   }
+      float: right;
+    }
   }
 
   .success {
-    margin-left: 170px;
     .small {
       font-size: 10px;
     }
 
     .font-mid {
-     font-size: 40px;
+      font-size: 40px;
     }
 
     .listing-offer {
-      margin-left: 25px;
       width: 45em;
     }
   }
 
   .session-introduction {
-    margin-left: 27em;
     margin-top: -6em;
 
     p {
-      font-size: 11.5px;
+      font-size: 1.3em;
     }
 
     .title{
-      font-size: 25px;
+      font-size: 1.3em;
     }
-  }
-
-  .user-new {
-    margin-left: -150px;
-  }
-
-  .form {
-    margin-left: 650px;
   }
 
   .footer {
     font-size: 8px;
   }
 
-  .new {
-    margin-left: 22em;
-  }
-
-  .new-listing {
-    margin-left: 520px;
-  }
-
   .offer-edit {
     margin-top: 20px;
-    margin-left: 0px;
   }
 
   .listing-form {
@@ -162,9 +113,5 @@
 
   .by-user {
     font-size: 15px;
-  }
-
-  .exchange-in-process {
-    margin-left: 147px;
   }
 }

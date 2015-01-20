@@ -1,24 +1,13 @@
 #directions {
   height: 12em;
-  margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 180px;
   width: 1077px;
-}
-
-.users-map {
-  margin-left: 180px;
-}
-
-.location-map {
-  margin-left: 180px;
+  margin: 1em auto;
 }
 
 #map {
   height: 12em;
-  padding-top: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 1em auto;
   width: 1077px;
 }
 
@@ -31,9 +20,6 @@
 }
 
 @media only screen and (max-device-width: 1500px) {
-  .user-location {
-   margin-left: -7em;
-  }
 
   #directions {
     width: 985px;
@@ -46,18 +32,10 @@
 
 @media only screen and (max-device-width: 320px) {
   #directions {
-    width: 37em;
-    margin-left: 9em;
+    width: 32em;
   }
 
   #map {
-    width: 37em;
-  }
-
-  .location-map {
-    margin-left: 230px;
-  }
-  .users-map {
-    margin-left: 224px;
+    width: 32em;
   }
 }

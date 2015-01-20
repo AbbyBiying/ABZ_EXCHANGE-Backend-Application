@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   has_many(
     :follower_relationships,
-    class_name: "FollowRelationship",
+    class_name: :"FollowRelationship",
     foreign_key: :"followed_user_id"
   )
 
@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   has_many :exchanges
   has_many :successful_exchanges
 
+  validates :username, presence: true
   validates :email, presence: true, uniqueness: true
   validates :location, presence: true
   validates :password_digest, presence: true
@@ -66,9 +67,9 @@ class User < ActiveRecord::Base
     followed_users.destroy(user)
   end
 
-  def following?(user)
-    followed_users.include? user
-  end
+  # def following?(user)
+  #   followed_users.include? user
+  # end
 
   def timeline
     Comment.where(user_id: includes_myself).order(created_at: :desc)
