@@ -24,25 +24,22 @@
       <% end %>
     </div>
 
-    <div class="search">
-      <% if signed_in? %>
-        <%= form_tag search_path, method: :get do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "search" %>
-        <% end %>
-      <% end %>
-    </div>
-
     <ul class="clearfix">
       <% if signed_in? %>
+        <li><%= link_to "Home", home_path %></li>
         <li><%= link_to "Settings", dashboard_path %></li>
       <% end %>
+      <li><%= link_to "Listings", listings_path %></li>
       <li><%= link_to "Locations", locations_path %></li>
       <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Listings", listings_path %></li>
-      <li><%= link_to "Successful Exchanges", successful_exchanges_path %></li>
-      <li><%= link_to "Home", home_path %></li>
     </ul>
+
+    <% if signed_in? %>
+      <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "search" %>
+      <% end %>
+    <% end %>
   </nav>
 
   <section class="container">

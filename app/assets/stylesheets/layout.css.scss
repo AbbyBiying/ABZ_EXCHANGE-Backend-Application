@@ -154,10 +154,10 @@ h4 {
 /* close commented backslash hack */
 
 .clearfix li {
-  float: right;
+  float: left;
   font-size: 20px;
-  margin-right: 30px;
-  padding-top: 20px;
+  margin: 0;
+  text-align:right
 }
 
 .comment {
@@ -318,10 +318,10 @@ section {
 }
 
 .sign-out {
-  font-size: 20px;
-  float: left;
-  margin-top: 45px;
-  margin-left: 20px;
+  margin-top: 1.5em;
+  font-size: 0.65em;
+  float: right;
+  padding: 0;
 }
 
 .sign-out  a {
