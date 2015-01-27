@@ -1,14 +1,9 @@
 .container {
-   margin-bottom: 0;
-}
-
-.container .user-follows {
-  margin-left: 7em;
+  margin: 0 auto;
 }
 
 .exchange-in-process {
   padding: 30px;
-  margin-left: 150px;
 }
 
 a:active, a:hover {
@@ -42,12 +37,10 @@ body {
 .follow {
   background-color: #D9FFD7;
   padding: 40px;
-  margin-left: 181px;
   width: 1000px;
 }
 
 .follow li {
-  margin-bottom: 50px;
   margin-bottom: 50px;
 }
 
@@ -60,37 +53,9 @@ body {
   text-align: center;
 }
 
-.form {
-  margin-left: 18.5em;
-}
-
-.new-location {
-  margin-left: 80px;
-}
-
-.new-image {
-  margin-left: 460px;
-}
-
-.location-form {
-  margin-left: 178px;
-}
-
 img {
   height: 200px;
   width: 200px;
-}
-
-h3{
-  margin-left: 52px;
-}
-
-h4 {
-  margin-left: 180px;
-}
-
-.button-container {
-  margin-left: -8px;
 }
 
 .button-container li {
@@ -114,10 +79,6 @@ h4 {
   font-size: 20px;
   padding: 10px;
   width: 168px;
-}
-
-.offer-edit {
-  margin-left: 150px;
 }
 
 .edit-offer {
@@ -163,14 +124,6 @@ h4 {
 .comment {
   padding: 20px;
   width: 850px;
-}
-
-.dashboard-container {
-  margin: 0 181px;
-}
-
-.dashboard-map {
-  margin-left: -200px;
 }
 
 .edit a:hover, a:active{
@@ -236,7 +189,6 @@ input {
   font-size: 20px;
   padding: 10px;
   width: 160px;
-  margin-left: 181px;
 }
 
 .create-buttona {
@@ -247,7 +199,6 @@ input {
   border-radius: 5px;
   background-color: #F1603B;
   font-size: 20px;
-  margin-left: 177px;
   padding: 35px;
   width: 168px;
 }
@@ -256,13 +207,9 @@ input {
   color: #EBEBEB;
 }
 
-hr {
-  margin-left: 182px;
-}
-
 nav {
   background-color: #F6764B;
-  margin-top:-25px;
+  margin-top: -25px;
   padding: 10px;
   width: 100%;
 }
@@ -356,7 +303,6 @@ ul.clearfix a:hover, a:active {
 }
 
 .user {
-  margin-left: 181px;
   width: 850px;
   a:hover, a:active {
     color: #1695A3;
@@ -365,7 +311,6 @@ ul.clearfix a:hover, a:active {
 
 .new {
   margin-top: 30px;
-  margin-left: 460px;
 }
 
 .username {
@@ -379,8 +324,7 @@ ul.clearfix a:hover, a:active {
 .success {
   font-size: 20px;
   text-align: center;
-  margin-top: 30px;
-  margin-left: 280px;
+  margin: 3em auto;
 }
 
 .success p {

@@ -9,19 +9,7 @@
   }
 
   .container {
-    margin-left: 0;
-  }
-
-  .form {
-    margin-left: 17.5em;
-  }
-
-  .new-location {
-    margin-left: 176px;
-  }
-
-  hr {
-    width: 985px;
+    margin: 0 auto;
   }
 
   .clearfix li {
@@ -45,14 +33,6 @@
     }
   }
 
-  .dashboard-container {
-    margin-left: 177px;
-  }
-
-  .user-listings {
-    margin-left: -100px;
-  }
-
   .listing {
     width: 900px;
   }
@@ -69,7 +49,6 @@
   }
 
   .success {
-    margin-left: 94px;
     .font-mid {
       font-size: 50px;
     }
@@ -82,39 +61,17 @@
       font-size: 17px;
     }
 
-    .title{
+    .title {
       font-size: 95px;
     }
   }
 
-  .user-new {
-    margin-left: -16em;
-  }
-
-  .form {
-    margin-left: 550px;
-  }
-
-  .new {
-    margin-left: 548px;
-  }
-
-  .new-listing {
-    margin-left: 520px;
-  }
-
   .offer-edit {
     margin-top: 20px;
-    margin-left: 0px;
-  }
-
-  .listing-form {
-    margin-left: 21.5em;
   }
 
   .listing-description {
     .exchange-in-process {
-      margin-left: -28px;
     }
   }
 
@@ -122,12 +79,7 @@
     font-size: 15px;
   }
 
-  .exchange-in-process {
-    margin-left: 147px;
-  }
-
   .follows {
-    margin-left: 180px;
     background-color: #D9FFD7;
     padding: 40px;
     width: 1000px;
