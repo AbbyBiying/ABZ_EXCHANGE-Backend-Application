@@ -31,6 +31,10 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', require: false
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
 end
 
 group :development, :test do
