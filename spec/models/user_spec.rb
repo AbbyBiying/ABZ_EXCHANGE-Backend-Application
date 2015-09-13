@@ -30,7 +30,7 @@ RSpec.describe User, :type => :model do
 
   describe "#includes_myself" do
     # Classicist Test
-    it "add myself to followed users array" do
+    it "should return an array of my and my followers' user IDs" do
       location = Location.create!(city: "New York", state: "NY")
       user1 = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYHZ")
       user2 = user1.followed_users.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")

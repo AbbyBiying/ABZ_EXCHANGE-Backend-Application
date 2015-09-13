@@ -29,12 +29,22 @@ RSpec.describe Listing, :type => :model do
     # Mockist Test
     it "should return true if the listing has been accepted" do
       listing = Listing.new
-      offer = double("offer")
-      exchange = double("exchange")
+      dummy = double()
+      exchange = double("exchange", "present?" => dummy)
 
       expect(listing).to receive(:exchange).and_return(exchange)
-      expect(exchange).to receive(:present?).and_return(true)
-      expect(listing.accepted?).to eql true
+
+      expect(listing.accepted?).to eql dummy
+    end
+
+
+    it "should return true if the listing has been accepted" do
+      listing = Listing.new
+      exchange_presence = double("exchange_presence")
+
+      expect(listing).to receive_message_chain("exchange.present?").and_return(exchange_presence)
+
+      expect(listing.accepted?).to eql exchange_presence
     end
   end
 
