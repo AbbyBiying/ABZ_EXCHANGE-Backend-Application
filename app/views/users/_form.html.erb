@@ -1,7 +1,12 @@
 <div class="form">
   <div class="user-new">
-    <%= form_for user do |form| %>
+    <%= form_for user, html: { multipart: true } do |form| %>
       <%= render "application/form_errors", object: user %>
+      <div>
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
+      </div>
+
       <div>
         <%= form.label :username %>
         <%= form.text_field :username %>
