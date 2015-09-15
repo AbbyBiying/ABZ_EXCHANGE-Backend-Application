@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  has_attached_file :avatar,
+    styles: { medium: "300x300>", thumb: "100x100>" },
+    storage: :s3,
+    s3_credentials: "config/s3.yml",
+    default_url: "/images/missing_avatar.png"
+
   belongs_to :location
 
   accepts_nested_attributes_for(
@@ -15,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :images
   has_many :offers
   has_many :listings
+  has_many :groups
 
   has_many(
     :followed_relationships,
@@ -38,6 +45,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :location, presence: true
   validates :password_digest, presence: true
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage/
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
 
   def can_accept?(possible_offer)
     listings.include?(possible_offer)

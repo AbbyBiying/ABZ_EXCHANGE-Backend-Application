@@ -1,7 +1,11 @@
 class Image < ActiveRecord::Base
+  has_attached_file :avatar,
+    styles: { medium: "300x300>", thumb: "100x100>" },
+    default_url: "/images/missing_avatar.png"
+
   belongs_to :guest_user
   belongs_to :user
-  has_many :comments
+  has_many :comments, as: :commentable
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true

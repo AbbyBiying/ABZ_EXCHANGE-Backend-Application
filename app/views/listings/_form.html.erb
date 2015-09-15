@@ -8,9 +8,9 @@
     <div>
       <%= form.text_area :description, placeholder: "type listing description" %>
     </div>
-
     <div>
-      <%= form.text_area :url, placeholder: "type listing image url" %>
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
     </div>
     <%= form.submit %>
   <% end %>

@@ -69,6 +69,7 @@ class OffersController < ApplicationController
 
   def offer_params
     params.require(:offer).permit(
+      :avatar,
       :description,
       :name,
       :url,

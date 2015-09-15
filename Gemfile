@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk', '~> 1.6'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'geocoder'
@@ -7,7 +8,7 @@ gem 'gmaps4rails'
 gem 'jbuilder', '~> 2.0'
 gem 'js-rails'
 gem 'jquery-rails'
-gem "paperclip", "~> 4.2"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'monban-generators'
 gem 'monban'
 gem 'neat'
@@ -23,6 +24,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
 
 group :development do
+  gem "foreman"
   gem "better_errors"
   gem 'binding_of_caller'
   gem "bullet"
@@ -38,9 +40,11 @@ group :test do
 end
 
 group :development, :test do
+  gem "dotenv-rails"
   gem 'pry-rails', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'factory_girl_rails'
 end
 
 group :production do

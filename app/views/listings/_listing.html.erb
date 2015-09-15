@@ -3,12 +3,12 @@
     <li>
       <%= link_to listing do %>
         <div class="listing-image">
-          <%= image_tag listing.url %>
+          <img src="<%= listing.avatar.url %>">
         </div>
 
         <div class="listing-description">
-          <p><strong>Listing: </strong><%= listing.name %></p>
-          <p><strong>Description: </strong><%= listing.description %></p>
+          <p><strong>Listing name: </strong><%= listing.name %></p>
+          <p><strong>Listing description: </strong><%= listing.description %></p>
       <% end %>
           <p><strong>posted by </strong><%= link_to listing.username, listing.user %></p>
           <p>was created at <%= listing.created_time %></p>
@@ -29,5 +29,19 @@
           </b>
         <% end %>
       </li>
+
+      <li>
+        <% if listing.comments.any? %>
+          <h4>Comments:</h4>
+          <div class="comment">
+            <% listing.comments.each do |c| %>
+              <%= c.body %>
+              <p>posted by <%= link_to c.username, c.user %>,
+                at <%= c.created_time %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+    </div>
   </ul>
 </div>

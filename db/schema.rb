@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101224120) do
+ActiveRecord::Schema.define(version: 20150921042813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.integer  "image_id"
+    t.integer  "commentable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content_type"
-    t.integer  "content_id"
+    t.string   "commentable_type"
+    t.text     "body"
     t.integer  "user_id"
   end
 
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20150101224120) do
   add_index "follow_relationships", ["followed_user_id"], name: "index_follow_relationships_on_followed_user_id", using: :btree
   add_index "follow_relationships", ["follower_id"], name: "index_follow_relationships_on_follower_id", using: :btree
 
+  create_table "groups", force: true do |t|
+    t.string   "name",        null: false
+    t.integer  "user_id",     null: false
+    t.integer  "comment_id"
+    t.text     "description", null: false
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "images", force: true do |t|
     t.string   "name",        null: false
     t.integer  "user_id",     null: false
@@ -50,12 +60,16 @@ ActiveRecord::Schema.define(version: 20150101224120) do
   end
 
   create_table "listings", force: true do |t|
-    t.string   "name",        null: false
-    t.integer  "user_id",     null: false
-    t.text     "description", null: false
+    t.string   "name",                null: false
+    t.integer  "user_id",             null: false
+    t.text     "description",         null: false
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "locations", force: true do |t|
@@ -71,19 +85,17 @@ ActiveRecord::Schema.define(version: 20150101224120) do
   end
 
   create_table "offers", force: true do |t|
-    t.string   "name",        null: false
-    t.integer  "user_id",     null: false
-    t.text     "description", null: false
+    t.string   "name",                null: false
+    t.integer  "user_id",             null: false
+    t.text     "description",         null: false
     t.integer  "listing_id"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "picture_comments", force: true do |t|
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "successful_exchanges", force: true do |t|
@@ -92,20 +104,18 @@ ActiveRecord::Schema.define(version: 20150101224120) do
     t.datetime "updated_at"
   end
 
-  create_table "text_comments", force: true do |t|
-    t.string   "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
-    t.string   "email",                        null: false
-    t.string   "username",                     null: false
-    t.string   "password_digest",              null: false
-    t.string   "bio",             default: "", null: false
+    t.string   "email",                            null: false
+    t.string   "username",                         null: false
+    t.string   "password_digest",                  null: false
+    t.string   "bio",                 default: "", null: false
     t.integer  "location_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

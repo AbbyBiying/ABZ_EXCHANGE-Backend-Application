@@ -2,7 +2,7 @@
     <div class="successful-listing">
       <%= link_to successful_exchange.listing.user do %>
         <div class="successful-listing-image">
-          <%= image_tag successful_exchange.listing.url %>
+          <img src="<%= successful_exchange.listing.avatar.url %>">
         </div>
 
         <div class="successful-description">
@@ -16,7 +16,7 @@
     <div class="successful-offer">
       <%= link_to successful_exchange.offer.user do %>
         <div class="successful-offer-image">
-          <%= image_tag successful_exchange.offer.url %>
+          <img src="<%= successful_exchange.offer.avatar.url %>">
         </div>
 
         <div class="successful-description">

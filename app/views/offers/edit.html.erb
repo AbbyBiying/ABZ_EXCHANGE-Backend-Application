@@ -10,7 +10,8 @@
       </div>
 
       <div>
-        <%= form.text_area :url, placeholder: "type offer image url" %>
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
       </div>
       <%= form.submit %>
     <% end %>

@@ -15,6 +15,7 @@
   <% unless (@listing.user == current_user ||  @listing.accepted?) %>
     <p>Make an offer</p>
     <%= form_for [@listing, @offer] do |form| %>
+
       <div>
         <%= form.text_area :name, placeholder: "type offer name"%>
       </div>
@@ -24,11 +25,19 @@
       </div>
 
       <div>
-        <%= form.text_area :url, placeholder: "type offer image url" %>
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
       </div>
       <%= form.submit %>
     <% end %>
   <% end %>
 </div>
 <br>
+<!--
+<%= form_for @comment do |c| %>
+  <%= c.hidden_field :commentable_type, value: "Listing" %>
+  <%= c.hidden_field :commentable_id, value: @listing.id %>
+  <%= c.text_area :body, placeholder: "type text comment" %>
+  <%= c.submit %>
+<% end %> -->
 <%= render @listing.offers.by_most_recent %>

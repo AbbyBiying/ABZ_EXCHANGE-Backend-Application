@@ -13,12 +13,13 @@ class ListingsController < ApplicationController
   def show
     @listing = find_listing
     @offer = Offer.new
+    @comment = Comment.new
   end
 
   def create
-    listing = current_user.listings.build(listing_params)
-    if listing.save
-      redirect_to listing
+    @listing = current_user.listings.build(listing_params)
+    if @listing.save
+      redirect_to @listing
     else
       render :new
     end
@@ -60,6 +61,7 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(
+      :avatar,
       :description,
       :name,
       :listing_id,

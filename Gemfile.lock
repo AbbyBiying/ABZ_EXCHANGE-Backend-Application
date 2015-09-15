@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 523bd46c768226893f23889079a7aa9c73b57d68
+  specs:
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +40,11 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.65.0)
+      aws-sdk-v1 (= 1.65.0)
+    aws-sdk-v1 (1.65.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -54,7 +70,7 @@ GEM
       json
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.4)
+    cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -67,8 +83,19 @@ GEM
     database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
+    foreman (0.78.0)
+      thor (~> 0.19.1)
     geocoder (1.2.6)
     gmaps4rails (2.1.2)
     hike (1.2.3)
@@ -88,6 +115,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.4.2)
     monban (0.1.1)
@@ -104,11 +132,6 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     normalize-rails (3.0.1)
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -204,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 1.6)
   better_errors
   binding_of_caller
   bourbon
@@ -212,6 +236,9 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 4.0.0)
   database_cleaner
+  dotenv-rails
+  factory_girl_rails
+  foreman
   geocoder
   gmaps4rails
   jbuilder (~> 2.0)
@@ -223,7 +250,7 @@ DEPENDENCIES
   neat
   newrelic_rpm
   normalize-rails
-  paperclip (~> 4.2)
+  paperclip!
   pg
   pry-rails
   rails (= 4.1.6)

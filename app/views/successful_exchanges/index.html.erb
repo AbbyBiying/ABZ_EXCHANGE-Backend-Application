@@ -2,5 +2,7 @@
   <% if @successful_exchanges.present? %>
     <p class="font-mid">All the successful exchanges:</p>
     <%= render @successful_exchanges.by_most_recent %>
+  <% else %>
+  <p>No successful exchanges yet.</p>
   <% end %>
 </div>
