@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry-rails', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'factory_girl'
 end
 
 group :production do
