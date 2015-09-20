@@ -1,67 +1,66 @@
-class ImagesController < ApplicationController
+class GroupsController < ApplicationController
   before_action :require_login, except: [:index]
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
-    @images = Image.all
+    @groups = Group.all
   end
 
   def new
-    @image = Image.new
+    @group = Group.new
   end
 
   def show
-    find_image
+    find_group
     @comment = Comment.new
   end
 
   def create
-    @image = current_user.images.build(image_params)
-    if @image.save
-      redirect_to @image
+    @group = current_user.groups.build(group_params)
+    if @group.save
+      redirect_to @group
     else
       render :new
     end
   end
 
   def edit
-    find_image
+    find_group
   end
 
   def update
-    find_image
-    if @image.update(image_params)
-      redirect_to @image
+    find_group
+    if @group.update(group_params)
+      redirect_to @group
     else
       render :edit
     end
   end
 
   def destroy
-    image = Image.find(params[:id])
-    image.destroy
+    group = Group.find(params[:id])
+    group.destroy
     redirect_to root_path
   end
 
   private
 
   def require_permission
-    if current_user != Image.find(params[:id]).user
+    if current_user != Group.find(params[:id]).user
       flash[:error] = "You do not have the right to do it."
       redirect_to dashboard_path
     end
   end
 
-  def find_image
-    @image ||= Image.find(params[:id])
+  def find_group
+    @group ||= Group.find(params[:id])
   end
 
-  def image_params
-    params.require(:image).permit(
+  def group_params
+    params.require(:group).permit(
       :comment,
       :description,
       :name,
-      :url,
       :user_id
       )
   end

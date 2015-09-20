@@ -13,6 +13,7 @@ class ListingsController < ApplicationController
   def show
     @listing = find_listing
     @offer = Offer.new
+    @comment = Comment.new
   end
 
   def create

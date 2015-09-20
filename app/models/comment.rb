@@ -1,9 +1,8 @@
 class Comment < ActiveRecord::Base
-  belongs_to :content, polymorphic: true
-  belongs_to :image
   belongs_to :user
+  belongs_to :commentable, polymorphic: true
 
-  validates :content, presence: true
+  validates :body, presence: true
 
   def created_time
     created_at.strftime("%H:%M, %m/%d/%Y %Z")
@@ -19,5 +18,9 @@ class Comment < ActiveRecord::Base
 
   def username
     user.username
+  end
+
+  def self.find_comment(search)
+    where("body ILIKE ?", "%#{search}%")
   end
 end

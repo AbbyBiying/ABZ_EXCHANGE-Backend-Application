@@ -1,10 +1,9 @@
 <div class="listing">
   <div class="by-user">
-      <p>by: <%= link_to comment.username, comment.user %></p>
+    <p>by: <%= link_to comment.user.username, comment.user %></p>
   </div>
 
   <div class="comment-content">
-      <%= render comment.content %>
+    <%= comment.body %>
   </div>
-  </ul>
 </div>

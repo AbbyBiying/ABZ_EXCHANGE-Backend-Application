@@ -1,13 +1,11 @@
-<div class="listing">
+<div class="listing listing-description">
   <%= link_to user_image do %>
     <div class="listing-image">
       <%= image_tag user_image.url %>
     </div>
-  <div class="listing-description">
     <p><strong>Image:</strong><%= user_image.name %></p>
-     <p><strong>description:</strong><%= user_image.description %></p>
+    <p><strong>description:</strong><%= user_image.description %></p>
   <% end %>
-    <p><strong>by user:<%= link_to user_image.user.username, user_image.user %></p>
-    <p>was created at <%= user_image.created_time %></p>
-  </div>
+  <p><strong>by user:<%= link_to user_image.user.username, user_image.user %></p>
+  <p>was created at <%= user_image.created_time %></p>
 </div>

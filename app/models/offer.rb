@@ -1,6 +1,7 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
   belongs_to :listing
+  has_many :comments, as: :commentable
 
   delegate :accepted?, to: :listing
   delegate :username, to: :user
