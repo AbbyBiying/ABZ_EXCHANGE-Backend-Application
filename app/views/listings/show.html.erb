@@ -31,4 +31,11 @@
   <% end %>
 </div>
 <br>
+
+<%= form_for @comment do |c| %>
+  <%= c.hidden_field :commentable_type, value: "Listing" %>
+  <%= c.hidden_field :commentable_id, value: @listing.id %>
+  <%= c.text_area :body, placeholder: "type text comment" %>
+  <%= c.submit %>
+<% end %>
 <%= render @listing.offers.by_most_recent %>

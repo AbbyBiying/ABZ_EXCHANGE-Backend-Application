@@ -1,10 +1,13 @@
 class Listing < ActiveRecord::Base
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/missing_avatar.png"
+
   belongs_to :user
 
   delegate :username, to: :user
 
   has_many :offers
   has_one :exchange
+  has_many :comments, as: :commentable
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true

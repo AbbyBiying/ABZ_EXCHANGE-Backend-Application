@@ -1,46 +1,51 @@
-<div id="user-listings">
-  <h4><%= @user.username %>'s listings:</h4>
-  <% if current_user == @user %>
-    <span class="create-button">
-      <%= link_to "Add a listing", new_listing_path %>
-    </span>
-  <% end %>
+<% if @user.listings.any? %>
+  <div id="user-listings">
+    <h4><%= @user.username %>'s listings:</h4>
+    <% if current_user == @user %>
+      <span class="create-button">
+        <%= link_to "Add a listing", new_listing_path %>
+      </span>
+    <% end %>
 
-  <p><%= render @user.listings %></p>
-</div>
+    <p><%= render @user.listings %></p>
+  </div>
+<% end %>
 
-<div id="user-offers">
-  <h4><%= @user.username %>'s offers:</h4>
-  <%= render @user.offers %>
-</div>
+<% if @user.offers.any? %>
+  <div id="user-offers">
+    <h4><%= @user.username %>'s offers:</h4>
+    <%= render @user.offers %>
+  </div>
+<% end %>
 
-<div id="user-images">
-  <h4><%= @user.username %>'s Images:</h4>
+<% if @user.images.any? %>
+  <div id="user-images">
+    <h4><%= @user.username %>'s Images:</h4>
     <% if current_user == @user %>
       <span class="create-button">
         <%= link_to "Add an image", new_image_path %>
       </span>
     <% end %>
-  <br>
-  <div><%= render(partial: "images/user_image", collection: @user.images) %></div>
-  <br>
-</div>
+    <br>
+    <div><%= render(partial: "images/user_image", collection: @user.images) %></div><br>
+  </div>
+<% end %>
 
-<div id="user-follows">
-<div class="follows">
-  <% if user.followers %>
+<% if user.followers.any? %>
+  <div id="user-follows" class="follows">
     <%= @user.username %>'s followers:
     <% @user.followers.each do |follower| %>
       <%= link_to follower.username, user_path(follower) %>
     <% end %>
-  <% end %>
-  <br>
+<% end %>
+<div>
+<br>
 
-  <% if user.followed_users %>
+<% if user.followed_users.any? %>
+  <div id="user-follows" class="follows">
     <%= @user.username %>'s following:
     <% @user.followed_users.each do |followed_user| %>
       <%= link_to followed_user.username, user_path(followed_user) %>
     <% end %>
-  <% end %>
-</div>
-</div>
+  </div>
+<% end %>

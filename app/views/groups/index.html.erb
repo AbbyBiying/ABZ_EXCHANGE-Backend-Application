@@ -1,0 +1,7 @@
+<div class="listing-index">
+  <h4>All groups</h4>
+  <% if signed_in? %>
+    <b class= "make-list"><%= link_to "Make New Group", new_group_path %></b>
+  <% end %>
+  <%= render @groups.by_most_recent %>
+</div>

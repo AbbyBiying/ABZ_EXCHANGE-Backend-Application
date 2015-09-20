@@ -8,14 +8,12 @@
     <%= button_to "Delete This Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %>
   </div>
 
-  <%= form_for [@image, @text_comment] do |form| %>
-    <%= form.text_area :body, placeholder: "type text comment" %>
-    <%= form.submit %>
+  <%= form_for @comment do |c| %>
+    <%= c.hidden_field :commentable_type, value: "Image" %>
+    <%= c.hidden_field :commentable_id, value: @image.id %>
+    <%= c.text_area :body, placeholder: "type text comment" %>
+    <%= c.submit %>
   <% end %>
 
-  <%= form_for [@image, @picture_comment] do |form| %>
-    <%= form.text_area :url, placeholder: "type image url" %>
-    <%= form.submit %>
-  <% end %>
 </div>
 <%= render @image.comments.by_most_recent %>

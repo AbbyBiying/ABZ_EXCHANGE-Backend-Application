@@ -7,7 +7,7 @@ gem 'gmaps4rails'
 gem 'jbuilder', '~> 2.0'
 gem 'js-rails'
 gem 'jquery-rails'
-gem "paperclip", "~> 4.2"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'monban-generators'
 gem 'monban'
 gem 'neat'
@@ -41,7 +41,7 @@ group :development, :test do
   gem 'pry-rails', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 group :production do
