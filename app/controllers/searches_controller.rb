@@ -7,5 +7,4 @@ class SearchesController < ApplicationController
     @users = User.find_user(params[:search])
     @groups = Group.find_group(params[:search])
   end
-
 end
