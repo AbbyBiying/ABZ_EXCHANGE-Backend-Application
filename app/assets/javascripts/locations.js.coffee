@@ -19,7 +19,7 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker
 @buildMap = (markers) ->
   handler = Gmaps.build 'Google', { builders: { Marker: RichMarkerBuilder} }
 
-  handler.buildMap { provider: { maxZoom: 30}, internal: {id: 'map'} }, ->
+  handler.buildMap { provider: { maxZoom: 8}, internal: {id: 'map'} }, ->
     handler.map.centerOn({ lat: 40, lng: -74 })
     markers = handler.addMarkers (markers)
     handler.bounds.extendWith(markers)

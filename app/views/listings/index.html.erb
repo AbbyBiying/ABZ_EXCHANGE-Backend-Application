@@ -1,9 +1,10 @@
+<% if signed_in? %>
+  <%= link_to "Make New Listing", new_listing_path, class: "button" %>
+<% end %>
+<%= link_to "View Successful Exchanges", successful_exchanges_path, class: "button" %>
+
 <div class="listing-index">
-  <h4>All the listings</h4>
-  <% if signed_in? %>
-    <b class= "make-list"><%= link_to "Make New Listing", new_listing_path %></b>
-  <% end %>
-  <b class= "make-list"><%= link_to "Successful Exchanges", successful_exchanges_path %></b>
-  <br><br>
+  <div class="listing-exchange">
+  <header class="index-header">All Listings</header>
   <%= render @listings.by_most_recent %>
 </div>

@@ -1,0 +1,6 @@
+<%= form_for comment do |c| %>
+  <%= c.hidden_field :commentable_type %>
+  <%= c.hidden_field :commentable_id %>
+  <%= c.text_area :body, placeholder: "type comment" %>
+  <%= c.submit %>
+<% end %>

@@ -3,7 +3,17 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url  = 'https://abz-exchange.herokuapp.com/session/new'
-    mail(to: @user.email, subject: 'Welcome to ABZ EXCHANGE!')
+    @url  = 'http://www.abzexchange.com/session/new'
+    mail(to: @user.email,
+      subject: 'Welcome to ABZ EXCHANGE!')
+  end
+
+  def invite_email(user, sender)
+    @user = user
+    @sender = sender
+    @url  = 'http://www.abzexchange.com/session/new'
+    mail(to: @user.email,
+      subject: "You've been invited to ABZ EXCHANGE!")
+
   end
 end

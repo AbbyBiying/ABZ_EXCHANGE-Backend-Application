@@ -1,6 +1,6 @@
 <div class="success">
   <% if @successful_exchanges.present? %>
-    <p class="font-mid">All the successful exchanges:</p>
+    <header class="index-header">All Successful Exchanges</header>
     <%= render @successful_exchanges.by_most_recent %>
   <% else %>
   <p>No successful exchanges yet.</p>

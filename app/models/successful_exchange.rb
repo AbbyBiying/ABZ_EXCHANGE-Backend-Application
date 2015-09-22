@@ -6,7 +6,7 @@ class SuccessfulExchange < ActiveRecord::Base
   delegate :offer, to: :exchange
 
   def created_time
-    created_at.strftime("%H:%M, %m/%d/%Y %Z")
+    created_at.strftime("%A, %B %d, %Y")
   end
 
   def self.by_most_recent

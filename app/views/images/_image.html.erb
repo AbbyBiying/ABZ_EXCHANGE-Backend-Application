@@ -1,23 +1,11 @@
-<div class="listing listing-description">
+<div class="content-group listing-description">
   <%= link_to image do %>
     <div class="listing-image">
-      <%= image_tag image.url %>
+      <%= image_tag image.avatar.url %>
     </div>
-    <p><strong>Image:</strong><%= image.name %></p>
-    <p><strong>description:</strong><%= image.description %></p>
+    <p><strong>Image: </strong><%= image.name %></p>
+    <p><strong>description: </strong><%= image.description %></p>
   <% end %>
   <p><strong>posted by <%= link_to image.user.username, image.user %></p>
-  <p>was created at <%= image.created_time %></p>
-
-
-  <% if image.comments.any? %>
-    <h4>Comments:</h4>
-    <div class="comment">
-      <% image.comments.each do |c| %>
-        <%= c.body %>
-        <p>posted by <%= link_to c.username, c.user %>,
-          at <%= c.created_time %></p>
-      <% end %>
-    </div>
-  <% end %>
+  <p>was created on <%= image.created_time %></p>
 </div>

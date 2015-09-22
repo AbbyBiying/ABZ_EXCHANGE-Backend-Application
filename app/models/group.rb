@@ -11,7 +11,7 @@ class Group < ActiveRecord::Base
   validates :description, presence: true, uniqueness: true
 
   def created_time
-    created_at.strftime("%H:%M, %m/%d/%Y %Z")
+    created_at.strftime("%A, %B %d, %Y")
   end
 
   def self.by_most_recent

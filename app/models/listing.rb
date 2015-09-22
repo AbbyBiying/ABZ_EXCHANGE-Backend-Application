@@ -3,7 +3,7 @@ class Listing < ActiveRecord::Base
     styles: { medium: "300x300>", thumb: "100x100>" },
     storage: :s3,
     s3_credentials: "config/s3.yml",
-    default_url: "/images/missing_avatar.png"
+    default_url: "/images/photo_default.png"
 
   belongs_to :user
 
@@ -24,7 +24,7 @@ class Listing < ActiveRecord::Base
   end
 
   def created_time
-    created_at.strftime("%H:%M, %m/%d/%Y %Z")
+    created_at.strftime("%A, %B %d, %Y")
   end
 
   def self.by_most_recent

@@ -1,9 +1,20 @@
-<div class="listing">
-  <div class="by-user">
-    <p>by: <%= link_to comment.user.username, comment.user %></p>
-  </div>
+<div class="content-group">
 
   <div class="comment-content">
     <%= comment.body %>
   </div>
+  <div class="by-user">
+    <p>post by: <%= link_to comment.user.username, comment.user %></p>
+    <p>was created on <%= comment.created_time %></p>
+  </div>
+<!--
+  <div>
+    "Edit"
+    "Delete"
+  </div> -->
+
+  <% if comment.user == current_user %>
+    <%= render partial: "comments/form", locals: { comment: comment, commentable: comment.commentable } %>
+  <% end %>
 </div>
+

@@ -22,20 +22,11 @@
 @media only screen and (max-device-width: 1500px) {
 
   #directions {
-    width: 985px;
+    width: 100%;
   }
 
   #map {
-    width: 985px;
+    width: 100%;
   }
 }
 
-@media only screen and (max-device-width: 320px) {
-  #directions {
-    width: 32em;
-  }
-
-  #map {
-    width: 32em;
-  }
-}

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.valid?
-        # UserMailer.welcome_email(@user).deliver
+        UserMailer.welcome_email(@user).deliver
 
         sign_in(@user)
 

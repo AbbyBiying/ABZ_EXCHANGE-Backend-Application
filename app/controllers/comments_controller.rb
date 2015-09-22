@@ -3,11 +3,12 @@ class CommentsController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def create
+    p current_user.inspect
     @comment = current_user.comments.new(comment_params)
     if @comment.save
       redirect_to @comment.commentable
     else
-      redirect_to :back
+      redirect_to @comment.commentable
     end
   end
 
@@ -18,15 +19,16 @@ class CommentsController < ApplicationController
   def update
     find_comment
     if @comment.update(comment_params)
-      redirect_to @comment
+      redirect_to @comment.commentable
     else
-      render :edit
+      redirect_to @comment.commentable
     end
   end
 
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
+
     redirect_to root_path
   end
 
@@ -45,6 +47,7 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(
+      :avatar,
       :commentable_type,
       :commentable_id,
       :body

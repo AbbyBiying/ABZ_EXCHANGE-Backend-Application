@@ -1,34 +1,49 @@
 .container {
   max-width: 960px;
   margin: 20px auto;
+  padding: 1rem;
+  @media only screen and (max-width: 1000px) {
+    max-width: 80%;
+    margin: 20px auto;
+  }
+}
+
+.clearfix{
+  @media only screen and (max-width: 900px) {
+    font-size: 0.8em;
+  }
 }
 
 .exchange-in-process {
   padding: 30px;
 }
 
-a:active, a:hover {
-  color: #177F75;
+a {
+  text-decoration: none;
+}
+
+/*a:active, a:hover {
+  color: #666667;
 }
 
 a:link {
-  color: #177F75;
+  color: #666667;
   text-decoration: none;
 }
 
 a:visited {
-  color: #177F75;
+  color: #666667;
 }
 
 .create-button a:active, a:hover {
   color: #177F75;
-}
+}*/
 
 body {
   background-color: #EFEFEF;
   color: #177F75;
   font-family: 'Open Sans', sans-serif;
-  font-size: 25px;
+  font-size: 17px;
   line-height: 1.5;
   margin: 0;
   overflow-x: hidden;
@@ -46,9 +61,8 @@ body {
 }
 
 .footer {
-  font-size: 15px;
+  font-size: 0.8em;
   margin-top: 100px;
-  margin-right: -20px;
   padding-bottom: 20px;
   padding: 20px;
   text-align: center;
@@ -56,23 +70,21 @@ body {
 
 img {
   width: 200px;
+
+  @media only screen and (max-width: 700px) {
+    width: 80%;
+  }
 }
 
-.button-container li {
-  border-radius: 5px;
-  background-color: #F1603B;
-  font-size: 20px;
-  display: inline;
-  padding: 10px;
-  margin-right: 30px;
+ul {
+  padding: 0;
 }
 
-.button-container a {
-  color: #EBEBEB;
-}
-
-.button-container a:active, a:hover {
-  color: #177F75;
+.button-container {
+  li {
+    display: inline;
+    padding: 0.6rem;
+  }
 }
 
 .edit-listing p {
@@ -96,7 +108,7 @@ img {
 }
 
 .edit-offer a:hover {
-  color: #1695A3;
+  color: #0080ff;
 }
 
 .clearfix:after {
@@ -127,10 +139,6 @@ img {
   width: 850px;
 }
 
-.edit a:hover, a:active{
-  color: #E46B08;
-}
-
 .edit {
   font-size: 20px;
   padding: 10px;
@@ -153,19 +161,6 @@ input {
   margin-left: 180px;
 }
 
-.introduction {
-  li {
-    font-size: 1.5em;
-    padding-bottom: 7px;
-  }
-  width: 100%;
-}
-
-.introduction .title {
-  font-size: 160px;
-  text-align: center;
-}
-
 .location a:hover, a:active{
   color: #177F75;
 }
@@ -174,44 +169,12 @@ input {
   font-size: 20px;
 }
 
-.create-location-button {
-  border-radius: 5px;
-  background-color: #F1603B;
-  font-size: 20px;
-  padding: 10px;
-  width: 160px;
-}
-
-.create-location-button a {
-  color: #EBEBEB;
-}
-
-.create-button {
-  border-radius: 5px;
-  background-color: #F1603B;
-  font-size: 20px;
-  padding: 10px;
-  width: 160px;
-}
-
-.create-buttona {
-  color: #EBEBEB;
-}
-
-.make-list {
-  border-radius: 5px;
-  background-color: #F1603B;
-  font-size: 20px;
-  padding: 35px;
-  width: 168px;
-}
-
-.make-list a {
-  color: #EBEBEB;
+.header-container {
+  background-color: #F6764B;
+  display: block;
 }
 
 nav {
-  background-color: #F6764B;
   padding: 10px;
   width: 100%;
 }
@@ -246,20 +209,14 @@ nav .search {
 }
 
 .session-introduction {
-  margin-left: 15em;
-}
-
-.session-introduction .title {
-  font-size: 3em;
-}
-
-.session p {
-  font-size: 13px;
+  .title {
+    font-size: 3em;
+    text-align: center;
+  }
 }
 
 .sign-in {
-  font-size: 18px;
-  padding: 5px;
+  /*font-size: 18px;*/
 }
 
 .sign-in a:hover, a:active, {
@@ -276,10 +233,10 @@ nav .search {
 }
 
 .sign-up {
-  border-radius: 5px;
-  font-size: 18px;
-  padding: 5px;
-  margin-top: -20px;
+  /*border-radius: 5px;
+  font-size: 18px;*/
+  /*padding: 5px;
+  margin-top: -20px;*/
 }
 
 .sign-up a:hover, a:active, {
@@ -294,13 +251,12 @@ ul {
   list-style-type: none;
   list-style-position: inside;
   padding: 10px 10px -5px 10px;
-  margin-left: -30px;
   width: 100%;
 }
 
 .clearfix li {
   font-size: 1em;
-  margin-right: 1.2em;
+  padding-right: 1em;
 }
 
 .clearfix a:hover, a:active {
@@ -309,9 +265,6 @@ ul {
 
 .user {
   width: 850px;
-  a:hover, a:active {
-    color: #1695A3;
-  }
 }
 
 .new {
@@ -326,20 +279,31 @@ ul {
   color: #1695A3;
 }
 
-.success {
-  font-size: 20px;
-  text-align: center;
-  margin: 3em auto;
-}
-
-.success p {
-  font-size: 25px;
-}
-
 .successful-exchange {
   padding: 20px;
 }
 
-.successful-exchange .successful-listing{
-  width: 400px;
+.index-header {
+  font-size: 1.4em;
+  text-align: center;
+  margin: 2em 0 1em;
+}
+
+.button {
+  display: inline-block;
+  border-top: darken(#F6764B, 10%);
+  background: #F6764B;
+  margin: 0.5em;
+  padding: 0.4em 0.6em;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  color: white;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.button:hover {
+  background: white;
+  color: #F6764B;
 }
