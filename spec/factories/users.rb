@@ -6,5 +6,4 @@ FactoryGirl.define do
     sequence(:password_digest) { |n| "iugdfghukijlkhjg#{n}" }
     location
   end
-
 end

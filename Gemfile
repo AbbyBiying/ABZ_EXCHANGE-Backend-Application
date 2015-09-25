@@ -22,6 +22,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
+gem 'puma'
 
 group :development do
   gem "foreman"
@@ -37,6 +38,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'webmock'
 end
 
 group :development, :test do

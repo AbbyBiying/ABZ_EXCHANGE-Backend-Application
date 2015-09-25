@@ -1,6 +1,9 @@
 <%= form_for comment do |c| %>
+
   <%= c.hidden_field :commentable_type %>
   <%= c.hidden_field :commentable_id %>
+
+  <%= c.label :body, style: "display: none;" %>
   <%= c.text_area :body, placeholder: "type comment" %>
   <%= c.submit %>
 <% end %>

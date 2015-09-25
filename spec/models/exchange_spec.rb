@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Exchange, :type => :model do
+RSpec.describe Exchange, type: :model do
   describe "completed?" do
     # Classicist Test
     it "should return true if the exchange has been completed" do

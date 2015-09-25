@@ -7,6 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'capybara/rspec'
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -23,7 +25,43 @@ require 'capybara/rspec'
 # of increasing the boot-up time by auto-requiring all files in the support
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
-#
+
+
+Monban.test_mode!
+
+RSpec.configure do |config|
+  config.include Monban::Test::ControllerHelpers, type: :controller
+  config.after :each do
+    Monban.test_reset!
+  end
+end
+
+RSpec.configure do |config|
+
+  config.include Monban::Test::Helpers, type: :feature
+
+  config.after :each do
+    Monban.test_reset!
+  end
+  config.before(:suite) do
+    Geocoder.configure(lookup: :test)
+
+    Geocoder::Lookup::Test.set_default_stub(
+     [
+      {
+        'latitude'     => 40.7143528,
+        'longitude'    => -74.0059731,
+        'address'      => 'New York, NY, USA',
+        'state'        => 'New York',
+        'state_code'   => 'NY',
+        'country'      => 'United States',
+        'country_code' => 'US'
+      }
+     ]
+    )
+  end
+end
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 Capybara.javascript_driver = :webkit
@@ -32,6 +70,8 @@ Capybara.javascript_driver = :webkit
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include Features, type: :feature
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

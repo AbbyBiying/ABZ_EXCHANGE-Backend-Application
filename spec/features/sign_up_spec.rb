@@ -1,18 +1,14 @@
 require "rails_helper"
 
-describe "the signup process", :type => :feature do
+describe "the signup process", type: :feature do
 
   it "signs me up" do
-    visit root_path
-    click_on "Sign Up"
-    fill_in "Username", with: "Cat Bear"
-    click_on "Create User"
-    expect(page).to have_content "Email can't be blank"
+    valid_sign_up
   end
 
   pending
   it "blah blah" do
-
+    # expect(welcome_email).to receive(:deliver)
   end
 
 end
