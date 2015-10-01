@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.describe ListingsController, type: :controller do
+RSpec.describe GroupsController, type: :controller do
   describe "GET #index" do
-    it "show all listings" do
+    it "show all groups" do
       user = create(:user)
       sign_in(user)
-      listing = create(:listing)
+      group = create(:group)
 
       get :index
 
@@ -14,38 +14,38 @@ RSpec.describe ListingsController, type: :controller do
   end
 
   describe "GET #show" do
-    it "show a listing" do
+    it "show a group" do
       user = create(:user)
       sign_in(user)
-      listing = create(:listing)
+      group = create(:group)
 
-      get :show, id: listing.id
+      get :show, id: group.id
 
       expect(response).to render_template(:show)
     end
   end
 
   describe "GET #edit" do
-    it "edit a listing" do
+    it "edit a group" do
       user = create(:user)
       sign_in(user)
-      listing = create(:listing, user: user)
+      group = create(:group, user: user)
 
-      get :edit, id: listing.id
+      get :edit, id: group.id
 
       expect(response).to render_template(:edit)
     end
   end
 
   describe "PATCH #update" do
-    it "update a listing" do
+    it "update a group" do
       user = create(:user)
       sign_in(user)
-      listing = create(:listing, user: user)
+      group = create(:group, user: user)
 
-      patch :update, id: listing.id, listing: { name: "new name"}
+      patch :update, id: group.id, group: { name: "new name"}
 
-      expect(response).to redirect_to listing
+      expect(response).to redirect_to group
     end
   end
 end

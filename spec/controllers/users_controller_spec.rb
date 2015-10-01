@@ -6,6 +6,7 @@ RSpec.describe UsersController, type: :controller do
       user = create(:user)
       sign_in(user)
       get :index
+
       expect(response).to render_template(:index)
     end
   end

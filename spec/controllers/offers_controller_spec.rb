@@ -21,6 +21,7 @@ RSpec.describe OffersController, type: :controller do
       offer = create(:offer, listing: listing)
 
       get :edit, listing_id: listing.id, id: offer.id
+
       expect(response).to redirect_to listing_path(listing)
     end
   end
