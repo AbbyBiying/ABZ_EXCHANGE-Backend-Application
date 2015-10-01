@@ -24,7 +24,9 @@ RSpec.describe UsersController, type: :controller do
     it "edit a user" do
       user = create(:user)
       sign_in(user)
+
       get :edit, id: user.id
+
       expect(response).to render_template(:edit)
     end
   end

@@ -2,10 +2,6 @@ class OffersController < ApplicationController
   before_action :require_login
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
-  def index
-    @offers = Offer.all
-  end
-
   def new
     @offer = Offer.new
   end
@@ -72,7 +68,6 @@ class OffersController < ApplicationController
       :avatar,
       :description,
       :name,
-      :url,
       :user_id
       ).merge(listing: @listing, user: current_user)
   end
