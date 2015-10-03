@@ -33,13 +33,13 @@ RSpec.describe OffersController, type: :controller do
       listing = create(:listing, user: user)
       offer = create(:offer, listing: listing)
 
-      patch :edit, listing_id: listing.id, id: offer.id, offer: { name: "offer name", description: "offer description" }
+      patch :update, listing_id: listing.id, id: offer.id, offer: { name: "offer name", description: "offer description" }
 
       expect(response).to redirect_to listing_path(listing)
     end
   end
 
-  describe "DELETE #update" do
+  describe "DELETE #destroy" do
     it "delete an offer" do
       user = create(:user)
       sign_in(user)

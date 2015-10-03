@@ -12,15 +12,13 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    find_comment
-  end
-
   def update
     find_comment
     if @comment.update(comment_params)
+      p @comment.inspect
       redirect_to @comment.commentable
     else
+      p "did not save"
       redirect_to @comment.commentable
     end
   end

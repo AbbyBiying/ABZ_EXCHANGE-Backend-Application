@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     root "sessions#new"
   end
 
-  resources :comments
+  resources :comments, except: [:edit, :show]
 
   resource :home, only: [:show]
   resources :images do
@@ -35,8 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups do
-  end
+  resources :groups
 
   resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
