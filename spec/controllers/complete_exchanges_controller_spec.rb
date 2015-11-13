@@ -8,7 +8,8 @@ RSpec.describe CompleteExchangesController, type: :controller do
       listing = create(:listing)
       offer = create(:offer, listing: listing)
       exchange = create(:exchange, listing: listing, offer: offer)
-      p "exchange no.#{exchange.id}"
+      # p "exchange no.#{exchange.id}"
+
       post :create, id: exchange.id
 
       expect(response).to redirect_to successful_exchanges_path

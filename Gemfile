@@ -8,7 +8,7 @@ gem 'gmaps4rails'
 gem 'jbuilder', '~> 2.0'
 gem 'js-rails'
 gem 'jquery-rails'
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip"
 gem 'monban-generators'
 gem 'monban'
 gem 'neat'
@@ -39,6 +39,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'webmock'
+  gem 'cucumber'
 end
 
 group :development, :test do
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
+  gem 'cucumber-rails', require: false
 end
 
 group :production do

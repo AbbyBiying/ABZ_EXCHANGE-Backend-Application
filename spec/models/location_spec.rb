@@ -6,6 +6,5 @@ RSpec.describe Location, type: :model do
 
     expect(location.latitude).to eql 40.7143528
     expect(location.longitude).to eql -74.0059731
-    # expect(location.country_code).to eql "United States"
   end
 end

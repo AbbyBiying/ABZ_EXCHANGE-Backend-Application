@@ -4,6 +4,5 @@ FactoryGirl.define do
     user
     sequence(:name) { |n| "Name No. #{n}" }
     sequence(:description) { |n| "Description No. #{n}" }
-
   end
 end

@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
 
   describe "#can_accept?" do
     # Classicist Test
-    it "should return true if the listing has the offer" do
-      location = Location.create!(city: "New York", state: "NY")
-      user = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYH")
-      listing = Listing.create!(name: "pen", description: "black one", user: user)
+    it "should return true if the listing has a offer" do
+      user = create(:user)
+      listing = create(:listing, user: user)
+      offer = create(:offer, listing: listing)
 
       expect(user.can_accept?(listing)).to eql true
     end
@@ -31,8 +31,8 @@ RSpec.describe User, type: :model do
   describe "#includes_myself" do
     # Classicist Test
     it "should return an array of my and my followers' user IDs" do
-      location = Location.create!(city: "New York", state: "NY")
-      user1 = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYHZ")
+      location = create(:location)
+      user1 = create(:user)
       user2 = user1.followed_users.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")
 
       expect(user1.includes_myself).to eql [user1.id, user2.id]
@@ -51,8 +51,8 @@ RSpec.describe User, type: :model do
   describe "#followings?" do
     # Classicist Test
     it "should return true if the current user is following a user" do
-      location = Location.create!(city: "New York", state: "NY")
-      user1 = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYHZ")
+      location = create(:location)
+      user1 = create(:user)
       user2 = user1.followers.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")
 
       expect(user2.followings?(user1)).to eql true
@@ -70,9 +70,8 @@ RSpec.describe User, type: :model do
   describe "#follow" do
     # Classicist Test
     it "should add user to followers array" do
-      location = Location.create!(city: "New York", state: "NY")
-      user1 = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYHZ")
-      user2 = User.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")
+      user1 = create(:user)
+      user2 = create(:user)
       user1.follow(user2)
 
       expect(user1.followed_users).to include user2
@@ -95,18 +94,15 @@ RSpec.describe User, type: :model do
   describe "#unfollow" do
     # Classicist Test
     it "should remove the user from the followed_users array" do
-      location = Location.create!(city: "New York", state: "NY")
-      user1 = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYHZ")
-      user2 = User.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")
-      user3 = User.create!(email: "ab@gmail.com", username: "ab", location: location, password_digest: "OIUYHZZZ")
-
+      user1 = create(:user)
+      user2 = create(:user)
+      user3 = create(:user)
       user1.follow(user2)
       user1.follow(user3)
       user1.unfollow(user2)
 
       expect(user1.followed_users).to_not include user2
       expect(user1.followed_users).to include user3
-
     end
 
     # Mockist Test
@@ -120,6 +116,5 @@ RSpec.describe User, type: :model do
 
       user.unfollow(followed_user)
     end
-
   end
 end

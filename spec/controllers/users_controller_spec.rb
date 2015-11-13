@@ -5,6 +5,7 @@ RSpec.describe UsersController, type: :controller do
     it "show all users" do
       user = create(:user)
       sign_in(user)
+
       get :index
 
       expect(response).to render_template(:index)
@@ -15,6 +16,7 @@ RSpec.describe UsersController, type: :controller do
     it "show a user" do
       user = create(:user)
       sign_in(user)
+
       get :show, id: user.id
 
       expect(response).to render_template(:show)

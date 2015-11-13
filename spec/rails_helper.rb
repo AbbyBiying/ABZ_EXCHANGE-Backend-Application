@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'shoulda-matchers'
 require 'capybara/rspec'
 require 'webmock/rspec'
+
 WebMock.disable_net_connect!(allow_localhost: true)
 
 

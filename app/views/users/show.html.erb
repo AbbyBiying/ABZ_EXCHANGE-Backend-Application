@@ -12,7 +12,7 @@
 <div class="user">
   <% if @user != current_user %>
     <% if current_user.followings?(@user) %>
-      <%= button_to "unfollow", follow_user_path(@user), method: :delete %>
+      <%= button_to "unfollow!", follow_user_path(@user), method: :delete %>
     <% else %>
       <%= button_to "follow!", follow_user_path(@user) %>
     <% end %>

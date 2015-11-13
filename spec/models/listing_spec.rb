@@ -7,23 +7,15 @@ RSpec.describe Listing, type: :model do
   describe "accepted?" do
     # Classicist Test
     it "should return true if the listing has been accepted" do
-      location = Location.create!(city: "New York", state: "NY")
-      user = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYH")
-      listing = Listing.create!(name: "apple pencil", user: user, description: "The lightning-fast responsiveness of Apple Pencil separates it from other creative tools.")
-      offer = Offer.create!(name: "an apple", description: "green", user: user)
-      exchange = Exchange.create!(listing: listing, offer: offer)
+      exchange = create(:exchange)
 
-      expect(listing.accepted?).to eql true
+      expect(exchange.listing.accepted?).to eql true
     end
 
     it "should return false if the listing has not been accepted" do
-      location = Location.create!(city: "New York", state: "NY")
-      user = User.create!(email: "abc@gmail.com", username: "jb", location: location, password_digest: "OIUYH")
-      listing = Listing.create!(name: "apple pencil", user: user, description: "The lightning-fast responsiveness of Apple Pencil separates it from other creative tools.")
-      # offer = Offer.create!(name: "an apple", description: "green", user: user)
-      # exchange = Exchange.create!(listing: listing, offer: offer)
+      offer = create(:offer)
 
-      expect(listing.accepted?).to eql false
+      expect(offer.listing.accepted?).to eql false
     end
 
     # Mockist Test
@@ -33,7 +25,6 @@ RSpec.describe Listing, type: :model do
       exchange = double("exchange", "present?" => dummy)
 
       expect(listing).to receive(:exchange).and_return(exchange)
-
       expect(listing.accepted?).to eql dummy
     end
 
@@ -43,9 +34,7 @@ RSpec.describe Listing, type: :model do
       exchange_presence = double("exchange_presence")
 
       expect(listing).to receive_message_chain("exchange.present?").and_return(exchange_presence)
-
       expect(listing.accepted?).to eql exchange_presence
     end
   end
-
 end

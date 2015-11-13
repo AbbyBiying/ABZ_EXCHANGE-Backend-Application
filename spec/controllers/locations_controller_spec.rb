@@ -6,7 +6,9 @@ RSpec.describe LocationsController, type: :controller do
       user = create(:user)
       sign_in(user)
       location = create(:location)
+
       get :index
+
       expect(response).to render_template(:index)
     end
   end
@@ -16,6 +18,7 @@ RSpec.describe LocationsController, type: :controller do
       user = create(:user)
       sign_in(user)
       location = create(:location)
+
       get :show, id: location.id
 
       expect(response).to render_template(:show)

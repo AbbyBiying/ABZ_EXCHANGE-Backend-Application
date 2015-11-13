@@ -21,6 +21,7 @@ RSpec.describe CommentsController, type: :controller do
       comment = create(:comment, commentable: image, body: "old comment body", user: user)
 
       patch :update, id: comment.id, comment: { commentable_id: image.id, commentable_type: "Image", body: "new comment body" }
+
       expect(response).to redirect_to image_path comment.commentable
     end
   end

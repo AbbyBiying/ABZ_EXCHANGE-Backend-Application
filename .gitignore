@@ -19,3 +19,4 @@
 /public/system/users/avatars
 
 .env
+/vendor/cache

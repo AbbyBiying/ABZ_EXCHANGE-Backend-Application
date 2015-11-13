@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :comments, except: [:edit, :show]
 
   resource :home, only: [:show]
-  resources :images do
+    resources :images do
   end
 
   resources :listings do
