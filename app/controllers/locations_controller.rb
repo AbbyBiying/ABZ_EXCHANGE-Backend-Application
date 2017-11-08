@@ -2,7 +2,6 @@ class LocationsController < ApplicationController
   before_action :require_login, except: [:index]
   def new
     @locations = Location.all
-    @location_hash = Gmap.new(@locations).build_map!
     @location = Location.new
   end
 
