@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 gem 'aws-sdk', '~> 1.6'
 gem 'bourbon'
@@ -16,13 +17,15 @@ gem 'newrelic_rpm'
 gem 'normalize-rails'
 gem 'pg'
 gem 'refills'
-gem 'rmagick', '2.13.2'
+gem 'rmagick'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
 gem 'puma'
+gem 'json', '>= 1.8.6'
+gem 'mailgun-ruby', '~>1.1.6'
 
 group :development do
   gem "foreman"
@@ -37,7 +40,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'webmock'
   gem 'cucumber'
 end
