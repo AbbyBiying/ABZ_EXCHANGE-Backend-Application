@@ -27,7 +27,7 @@
 
         <% if signed_in? %>
           <li><%= link_to "Home", home_path %></li>
-          <li><%= link_to "Settings", dashboard_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
         <% end %>
         <li><%= link_to "Listings", listings_path %></li>
         <li><%= link_to "Locations", locations_path %></li>
@@ -50,10 +50,5 @@
 
   <div class="footer"><a href="mailto:abbyzhangnyc@gmail.com">Copyright&copy; Abby Biying Zhang</a></div>
 
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwjabkBpxMyBRer9KHJ-dsxLC7Yu-TzKk&callback=initMap">
-  </script>
-  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-  </script>
 </body>
 </html>
