@@ -12,6 +12,8 @@
         <li>
           <%= link_to "Listings", "#user-listings", class: "button" %>
         </li>
+        <% else %>
+          <%= link_to "Make New Listing", new_listing_path, class: "button" %>
       <% end %>
 
       <% if current_user.offers.any? %>
