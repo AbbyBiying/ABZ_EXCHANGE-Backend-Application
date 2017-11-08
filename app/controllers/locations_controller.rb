@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
-    @location_hash = Gmap.new(@locations).build_map!
+    @locations_json = @locations.map { |location| {lat:location.latitude, lng:location.longitude} }.to_json
   end
 
   def create

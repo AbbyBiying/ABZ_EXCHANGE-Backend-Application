@@ -1,10 +1,31 @@
-<br>
-<div class="users-map">
-  <div id="map"></div>
-</div>
+<div id="map"></div>
 
 <%= render @users.by_most_recent %>
 
 <script>
-  buildMap(<%= raw @location_hash.to_json %>);
+  var map, infoWindow;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 37.6871761, lng: -97.330053},
+      zoom: 3
+    });
+    infoWindow = new google.maps.InfoWindow;
+    
+    var locations = JSON.parse('<%= @locations_json.html_safe %>');
+
+    console.log(locations);
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+
+    var markers = locations.map(function(location, i){
+    	return new google.maps.Marker ({
+    		position: location,
+    		label: labels[i % labels.length]
+    	});
+    });
+
+    var markerCluster = new MarkerClusterer(map, markers,
+      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      
+  }
 </script>

@@ -1,12 +1,42 @@
-<script>
-  $(function() {
-    calcRoute([<%= @user.latitude %>, <%= @user.longitude %>],
-      [<%= current_user.latitude %>, <%= current_user.longitude %>])
-  });
-</script>
-
 <% if signed_in? %>
-  <div id="directions"></div>
+
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+      var directionsDisplay;
+      var directionsService = new google.maps.DirectionsService();
+      var map;
+
+      directionsDisplay = new google.maps.DirectionsRenderer();
+      var mapOptions = {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 7
+      }
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      directionsDisplay.setMap(map);
+
+      var start = {
+        lat: <%= current_user.latitude %>,
+        lng: <%= current_user.longitude %>
+      };
+      var end = {
+        lat: <%= @user.latitude %>,
+        lng: <%= @user.longitude %>
+      };
+      var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+      };
+      directionsService.route(request, function(result, status) {
+        if (status == 'OK') {
+          directionsDisplay.setDirections(result);
+        }
+      });
+    }
+  </script>
+
 <% end %>
 
 <div class="user">

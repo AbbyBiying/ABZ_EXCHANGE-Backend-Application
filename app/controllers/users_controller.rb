@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @location_hash = Gmap.new(@users).build_map!
+    @locations_json = @users.map { |user| {lat:user.latitude, lng:user.longitude}  }.to_json
   end
 
   def show
