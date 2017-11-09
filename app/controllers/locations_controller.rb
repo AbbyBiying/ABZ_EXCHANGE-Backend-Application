@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.all
+    @locations = Location.select { |location| location.latitude != nil && location.longitude != nil }
     @locations_json = @locations.map { |location| {lat:location.latitude, lng:location.longitude} }.to_json
   end
 
