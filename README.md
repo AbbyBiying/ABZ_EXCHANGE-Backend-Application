@@ -4,7 +4,7 @@
 
 If you have items or services to exchange we can help you connect with interested people!
 
-You can:
+When you sign up and get a welcome email, you can:
 
 * See successful exchanges
 * Add your own listing
