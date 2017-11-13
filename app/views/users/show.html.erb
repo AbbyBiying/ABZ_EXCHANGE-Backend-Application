@@ -13,7 +13,8 @@
       directionsDisplay = new google.maps.DirectionsRenderer();
       var mapOptions = {
         center: {lat: -34.397, lng: 150.644},
-        zoom: 7
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
       }
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
       directionsDisplay.setMap(map);

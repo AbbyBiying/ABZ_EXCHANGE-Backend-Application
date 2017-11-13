@@ -1,4 +1,3 @@
-<%= render "application/google_maps", object: @locations %>
 <div class="location-map">
   <div id="map"></div>
 
@@ -7,7 +6,9 @@
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.6871761, lng: -97.330053},
-      zoom: 3
+      zoom: 3,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+
     });
     infoWindow = new google.maps.InfoWindow;
     
@@ -29,6 +30,7 @@
       
   }
 </script>
+<%= render "application/google_maps", object: @locations %>
 
 </div>
 
