@@ -90,4 +90,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
   config.order = :random
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end

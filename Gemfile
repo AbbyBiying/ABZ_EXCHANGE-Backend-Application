@@ -34,8 +34,8 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.0'
-  gem 'shoulda-matchers', require: false
+  gem 'rspec-rails', '~> 3.6' 
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
@@ -45,6 +45,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.6'
   gem "dotenv-rails"
   gem 'pry-rails', require: false
   gem 'spring'
