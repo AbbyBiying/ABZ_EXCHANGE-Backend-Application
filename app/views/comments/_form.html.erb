@@ -1,9 +1,19 @@
-<%= form_for comment do |c| %>
+<div class="new-form">
+  <%= form_for comment do |c| %>
+    <%= render "application/form_errors", object: comment %>
+    
+    <div class="input-container">
+      <%= c.hidden_field :commentable_type, value: commentable.class %>
+      <%= c.hidden_field :commentable_id, value: commentable.id %>
+    </div>
 
-  <%= c.hidden_field :commentable_type %>
-  <%= c.hidden_field :commentable_id %>
+    <div class="input-container">
+      <%= c.label :body %>
+      <%= c.text_area :body %>
+    </div>
 
-  <%= c.label :body, style: "display: none;" %>
-  <%= c.text_area :body, placeholder: "type comment" %>
-  <%= c.submit %>
-<% end %>
+    <div class="submit-button">
+      <%= c.button "Submit", :class => "button" %>
+    </div>
+  <% end %>
+</div>

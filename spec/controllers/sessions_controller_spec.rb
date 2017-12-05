@@ -6,7 +6,7 @@ RSpec.describe SessionsController, type: :controller do
       it 'renders the page with error' do
         user = create(:user)
 
-        post :create, session: { username: user.username, password: "invalid" }
+        post :create, session: { email: user.email, password: "invalid" }
 
         expect(response).to render_template(:new)
        end
@@ -16,7 +16,7 @@ RSpec.describe SessionsController, type: :controller do
       it 'sets the user in the session and redirects them to their dashboard' do
         user = create(:user)
 
-        post :create, session: { username: user.username, password: user.password_digest }
+        post :create, session: { email: user.email, password: user.password_digest }
 
         expect(response).to redirect_to root_path
         expect(controller.current_user).to eq user

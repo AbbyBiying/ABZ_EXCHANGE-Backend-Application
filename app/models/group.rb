@@ -10,15 +10,8 @@ class Group < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
 
-  def created_time
-    created_at.strftime("%A, %B %d, %Y")
-  end
+  extend OrderHelper
+  include TimeFormatHelper
+  extend SearchByNameHelper
 
-  def self.by_most_recent
-    order(created_at: :desc)
-  end
-
-  def self.find_group(search)
-    where("name ILIKE ?", "%#{search}%")
-  end
 end

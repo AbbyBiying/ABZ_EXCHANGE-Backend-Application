@@ -38,7 +38,7 @@
   <h2>Where would you like to go?</h2>
   <% @locations.each do |location| %>
     <p class="location">
-      <b class="location"><%= link_to location.city.titleize + ', ' + location.state.upcase, location %>
+      <strong class="location"><%= link_to location.city.titleize + ', ' + location.state.upcase, location %></strong>
   <% end %>
 
   <p><%= link_to "Add a new location", new_location_path, class: "button" %></p>

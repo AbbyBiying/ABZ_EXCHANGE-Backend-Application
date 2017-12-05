@@ -8,9 +8,7 @@ class Location < ActiveRecord::Base
   validates :city, presence: true, uniqueness: { scope: :state, message: "Sorry, the location already exists in our dropdown menu." }
   validates :state, presence: true
 
-  def self.by_most_recent
-    order(created_at: :desc)
-  end
+  extend OrderHelper
 
   def city_and_state
     "#{city}, #{state}"
@@ -22,5 +20,9 @@ class Location < ActiveRecord::Base
 
   def upcase_state
     self.state = self.state.upcase if self.state.present?
+  end
+  
+  def self.order_by_city
+    where("latitude IS NOT NULL AND longitude IS NOT NULL").order(city: :asc) 
   end
 end

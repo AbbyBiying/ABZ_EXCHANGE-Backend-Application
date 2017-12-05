@@ -2,13 +2,14 @@ class GuestUser
   def username
     "Guest"
   end
-
+  
+  # defalut location for guest user is New York, NY
   def latitude
-    0.0
+    40.7127753
   end
 
   def longitude
-    0.0
+    -74.0059728
   end
 
   def followings?(_user)

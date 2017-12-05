@@ -11,13 +11,14 @@ class GroupsController < ApplicationController
   end
 
   def show
-    find_group
+    find_by_name
     @comment = Comment.new
   end
 
   def create
     @group = current_user.groups.build(group_params)
     if @group.save
+      flash[:notice] = "Group was successfully created!"
       redirect_to @group
     else
       render :new
@@ -25,12 +26,13 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    find_group
+    find_by_name
   end
 
   def update
-    find_group
+    find_by_name
     if @group.update(group_params)
+      flash[:notice] = "Group was successfully updated!"
       redirect_to @group
     else
       render :edit
@@ -40,6 +42,7 @@ class GroupsController < ApplicationController
   def destroy
     group = Group.find(params[:id])
     group.destroy
+    flash[:notice] = "Group was successfully deleted!"
     redirect_to root_path
   end
 
@@ -47,12 +50,12 @@ class GroupsController < ApplicationController
 
   def require_permission
     if current_user != Group.find(params[:id]).user
-      flash[:error] = "You do not have the right to do it."
+      flash[:error] = "You do not have the permission to do it."
       redirect_to dashboard_path
     end
   end
 
-  def find_group
+  def find_by_name
     @group ||= Group.find(params[:id])
   end
 

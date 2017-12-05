@@ -3,7 +3,7 @@ class CompleteExchangesController < ApplicationController
 
   def create
     @successful_exchange = SuccessfulExchange.create(exchange: exchange)
-
+    flash[:notice] = "Successful exchange!"
     redirect_to successful_exchanges_path
   end
 

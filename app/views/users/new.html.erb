@@ -1,1 +1,9 @@
-<%= render "form", user: @user %>
+<% unless signed_in? %>
+  <div class="session-introduction">
+    <%= render "homes/introduction" %>
+  </div>
+<% end %>
+
+<div class="user-form">
+  <%= render "form", user: @user %>
+</div>

@@ -10,6 +10,6 @@ describe "create listing process", type: :feature do
     # visit new_listing_path
     # fill_in "name", with: "Cup"
     # fill_in "description", with: "Red one"
-    # click_button "Create Listing"
+    # click_button "Submit"
   end
 end

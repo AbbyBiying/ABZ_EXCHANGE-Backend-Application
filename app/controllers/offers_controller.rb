@@ -7,7 +7,7 @@ class OffersController < ApplicationController
   end
 
   def show
-    find_offer
+    find_by_name
   end
 
   def create
@@ -15,6 +15,7 @@ class OffersController < ApplicationController
     @offer = @listing.offers.new(offer_params)
 
     if @offer.save
+      flash[:notice] = "Offer was successfully created!"
       redirect_to @listing
     else
       redirect_to @listing
@@ -31,6 +32,7 @@ class OffersController < ApplicationController
     @offer = @listing.offers.find(params[:id])
 
     if @offer.update(offer_params)
+      flash[:notice] = "Offer was successfully updated!"
       redirect_to @listing
     else
       render :edit
@@ -41,15 +43,15 @@ class OffersController < ApplicationController
     listing = find_listing
     offer = listing.offers.find(params[:id])
     offer.destroy
-
+    flash[:notice] = "Offer was successfully deleted!"
     redirect_to listing
   end
 
   private
 
   def require_permission
-    if current_user != find_offer.user
-      flash[:error] = "You do not have the right to do it."
+    if current_user != find_by_name.user
+      flash[:error] = "You do not have the permission to do it."
 
       redirect_to @offer.listing
     end
@@ -59,7 +61,7 @@ class OffersController < ApplicationController
     @listing = Listing.find(params[:listing_id])
   end
 
-  def find_offer
+  def find_by_name
     @offer ||= Offer.find(params[:id])
   end
 

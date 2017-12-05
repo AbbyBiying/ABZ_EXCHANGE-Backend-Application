@@ -1,11 +1,12 @@
-<h2 class="search-result">search results for <%= params[:search] %>:</h2>
-<% if @comments.any? || @users.any? || @listings.any? || @offers.any? || @images.any? || @groups.any? %>
-  <p><%= render @comments %></p>
-  <p><%= render @users %></p>
-  <p><%= render @listings %></p>
-  <p><%= render @offers %></p>
+<header>search results for <%= params[:search] %>:</header>
+<% if @comments.any? ||  @offers.any? || @listings.any? || @users.any? || @images.any? || @groups.any? %>
+  <p><%= render @comments %></p> 
+  <p><%= render @listings %></p> 
   <p><%= render @images %></p>
-  <p><%= render @groups %></p>
+  <p><%= render @groups %></p>  
+  <p><%= render @users %></p>  
+  <p><%= render @offers %></p>
+
 <% else %>
-  <p> Sorry, we did not find anything. </p>
+  <p> Sorry, we did not find matches. </p>
 <% end %>

@@ -9,7 +9,7 @@ module Features
     fill_in 'City', with: "New York"
     fill_in 'State', with: "NY"
     fill_in 'Bio', with: "I am an artist."
-    click_button "Create User"
-  end
+    click_button "Submit"
+  end 
 
 end

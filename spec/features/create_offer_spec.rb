@@ -8,6 +8,8 @@ describe "create offer process", type: :feature do
     click_on "Existing Listing"
     fill_in "Name", with: "Glass"
     fill_in "Description", with: "White one"
-    click_button "Create Offer"
+    within(:css, ".offer") do
+      click_button "Submit"
+    end
   end
 end

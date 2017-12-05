@@ -7,5 +7,5 @@ class SuccessfulExchangesController < ApplicationController
     params.require(:successful_exchanges).permit(
       :rating
       )
-  end
+  end 
 end

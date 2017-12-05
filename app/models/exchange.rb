@@ -6,6 +6,10 @@ class Exchange < ActiveRecord::Base
   has_one :successful_exchange
 
   validates_uniqueness_of :offer, scope: :listing
+  
+  extend OrderHelper
+  include TimeFormatHelper
+  extend SearchByNameHelper
 
   def completed?
     successful_exchange.present?

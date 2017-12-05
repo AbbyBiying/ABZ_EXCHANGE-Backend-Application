@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = find_listing
+    @listing = find_by_name
     @offer = Offer.new
     @comment = Comment.new
   end
@@ -19,6 +19,7 @@ class ListingsController < ApplicationController
   def create
     @listing = current_user.listings.build(listing_params)
     if @listing.save
+      flash[:notice] = "Listing was successfully created!"
       redirect_to @listing
     else
       render :new
@@ -26,12 +27,13 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @listing = find_listing
+    @listing = find_by_name
   end
 
   def update
-    listing = find_listing
+    listing = find_by_name
     if listing.update(listing_params)
+      flash[:notice] = "Listing was successfully updated!"
       redirect_to listing
     else
       render :edit
@@ -39,8 +41,9 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-    listing = find_listing
+    listing = find_by_name
     listing.destroy
+    flash[:notice] = "Listing was successfully deleted!"
 
     redirect_to root_path
   end
@@ -48,14 +51,14 @@ class ListingsController < ApplicationController
   private
 
   def require_permission
-    if current_user != find_listing.user
-      flash[:error] = "You do not have the right to do it."
+    if current_user != find_by_name.user
+      flash[:error] = "You do not have the permission to do it."
 
       redirect_to dashboard_path
     end
   end
 
-  def find_listing
+  def find_by_name
     Listing.find(params[:id])
   end
 

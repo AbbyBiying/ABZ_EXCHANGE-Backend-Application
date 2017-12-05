@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
       expect(user).to receive(:listings).and_return(listings)
       expect(listings).to receive(:include?).with(offer).and_return(true)
       expect(user.can_accept?(offer)).to eql true
-   end
+    end
   end
 
   describe "#includes_myself" do
@@ -117,4 +117,16 @@ RSpec.describe User, type: :model do
       user.unfollow(followed_user)
     end
   end
+
+  # describe "#single_location_specified" do
+  #   it "should add an error message to errors if user's location is not single" do
+  #     location = create(:location, city: "IRVINE", state: "CA")
+  #     user = build(:user, location: location, location_attributes:  { city: "COSTA MESA", state: "CA" })
+
+  #     user.single_location_specified
+
+  #     expect(user.errors[:location]).to include "Two locations selected."
+  #   end
+  # end
+
 end

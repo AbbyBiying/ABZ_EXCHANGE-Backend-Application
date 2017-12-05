@@ -9,7 +9,7 @@
   <% end %>
 
   <% if @listing.exchange.present? && @listing.exchange.successful_exchange.present?%>
-    <p>This exchange is completed!</p>
+    <header>This exchange is completed!</header>
   <% end %>
 </div>
 
@@ -20,25 +20,27 @@
   <%= link_to "Delete", listing_path(@listing), method: :delete, class: "button", data: { confirm: 'Are you sure you want to delete this listing?' } %>
 <% end %>
 
-<div class="user">
+<div class="new-form offer">
   <% unless (@listing.user == current_user ||  @listing.accepted?) %>
-    <p>Make an offer</p>
+    <header class="new">Make an offer!</header>
     <%= form_for [@listing, @offer] do |form| %>
-
-      <div>
-        <%= form.label :name, style: "display: none;" %>
-        <%= form.text_area :name, placeholder: "type offer name"%>
-      </div>
-
-      <div>
-        <%= form.label :description, style: "display: none;" %>
-        <%= form.text_area :description, placeholder: "type offer description" %>
-      </div>
-
-      <div>
+      <div class="input-container">
         <%= form.file_field :avatar %>
       </div>
-      <%= form.submit %>
+
+      <div class="input-container">
+        <%= form.label :name %>
+        <%= form.text_area :name %>
+      </div>
+
+      <div class="input-container">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+
+      <div class="submit-button">
+        <%= form.button "Submit", :class => "button" %>
+      </div>
     <% end %>
   <% end %>
 </div>
@@ -46,16 +48,10 @@
 
 <%= render @listing.offers.by_most_recent %>
 
-<%= form_for @comment do |c| %>
-  <%= c.hidden_field :commentable_type, value: "Listing" %>
-  <%= c.hidden_field :commentable_id, value: @listing.id %>
-  <%= c.label :body, style: "display: none;" %>
-  <%= c.text_area :body, placeholder: "type comment" %>
-  <%= c.submit %>
-<% end %>
+<%= render partial: "comments/form",  locals: { comment: @comment, commentable: @listing } %>
 
 <% if @listing.comments.any? %>
-  <p>Comments for listing:</p>
+  <header>Comments for listing:</header>
   <% @listing.comments.by_most_recent.each do |comment| %>
     <%= render partial: "comments/comment",  locals: { comment: comment, commentable: @listing } %>
   <% end %>

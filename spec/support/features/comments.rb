@@ -6,7 +6,7 @@ module Features
 
     fill_in "Body", with: "colorful ones"
 
-    click_button "Create Comment"
+    click_button "Submit"
 
   end
 end

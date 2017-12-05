@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for(
     :location,
-    reject_if: proc { |attributes| attributes["city"].blank? }
+    reject_if: proc { |attributes| attributes["city"].blank? || attributes["state"].blank?}
   )
 
   delegate :city, to: :location
@@ -25,19 +25,19 @@ class User < ActiveRecord::Base
 
   has_many(
     :followed_relationships,
-    class_name: "FollowRelationship",
+    class_name: :"FollowRelationship",
     foreign_key: :"follower_id"
   )
-
-  has_many :followed_users, through: :followed_relationships
-
+  
   has_many(
-    :follower_relationships,
+   :follower_relationships,
     class_name: :"FollowRelationship",
     foreign_key: :"followed_user_id"
   )
 
+  has_many :followed_users, through: :followed_relationships
   has_many :followers, through: :follower_relationships
+
   has_many :exchanges
   has_many :successful_exchanges
 
@@ -45,9 +45,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :location, presence: true
   validates :password_digest, presence: true
+  # validate :single_location_specified
 
   validates_attachment_content_type :avatar, content_type: /\Aimage/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
+  
+  extend OrderHelper
+  include TimeFormatHelper
 
   def can_accept?(possible_offer)
     listings.include?(possible_offer)
@@ -57,14 +61,10 @@ class User < ActiveRecord::Base
     [id] + followed_user_ids
   end
 
-  def self.by_most_recent
-    order(created_at: :desc)
-  end
-
-  def self.find_user(search)
+  def self.find_user_by_username(search)
     where("username ILIKE ?", "%#{search}%")
   end
-
+ 
   def followings?(user)
     user.followers.include?(self)
   end
@@ -77,8 +77,11 @@ class User < ActiveRecord::Base
     followed_users.destroy(user)
   end
 
-  # def following?(user)
-  #   followed_users.include? user
+  # def single_location_specified
+  #   puts self.attributes
+  #   if location && (location_attributes[:city] || location_attributes[:state])
+  #   errors[:location] << "Two locations selected."
+  #   end
   # end
 
   def timeline

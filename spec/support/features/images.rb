@@ -6,7 +6,7 @@ module Features
     fill_in "Name", with: "Flowers"
     fill_in "Description", with: "colorful ones"
 
-    click_button "Create Image"
+    click_button "Submit"
 
   end
 end

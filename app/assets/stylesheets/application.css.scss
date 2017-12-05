@@ -2,9 +2,7 @@
  *= require_self
  *= require normalize-rails
  */
-@import "bourbon";
-@import "neat";
-@import "grid-settings";
 @import "layout";
 @import "locations";
 @import "content-group";
+@import "users";

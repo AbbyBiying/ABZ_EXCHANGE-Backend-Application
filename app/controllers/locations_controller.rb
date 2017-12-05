@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   before_action :require_login, except: [:index]
   def new
-    @locations = Location.all
+    @locations = Location.order_by_city  
     @location = Location.new
   end
 
@@ -10,9 +10,10 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.select { |location| location.latitude != nil && location.longitude != nil }
+    @locations = Location.order_by_city  
+
     @locations_json = @locations.map { |location| {lat:location.latitude, lng:location.longitude} }.to_json
-  end
+   end
 
   def create
     @location = Location.new(location_params)

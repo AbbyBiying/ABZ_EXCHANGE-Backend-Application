@@ -7,6 +7,6 @@ module Features
     fill_in "Name", with: "Flowers"
     fill_in "Description", with: "colorful ones"
 
-    click_button "Create Group"
+    click_button "Submit"
   end
 end

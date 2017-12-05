@@ -13,5 +13,5 @@ Feature: Create Group
     Then I should see "New Group!"
     And I type name "Book Club"
     And I type description "meet weekly"
-    And I click on "Create Group"
+    And I click on "Submit"
     Then I should see "created by Abby"

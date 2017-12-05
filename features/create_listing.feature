@@ -12,5 +12,5 @@ Feature: Create Listing
     Then I am at listing new page
     And I type name "A pen"
     And I type description "black ink"
-    And I click on "Create Listing"
+    And I click on "Submit"
     And I should see "posted by Abby"

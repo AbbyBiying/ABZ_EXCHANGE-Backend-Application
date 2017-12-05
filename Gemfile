@@ -2,16 +2,18 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'aws-sdk', '~> 1.6'
-gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'devise'
 gem 'geocoder'
 gem 'jbuilder', '~> 2.0'
 gem 'js-rails'
+gem 'json', '>= 1.8.6'
 gem 'jquery-rails'
 gem "paperclip"
+gem 'puma'
+gem 'mailgun-ruby', '~>1.1.6'
 gem 'monban-generators'
 gem 'monban'
-gem 'neat'
 gem 'newrelic_rpm'
 gem 'normalize-rails'
 gem 'pg'
@@ -22,9 +24,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
-gem 'puma'
-gem 'json', '>= 1.8.6'
-gem 'mailgun-ruby', '~>1.1.6'
 
 group :development do
   gem "foreman"
@@ -50,7 +49,7 @@ group :development, :test do
   gem 'pry-rails', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'factory_girl_rails'
+  gem "factory_bot_rails"
   gem 'cucumber-rails', require: false
 end
 

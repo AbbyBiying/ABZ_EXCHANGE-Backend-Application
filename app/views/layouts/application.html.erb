@@ -56,19 +56,24 @@
           <%= submit_tag "search" %>
         <% end %>
       <% end %>
-       <span class="logo"><%= image_tag "ABZX02.png" %></span>
+       <div class="logo">
+        <%= link_to(image_tag("ABZX02.png"), home_path) %></div>
     </nav>
 
   </section>
 
   <section class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <%= yield %>
   </section>
 
-  <div class="footer"><a href="mailto:abbyzhangnyc@gmail.com">
-    <%= image_tag "BZ01.png" %>
-  <!-- Copyright&copy; Abby Biying Zhang -->
-</a></div>
+  <div class="footer">
+    <a href="mailto:abbyzhangnyc@gmail.com">
+      <%= image_tag "BZ01.png" %>
+    </a>
+  </div>
 
 </body>
 </html>

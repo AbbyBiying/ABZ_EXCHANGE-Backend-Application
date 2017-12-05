@@ -1,8 +1,8 @@
-<div class="content-group listing-description">
+<div class="content-group">
   <%= link_to group do %>
-    <p><strong>Group name: </strong><%= group.name %></p>
-    <p><strong>Group description: </strong><%= group.description %></p>
+    <p class="content-name">Group name: <%= group.name %></p>
+    <p>Group description: <%= group.description %></p>
   <% end %>
-  <p><strong>created by <%= link_to group.user.username, group.user %></p>
+  <p>created by <span class="content-name"><%= link_to group.user.username, group.user %></span></p>
   <p>was created on <%= group.created_time %></p>
 </div>

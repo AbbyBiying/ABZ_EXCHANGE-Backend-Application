@@ -5,15 +5,10 @@
   <%= link_to "Delete", image_path(@image), class: "button", method: :delete, data:  { confirm: 'Are you sure you want to delete this image?' } %>
 </div>
 
-<%= form_for @comment do |c| %>
-  <%= c.hidden_field :commentable_type, value: "Image" %>
-  <%= c.hidden_field :commentable_id, value: @image.id %>
-  <%= c.text_area :body, placeholder: "type comment" %>
-  <%= c.submit %>
-<% end %>
+<%= render partial: "comments/form",  locals: { comment: @comment, commentable: @image } %>
 
 <% if @image.comments.any? %>
-  <p>Comments for image:</p>
+  <header>Comments for image:</header>
   <% @image.comments.by_most_recent.each do |comment| %>
     <%= render partial: "comments/comment",  locals: { comment: comment, commentable: @image } %>
   <% end %>

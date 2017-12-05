@@ -19,7 +19,7 @@ RSpec.describe UsersController, type: :controller do
 
       get :show, id: user.id
 
-      expect(response).to render_template(:show)
+      expect(response).to redirect_to root_path
     end
   end
 

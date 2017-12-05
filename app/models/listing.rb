@@ -19,19 +19,12 @@ class Listing < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
 
+  extend OrderHelper
+  include TimeFormatHelper
+  extend SearchByNameHelper
+  
   def accepted?
     exchange.present?
   end
 
-  def created_time
-    created_at.strftime("%A, %B %d, %Y")
-  end
-
-  def self.by_most_recent
-    order(created_at: :desc)
-  end
-
-  def self.find_listing(search)
-    where("name ILIKE ?", "%#{search}%")
-  end
 end

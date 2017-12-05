@@ -1,45 +1,45 @@
+<% if current_user == @user %>
+  <%= link_to "Add a listing", new_listing_path, class: "button" %>
+  <%= link_to "Add an image", new_image_path, class: "button" %>
+<% end %>
+
 <% if @user.listings.any? %>
   <div id="user-listings">
-    <h4><%= @user.username %>'s listings:</h4>
-    <% if current_user == @user %>
-      <%= link_to "Add a listing", new_listing_path, class: "button" %>
-    <% end %>
-
+    <header><%= @user.username %>'s listings:</header>
     <p><%= render @user.listings.by_most_recent %></p>
   </div>
 <% end %>
 
 <% if @user.offers.any? %>
   <div id="user-offers">
-    <h4><%= @user.username %>'s offers:</h4>
+    <header><%= @user.username %>'s offers:</header>
     <%= render @user.offers.by_most_recent %>
   </div>
 <% end %>
 
 <% if @user.images.any? %>
   <div id="user-images">
-    <h4><%= @user.username %>'s Images:</h4>
-    <% if current_user == @user %>
-      <%= link_to "Add an image", new_image_path, class: "button" %>
-    <% end %>
-    <br>
-    <div><%= render(partial: "images/user_image", collection: @user.images) %></div><br>
+    <header><%= @user.username %>'s images:</header>
+    <div>
+      <%= render(partial: "images/user_image", collection: @user.images) %>
+    </div><br>
   </div>
 <% end %>
-
-<div id="user-follows" class="content-group">
-  <% if user.followers.any? %>
-    <%= @user.username %>'s followers:
-    <% @user.followers.each do |follower| %>
-      <%= link_to follower.username, user_path(follower) %>
+  
+<% if user.followers.any? || user.followed_users.any? %>
+  <div id="user-follows" class="content-group">
+    <% if user.followers.any? %>
+      <header><%= @user.username %>'s followers:</header>
+      <% @user.followers.each do |follower| %>
+        <%= link_to follower.username, user_path(follower) %>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
-  <% if user.followed_users.any? %>
-    <%= @user.username %>'s following:
-    <% @user.followed_users.each do |followed_user| %>
-      <%= link_to followed_user.username, user_path(followed_user) %>
+    <br>
+    <% if user.followed_users.any? %>
+      <header><%= @user.username %>'s following:</header>
+      <% @user.followed_users.each do |followed_user| %>
+        <%= link_to followed_user.username, user_path(followed_user) %>
+      <% end %>
     <% end %>
-
-  <% end %>
-</div>
+  </div> 
+<% end %>

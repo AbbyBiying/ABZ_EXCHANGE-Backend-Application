@@ -4,13 +4,13 @@ class AcceptExchangesController < ApplicationController
 
   def create
     exchange = Exchange.create(offer: offer, listing: listing)
-
+    flash[:notice] = "Exchange was successfully created!"
     redirect_to exchange_path(exchange)
   end
 
   def require_permission
     if current_user != listing.user
-      flash[:notice] = "You do not have the right to do it."
+      flash[:notice] = "You do not have the permission to do it."
 
       redirect_to listing
     end

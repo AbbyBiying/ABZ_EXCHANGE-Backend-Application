@@ -1,14 +1,15 @@
 <div class="content-group">
   <%= link_to listing do %>
-    <div class="listing-image">
-      <%= image_tag listing.avatar.url %>
+    
+    <div class="content-image">
+      <%= image_tag listing.avatar.url if listing.avatar? %>
     </div>
-
-    <div class="listing-description">
-      <p><strong>Listing name: </strong><%= listing.name %></p>
-      <p><strong>Listing description: </strong><%= listing.description %></p>
+  
+    <div>
+      <p class="content-name">Listing name: <%= listing.name %></p>
+      <p>Listing description: <%= listing.description %></p>
   <% end %>
-      <p><strong>posted by </strong><%= link_to listing.username, listing.user %></p>
+      <p>posted by <span class="content-name"><%= link_to listing.username, listing.user %></span></p>
       <p>was created on <%= listing.created_time %></p>
     </div>
 </div>

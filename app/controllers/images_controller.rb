@@ -11,13 +11,14 @@ class ImagesController < ApplicationController
   end
 
   def show
-    find_image
+    find_by_name
     @comment = Comment.new
   end
 
   def create
     @image = current_user.images.build(image_params)
     if @image.save
+      flash[:notice] = "Image was successfully created!"
       redirect_to @image
     else
       render :new
@@ -25,12 +26,13 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    find_image
+    find_by_name
   end
 
   def update
-    find_image
+    find_by_name
     if @image.update(image_params)
+      flash[:notice] = "Image was successfully updated!"
       redirect_to @image
     else
       render :edit
@@ -40,6 +42,7 @@ class ImagesController < ApplicationController
   def destroy
     image = Image.find(params[:id])
     image.destroy
+    flash[:notice] = "Image was successfully deleted!"
     redirect_to root_path
   end
 
@@ -47,12 +50,12 @@ class ImagesController < ApplicationController
 
   def require_permission
     if current_user != Image.find(params[:id]).user
-      flash[:error] = "You do not have the right to do it."
+      flash[:error] = "You do not have the permission to do it."
       redirect_to dashboard_path
     end
   end
 
-  def find_image
+  def find_by_name
     @image ||= Image.find(params[:id])
   end
 

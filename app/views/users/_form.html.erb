@@ -1,51 +1,55 @@
-<div class="form">
-  <div class="user-new">
+<div>
+  <div class="new-form">
     <%= form_for user, html: { multipart: true } do |form| %>
       <%= render "application/form_errors", object: user %>
-      <div>
+      
+      <div class="input-container">
         <%= form.label :avatar %>
         <%= form.file_field :avatar %>
       </div>
 
-      <div>
+      <div class="input-container">
         <%= form.label :username %>
         <%= form.text_field :username %>
       </div>
 
-      <div>
+      <div class="input-container">
         <%= form.label :email %>
         <%= form.email_field :email %>
       </div>
 
       <% unless user.persisted? %>
-        <div>
+        <div class="input-container">
           <%= form.label :password %>
           <%= form.password_field :password %>
         </div>
       <% end %>
 
-      <div>
+      <div class="input-container">
         <%= form.label :bio %>
         <%= form.text_area :bio %>
       </div>
 
-      <div>
-        Please select your location: <%= form.collection_select :location_id, Location.all, :id, :city_and_state, prompt: true %>
+      <div class="input-container">
+        <%= form.label :location, "Please select your location:" %> <%= form.collection_select :location_id, @locations, :id, :city_and_state, prompt: true %>
       </div>
 
       <p class="small">If you selecte a city in the dropdown please empty the text field below.<br>
         If you do not find your city in the dropdown, add new city in the text field: </p>
 
       <%= form.fields_for :location do |location_form| %>
-        <%= location_form.label :city %>
-        <%= location_form.text_field :city, placeholder: "" %>
-        <br>
-        <%= location_form.label :state %>
-        <%= location_form.text_field :state, placeholder: "" %>
+        <div class="input-container">
+          <%= location_form.label :city %>
+          <%= location_form.text_field :city, placeholder: "" %>
+        </div>
+        <div class="input-container">
+          <%= location_form.label :state %>
+          <%= location_form.text_field :state, placeholder: "" %>
+        </div>
       <% end %>
 
-      <div>
-        <%= form.submit %>
+      <div class="submit-button">
+        <%= form.button "Submit", :class => "button" %>
       </div>
     <% end %>
   </div>

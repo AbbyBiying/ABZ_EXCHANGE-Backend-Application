@@ -1,9 +1,13 @@
+.home .introduction {
+  margin: 0 auto !important;
+}
+
 .container {
   max-width: 960px;
   margin: 20px auto;
   padding: 1rem;
   @media only screen and (max-width: 1000px) {
-    max-width: 80%;
+    max-width: 95%;
     margin: 20px auto;
   }
 }
@@ -63,6 +67,7 @@ body {
 }
 
 .footer {
+  clear: both;
   font-size: 0.8em;
   margin-top: 100px;
   padding-bottom: 20px;
@@ -85,7 +90,6 @@ ul {
 .button-container {
   li {
     display: inline;
-    padding: 0.6rem;
   }
 }
 
@@ -179,7 +183,6 @@ input {
 
 nav {
   padding: 10px;
-  width: 100%;
 }
 
 nav .clearfix a {
@@ -206,51 +209,6 @@ nav .search {
   width: 850px;
 }
 
-.session {
-  margin-left: 30px;
-  padding-top: 20px;
-}
-
-.session-introduction {
-  .title {
-    font-size: 3em;
-    text-align: center;
-    img {width: 500px;}
-  }
-}
-
-.sign-in {
-  /*font-size: 18px;*/
-}
-
-.sign-in a:hover, a:active, {
-  color: #1695A3;
-}
-
-.sign-out {
-  float: right;
-  padding: 0;
-}
-
-.sign-out  a {
-  color: #EBEBEB;
-}
-
-.sign-up {
-  /*border-radius: 5px;
-  font-size: 18px;*/
-  /*padding: 5px;
-  margin-top: -20px;*/
-}
-
-.sign-up a:hover, a:active, {
-  color: #1695A3;
-}
-
-.welcome {
-  padding-left: 10px;
-}
-
 ul {
   list-style-type: none;
   list-style-position: inside;
@@ -275,14 +233,6 @@ ul {
   margin-top: 30px;
 }
 
-.username {
-  font-size: 35px;
-}
-
-.username a:hover, a:active {
-  color: #1695A3;
-}
-
 .successful-exchange {
   padding: 20px;
 }
@@ -290,7 +240,6 @@ ul {
 .index-header {
   font-size: 1.4em;
   text-align: center;
-  margin: 2em 0 1em;
 }
 
 .button {
@@ -306,6 +255,7 @@ ul {
   color: white;
   text-decoration: none;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -314,5 +264,9 @@ ul {
 }
 
 .logo {
-  img {width: 100%;}
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 500px;
+  }
 }

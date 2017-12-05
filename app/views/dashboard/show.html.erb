@@ -1,7 +1,7 @@
 <div class="dashboard-container">
-<p>Welcome <%= current_user.username %>!</p>
-<%= image_tag @user.avatar.url %>
-<p>Your current location is: <%= @user.city.titleize %>, <%= @user.state.upcase %></p>
+<header>Welcome <%= current_user.username %>!</header>
+<%= image_tag @user.avatar.url if @user.avatar? %>
+<header>Your current location is: <%= @user.city.titleize %>, <%= @user.state.upcase %></header>
 
 <div id="map"></div>
 <script>
@@ -27,32 +27,6 @@
 </script>
 
   <ul class="button-container">
-    <% if current_user.listings.any? %>
-      <li>
-        <%= link_to "Listings", "#user-listings", class: "button" %>
-      </li>
-      <% else %>
-        <%= link_to "Make New Listing", new_listing_path, class: "button" %>
-    <% end %>
-
-    <% if current_user.offers.any? %>
-      <li>
-        <%= link_to "Offers", "#user-offers", class: "button" %>
-      </li>
-    <% end %>
-
-    <% if current_user.images.any? %>
-      <li>
-        <%= link_to "Images", "#user-images", class: "button" %>
-      </li>
-    <% end %>
-
-    <% if current_user.followers.any? || current_user.followed_users.any? %>
-      <li>
-        <%= link_to "Follows/Followers", "#user-follows", class: "button" %>
-      </li>
-    <% end %>
-
     <li>
       <%= link_to "Edit my info", edit_user_path(current_user), class: "button" %>
     </li>

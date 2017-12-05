@@ -4,12 +4,9 @@ class SuccessfulExchange < ActiveRecord::Base
 
   delegate :listing, to: :exchange
   delegate :offer, to: :exchange
+ 
+  extend OrderHelper
+  include TimeFormatHelper
+  extend SearchByNameHelper
 
-  def created_time
-    created_at.strftime("%A, %B %d, %Y")
-  end
-
-  def self.by_most_recent
-    order(created_at: :desc)
-  end
 end

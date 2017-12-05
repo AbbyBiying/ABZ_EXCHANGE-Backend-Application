@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     p current_user.inspect
     @comment = current_user.comments.new(comment_params)
     if @comment.save
+      flash[:notice] = "Comment was successfully created!"
       redirect_to @comment.commentable
     else
       redirect_to @comment.commentable
@@ -16,6 +17,7 @@ class CommentsController < ApplicationController
     find_comment
     if @comment.update(comment_params)
       p @comment.inspect
+      flash[:notice] = "Comment was successfully updated!"
       redirect_to @comment.commentable
     else
       p "did not save"
@@ -24,8 +26,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
+    find_comment
     comment.destroy
+    flash[:notice] = "Comment was successfully deleted!"
 
     redirect_to root_path
   end
@@ -34,7 +37,7 @@ class CommentsController < ApplicationController
 
   def require_permission
     if current_user != Comment.find(params[:id]).user
-      flash[:error] = "You do not have the right to do it."
+      flash[:error] = "You do not have the permission to do it."
       redirect_to dashboard_path
     end
   end

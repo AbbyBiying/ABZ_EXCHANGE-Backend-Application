@@ -2,13 +2,13 @@
   <ul>
     <li>
       <%= link_to offer.user do %>
-        <div class="listing-image">
-          <%= image_tag offer.avatar.url %>
+        <div class="content-image">
+          <%= image_tag offer.avatar.url if offer.avatar? %>
         </div>
 
-        <div class="listing-description">
-          <p><strong>Offer: </strong><%= offer.name %>
-          <p><strong>Description: </strong><%= offer.description %></p>
+        <div>
+          <p class="content-name">Offer: <%= offer.name %></p>
+          <p>Description: <%= offer.description %></p>
       <% end %>
           <p>posted by <%= link_to offer.username, offer.user %></p>
 

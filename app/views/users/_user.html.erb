@@ -1,7 +1,10 @@
 <div class="content-group">
-  <p>name: <i class="username"><%= link_to user.username, user_path(user) %></i></p>
-  <%= image_tag user.avatar.url %>
-  <p>bio: <i><%= user.bio %></i></p>
+  <p class="content-name">Username: <%= link_to user.username, user_path(user) %></p>
+  <p class="content-image">
+    <%= image_tag user.avatar.url if user.avatar? %>
+  </p>
+ 
+  <p>Bio: <i><%= user.bio if user.bio? %></i></p>
 
   <p>
     Location: <b class="location"><%= link_to user.city.titleize + ', ' + user.state.upcase, location_path(user.location) %></b>

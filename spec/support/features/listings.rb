@@ -5,7 +5,7 @@ module Features
     click_on "Make New Listing"
     fill_in "Name", with: name
     fill_in "Description", with: "My listing description."
-    click_on "Create Listing"
+    click_on "Submit"
     expect(page).to have_content name
     expect(page).to have_content "My listing description."
   end

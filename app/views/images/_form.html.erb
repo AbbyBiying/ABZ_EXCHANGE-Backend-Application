@@ -1,22 +1,26 @@
-<div class="form">
+<div class="new-form">
   <%= form_for image do |form| %>
     <%= render "application/form_errors", object: image %>
-
-    <div>
-      <%= form.label :name, style: "display: none;" %>
-      <%= form.text_area :name, placeholder: "type image name"%>
-    </div>
-
-    <div>
-      <%= form.label :description, style: "display: none;" %>
-      <%= form.text_area :description, placeholder: "type image description" %>
-    </div>
 
     <div>
       <%= form.label :avatar %>
       <%= form.file_field :avatar %>
     </div>
 
-    <%= form.submit %>
+    <div class="input-container">
+      <%= form.label :name %>
+      <%= form.text_area :name %>
+    </div>
+
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="submit-button">
+      <%= form.button "Submit", :class => "button" %>
+    </div>  
   <% end %>
 </div>
+ 
+ 
