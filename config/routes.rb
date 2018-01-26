@@ -1,22 +1,23 @@
-require "monban/constraints/signed_in"
-require "monban/constraints/signed_out"
-
 Rails.application.routes.draw do
-
-  constraints Monban::Constraints::SignedIn.new do
-    root "dashboard#show", as: :dashboard
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations'}
+  # devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
+  resources :users, except: [:destroy] do
+    member do
+      post "follow" => "follows#create"
+      delete "follow" => "follows#destroy"
+    end
   end
 
-  constraints Monban::Constraints::SignedOut.new do
-    root "sessions#new"
-  end
+  root to: 'dashboard#index'
 
+  resources :dashboard, only: [:index] 
+  
   resources :comments, except: [:edit, :show]
 
-  resource :home, only: [:show]
-    resources :images do
-  end
-
+  resource :home, only: [:show] 
+  
+  resources :images  
+  
   resources :listings do
     resources :offers, except: [:index, :show]
   end
@@ -38,12 +39,7 @@ Rails.application.routes.draw do
   resources :groups
 
   resource :search, only: [:show]
-  resource :session, only: [:new, :create, :destroy]
+
   resources :locations, only: [:new, :index, :show, :create]
-  resources :users, except: [:destroy] do
-    member do
-      post "follow" => "follows#create"
-      delete "follow" => "follows#destroy"
-    end
-  end
+  
 end

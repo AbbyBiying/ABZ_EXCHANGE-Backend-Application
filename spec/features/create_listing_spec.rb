@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "create listing process", type: :feature do
   it "sucessfully create a listing" do
-    valid_sign_up
+    valid_sign_in
     create_listing("Flowers")
     # click_on "Listings"
     # visit listings_path

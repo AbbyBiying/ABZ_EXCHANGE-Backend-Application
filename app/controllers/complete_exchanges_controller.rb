@@ -1,5 +1,5 @@
 class CompleteExchangesController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def create
     @successful_exchange = SuccessfulExchange.create(exchange: exchange)

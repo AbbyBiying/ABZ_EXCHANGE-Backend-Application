@@ -11,7 +11,6 @@ require 'webmock/rspec'
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
-
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -27,23 +26,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 
-
-Monban.test_mode!
-
 RSpec.configure do |config|
-  config.include Monban::Test::ControllerHelpers, type: :controller
-  config.after :each do
-    Monban.test_reset!
-  end
-end
-
-RSpec.configure do |config|
-
-  config.include Monban::Test::Helpers, type: :feature
-
-  config.after :each do
-    Monban.test_reset!
-  end
   config.before(:suite) do
     Geocoder.configure(lookup: :test)
 
@@ -61,6 +44,7 @@ RSpec.configure do |config|
      ]
     )
   end
+
 end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
@@ -72,6 +56,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include Features, type: :feature
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Controllers, type: :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

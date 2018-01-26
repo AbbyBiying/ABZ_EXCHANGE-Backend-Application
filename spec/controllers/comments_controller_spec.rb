@@ -4,7 +4,7 @@ RSpec.describe CommentsController, type: :controller do
   describe "POST #create" do
     it "create a comment" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image, user: user)
 
       post :create, comment: { commentable_id: image.id, commentable_type: "Image", body: "comment body" }
@@ -16,7 +16,7 @@ RSpec.describe CommentsController, type: :controller do
   describe "PATCH #update" do
     it "update a comment" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image, user: user)
       comment = create(:comment, commentable: image, body: "old comment body", user: user)
 
@@ -29,13 +29,13 @@ RSpec.describe CommentsController, type: :controller do
   describe "DELETE #destroy" do
     it "delete a comment" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image, user: user)
       comment = Comment.create(body: "exsiting comment body", commentable_id: image.id, commentable_type: "Image")
 
       delete :destroy, id: comment.id
 
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to dashboard_index_path
     end
   end
 end

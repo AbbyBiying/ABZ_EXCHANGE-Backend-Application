@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :authenticate_user!, except: [:index]
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
@@ -54,7 +54,7 @@ class ListingsController < ApplicationController
     if current_user != find_by_name.user
       flash[:error] = "You do not have the permission to do it."
 
-      redirect_to dashboard_path
+      redirect_to dashboard_index_path
     end
   end
 

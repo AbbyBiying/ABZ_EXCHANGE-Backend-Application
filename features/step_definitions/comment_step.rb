@@ -7,7 +7,7 @@ Given(/^I login with "([^"]*)"$/) do |username|
  end
 
 Given(/^I should be on the dashboard page$/) do
-  expect(current_path).to eql dashboard_path
+  expect(current_path).to eql dashboard_index_path
 end
 
 Given(/^"([^"]*)" has a listing with the name "([^"]*)" and the description "([^"]*)"$/) do |username, name, description|

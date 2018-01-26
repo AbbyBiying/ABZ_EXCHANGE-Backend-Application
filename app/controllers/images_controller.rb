@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :authenticate_user!, except: [:index]
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
@@ -51,7 +51,7 @@ class ImagesController < ApplicationController
   def require_permission
     if current_user != Image.find(params[:id]).user
       flash[:error] = "You do not have the permission to do it."
-      redirect_to dashboard_path
+      redirect_to dashboard_index_path
     end
   end
 

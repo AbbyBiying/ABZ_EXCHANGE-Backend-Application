@@ -15,7 +15,7 @@
 }
 
 .introduction, .sign-in-form, .user-form, .session-introduction, .home, .content-group {
-  background-color: #FFFFE0;
+  background-color: $light-yellow;
   max-width: 100%;
   padding: 10px;
   border-radius: 10px;  
@@ -68,16 +68,16 @@
     }
 
     textarea {
-      border-radius: 5px;
+      border-radius: $border-radius;
       cursor: text;
       padding: 1px;
       border-width: 2px;
       border-style: inset;
       border-color: initial;
       border-image: initial;   
-      background-color: rgb(250, 255, 189);
+      background-color: $bright-yellow;
       background-image: none;
-      color: rgb(0, 0, 0);    
+      color: black;    
     }
 
     .submit-button {
@@ -87,7 +87,7 @@
 }
 
 .sign-in a:hover, a:active, {
-  color: #1695A3;
+  color: $lake-blue;
 }
 
 .sign-out {
@@ -108,7 +108,7 @@
 }
 
 .content-name a:hover, a:active {
-  color: #1695A3;
+  color: $arctic-blue;
 }
 
 .content-image {

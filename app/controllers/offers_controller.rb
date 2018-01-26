@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def new

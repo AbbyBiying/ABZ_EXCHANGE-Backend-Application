@@ -5,8 +5,7 @@ RSpec.describe FollowsController, type: :controller do
     it "current user follows another user" do
       follower = create(:user)
       followed_user = create(:user)
-      sign_in(follower)
-      p "Test 1: #{follower.id}"
+      valid_sign_in(follower)
 
       post :create, id: followed_user.id
 
@@ -18,9 +17,8 @@ RSpec.describe FollowsController, type: :controller do
     it "current unfollow another user" do
       follower = create(:user)
       followed_user = create(:user)
-      sign_in(follower)
+      valid_sign_in(follower)
       followed_user.followers << follower
-      p "Test 2: #{follower.id}"
 
       delete :destroy, id: followed_user.id
 

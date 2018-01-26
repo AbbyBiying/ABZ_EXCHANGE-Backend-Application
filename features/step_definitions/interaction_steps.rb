@@ -7,7 +7,7 @@ Then(/^I should see "([^"]*)"$/) do |text|
 end
 
 Given(/^I am at dashboard page$/) do
-  expect(current_path).to eql dashboard_path
+  expect(current_path).to eql dashboard_index_path
 end
 
 Then(/^I should see button "([^"]*)"$/) do |text|

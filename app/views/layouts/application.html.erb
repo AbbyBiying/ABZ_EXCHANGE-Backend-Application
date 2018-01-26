@@ -32,17 +32,17 @@
     <nav>
       <ul class="clearfix">
        <div class="sign-out">
-        <% if signed_in? %>
-          <%= link_to "Sign out", session_path, method: :delete %>
+        <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         <% else %>
-         <li> <div class="sign-up"><%= link_to "Sign Up", new_user_path %></div></li>
-         <li><div class="sign-in"><%= link_to "Sign In", new_session_path %></div></li>
+         <li> <div class="sign-up"><%= link_to "Sign Up", new_user_registration_path %></div></li>
+         <li><div class="sign-in"><%= link_to "Sign In", new_user_session_path %></div></li>
         <% end %>
       </div>
 
-        <% if signed_in? %>
+        <% if user_signed_in? %>
           <li><%= link_to "Home", home_path %></li>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Dashboard", dashboard_index_path %></li>
         <% end %>
         <li><%= link_to "Listings", listings_path %></li>
         <li><%= link_to "Locations", locations_path %></li>
@@ -50,7 +50,7 @@
         <li><%= link_to "Groups", groups_path %></li>
       </ul>
 
-      <% if signed_in? %>
+      <% if user_signed_in? %>
         <%= form_tag search_path, method: :get do %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "search" %>
@@ -63,9 +63,14 @@
   </section>
 
   <section class="container">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <%- end -%>
+
+    <% if user_signed_in? -%>
+      <p>Hello User <%= current_user.username %>! You are signed in!</p>
+    <% end -%>
+
     <%= yield %>
   </section>
 

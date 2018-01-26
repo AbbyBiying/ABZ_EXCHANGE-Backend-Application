@@ -29,13 +29,14 @@ describe "the signup process", type: :feature do
     fill_in 'Email', with: 'abby@example.com'
     fill_in 'Username', with: "Abby"
     fill_in 'Password', with: "123123"
+    fill_in 'Password confirmation', with: "123123"
     select 'WILLIAMSTOWN, VT', from: "user_location_id" 
 
     fill_in 'City', with: "Williamstown"
     fill_in 'State', with: "VT"
     fill_in 'Bio', with: "I am an artist."
 
-    click_button "Submit"
+    click_button "Sign up"
 
 		expect(page).to have_content "Sorry, the location already exists in our dropdown menu"
 	end

@@ -14,6 +14,5 @@ class UserMailer < ActionMailer::Base
     @url  = 'http://www.abzexchange.com/session/new'
     mail(to: @user.email,
       subject: "You've been invited to ABZ EXCHANGE!")
-
   end
 end

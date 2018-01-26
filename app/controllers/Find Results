@@ -1,0 +1,55 @@
+Searching 659 files for "dashboard_path"
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/app/controllers/comments_controller.rb:
+   39      if current_user != Comment.find(params[:id]).user
+   40        flash[:error] = "You do not have the permission to do it."
+   41:       redirect_to dashboard_path
+   42      end
+   43    end
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/app/controllers/groups_controller.rb:
+   52      if current_user != Group.find(params[:id]).user
+   53        flash[:error] = "You do not have the permission to do it."
+   54:       redirect_to dashboard_path
+   55      end
+   56    end
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/app/controllers/images_controller.rb:
+   52      if current_user != Image.find(params[:id]).user
+   53        flash[:error] = "You do not have the permission to do it."
+   54:       redirect_to dashboard_path
+   55      end
+   56    end
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/app/controllers/listings_controller.rb:
+   55        flash[:error] = "You do not have the permission to do it."
+   56  
+   57:       redirect_to dashboard_path
+   58      end
+   59    end
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/app/views/layouts/application.html.erb:
+   43          <% if user_signed_in? %>
+   44            <li><%= link_to "Home", home_path %></li>
+   45:           <li><%= link_to "Dashboard", dashboard_path %></li>
+   46          <% end %>
+   47          <li><%= link_to "Listings", listings_path %></li>
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/features/step_definitions/comment_step.rb:
+    8  
+    9  Given(/^I should be on the dashboard page$/) do
+   10:   expect(current_path).to eql dashboard_path
+   11  end
+   12  
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/features/step_definitions/interaction_steps.rb:
+    8  
+    9  Given(/^I am at dashboard page$/) do
+   10:   expect(current_path).to eql dashboard_path
+   11  end
+   12  
+
+/Users/biying/Documents/dev/ABZ_EXCHANGE/log/development.log:
+    <binary>
+
+8 matches across 8 files

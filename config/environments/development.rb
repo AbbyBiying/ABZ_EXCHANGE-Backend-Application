@@ -1,5 +1,6 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "abby" }
+  # config.action_mailer.default_url_options = { host: "abby" }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -21,8 +22,6 @@ Rails.application.configure do
     api_key: ENV["MAILGUN_API_KEY"],
     domain: ENV["SMTP_DOMAIN"]
   }
-  config.action_mailer.default_url_options = { host: "localhost:5000" }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -42,6 +41,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  config.mailer_sender = 'abbyzhangca@gmail.com'
 
   config.after_initialize do
   #Enable bullet in your application

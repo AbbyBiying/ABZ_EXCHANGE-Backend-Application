@@ -4,7 +4,7 @@ RSpec.describe ImagesController, type: :controller do
   describe "GET #index" do
     it "show all images" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image)
 
       get :index
@@ -16,7 +16,7 @@ RSpec.describe ImagesController, type: :controller do
   describe "GET #show" do
     it "show an image" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image)
 
       get :show, id: image.id
@@ -28,7 +28,7 @@ RSpec.describe ImagesController, type: :controller do
   describe "GET #edit" do
     it "edit an image" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image, user: user)
 
       get :edit, id: image.id
@@ -40,7 +40,7 @@ RSpec.describe ImagesController, type: :controller do
   describe "PATCH #update" do
     it "update an image" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       image = create(:image, user: user)
 
       patch :update, id: image.id, image: { name: "new name", description: "new description" }

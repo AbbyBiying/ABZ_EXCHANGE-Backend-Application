@@ -4,7 +4,7 @@ RSpec.describe OffersController, type: :controller do
   describe "POST #create" do
     it "create an offer to a listing" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       listing = create(:listing, user: user)
 
       post :create, listing_id: listing.id, offer: { name: "offer name", description: "offer description" }
@@ -16,7 +16,7 @@ RSpec.describe OffersController, type: :controller do
   describe "GET #edit" do
     it "edit an offer" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       listing = create(:listing, user: user)
       offer = create(:offer, listing: listing)
 
@@ -29,7 +29,7 @@ RSpec.describe OffersController, type: :controller do
   describe "PATCH #update" do
     it "update an offer" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       listing = create(:listing, user: user)
       offer = create(:offer, listing: listing)
 
@@ -42,7 +42,7 @@ RSpec.describe OffersController, type: :controller do
   describe "DELETE #destroy" do
     it "delete an offer" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       listing = create(:listing, user: user)
       offer = create(:offer, listing: listing)
 

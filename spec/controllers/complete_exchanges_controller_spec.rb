@@ -4,7 +4,7 @@ RSpec.describe CompleteExchangesController, type: :controller do
   describe "POST #create" do
     it "user complete and exchange" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
       listing = create(:listing)
       offer = create(:offer, listing: listing)
       exchange = create(:exchange, listing: listing, offer: offer)

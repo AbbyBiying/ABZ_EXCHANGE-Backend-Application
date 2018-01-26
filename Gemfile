@@ -12,8 +12,6 @@ gem 'jquery-rails'
 gem "paperclip"
 gem 'puma'
 gem 'mailgun-ruby', '~>1.1.6'
-gem 'monban-generators'
-gem 'monban'
 gem 'newrelic_rpm'
 gem 'normalize-rails'
 gem 'pg'
@@ -27,7 +25,6 @@ gem 'underscore-rails'
 
 group :development do
   gem "foreman"
-  gem "better_errors"
   gem 'binding_of_caller'
   gem "bullet"
 end
@@ -44,6 +41,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'better_errors'
   gem 'rspec-rails', '~> 3.6'
   gem "dotenv-rails"
   gem 'pry-rails', require: false

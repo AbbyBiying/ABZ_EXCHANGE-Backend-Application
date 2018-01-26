@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:new, :create, :index]
+  before_action :authenticate_user!, except: [:new, :create, :index]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def new
     @user = User.new
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    puts "HELLO"
     @users = User.all
     @locations = Location.order_by_city
     @locations_json = @users.map { |user| {lat:user.latitude, lng:user.longitude} }.to_json
@@ -77,6 +79,26 @@ class UsersController < ApplicationController
       location_attributes: [
         :city,
         :state
+      ]
+    )
+  end
+ 
+
+  def configure_permitted_parameters
+
+    devise_parameter_sanitizer.permit(
+      :sign_up, 
+      keys: [
+        :avatar,
+        :bio,
+        :email,
+        :location_id,
+        :number,
+        :password,
+        :username, 
+        location_attributes: [
+          :city, :state
+        ]
       ]
     )
   end

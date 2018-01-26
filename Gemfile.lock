@@ -146,12 +146,6 @@ GEM
     mini_mime (0.1.4)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
-    monban (1.1.0)
-      bcrypt
-      rails
-      warden
-    monban-generators (1.0.1)
-      monban (>= 0.0.12)
     multi_json (1.12.2)
     multi_test (0.1.2)
     netrc (0.11.0)
@@ -293,8 +287,6 @@ DEPENDENCIES
   json (>= 1.8.6)
   launchy
   mailgun-ruby (~> 1.1.6)
-  monban
-  monban-generators
   newrelic_rpm
   normalize-rails
   paperclip

@@ -3,13 +3,14 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   it { should validate_presence_of(:email)}
   it { should validate_presence_of(:username)}
-  it { should validate_presence_of(:password_digest)}
+  it { should validate_presence_of(:password)}
   it { should validate_presence_of(:location)}
 
   describe "#can_accept?" do
     # Classicist Test
     it "should return true if the listing has a offer" do
       user = create(:user)
+      user.confirmed_at = Time.now
       listing = create(:listing, user: user)
       offer = create(:offer, listing: listing)
 
@@ -33,7 +34,7 @@ RSpec.describe User, type: :model do
     it "should return an array of my and my followers' user IDs" do
       location = create(:location)
       user1 = create(:user)
-      user2 = user1.followed_users.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")
+      user2 = user1.followed_users.create!(email: "abz@gmail.com", username: "jbz", location: location, password: "OIUYHZZ")
 
       expect(user1.includes_myself).to eql [user1.id, user2.id]
     end
@@ -53,7 +54,7 @@ RSpec.describe User, type: :model do
     it "should return true if the current user is following a user" do
       location = create(:location)
       user1 = create(:user)
-      user2 = user1.followers.create!(email: "abz@gmail.com", username: "jbz", location: location, password_digest: "OIUYHZZ")
+      user2 = user1.followers.create!(email: "abz@gmail.com", username: "jbz", location: location, password: "OIUYHZZ")
 
       expect(user2.followings?(user1)).to eql true
     end

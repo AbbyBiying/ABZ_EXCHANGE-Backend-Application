@@ -4,7 +4,7 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #index" do
     it "show all users" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
 
       get :index
 
@@ -15,7 +15,7 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #show" do
     it "show a user" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
 
       get :show, id: user.id
 
@@ -26,7 +26,7 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #edit" do
     it "edit a user" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
 
       get :edit, id: user.id
 
@@ -37,7 +37,7 @@ RSpec.describe UsersController, type: :controller do
   describe "PATCH #update" do
     it "update a user" do
       user = create(:user)
-      sign_in(user)
+      valid_sign_in(user)
 
       patch :update, id: user.id, user: { name: "new name"}
 

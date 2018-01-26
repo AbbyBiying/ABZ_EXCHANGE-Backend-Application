@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :authenticate_user!, except: [:index]
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def create
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     comment.destroy
     flash[:notice] = "Comment was successfully deleted!"
 
-    redirect_to root_path
+    redirect_to dashboard_index_path
   end
 
   private
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
   def require_permission
     if current_user != Comment.find(params[:id]).user
       flash[:error] = "You do not have the permission to do it."
-      redirect_to dashboard_path
+      redirect_to dashboard_index_path
     end
   end
 

@@ -1,4 +1,16 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  
+  devise :database_authenticatable, 
+    :registerable,
+    :recoverable, 
+    :rememberable, 
+    :trackable, 
+    :validatable,
+    :confirmable, 
+    :lockable, 
+    :timeoutable
+
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "100x100>" },
     storage: :s3,
@@ -44,7 +56,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true
   validates :location, presence: true
-  validates :password_digest, presence: true
   # validate :single_location_specified
 
   validates_attachment_content_type :avatar, content_type: /\Aimage/
@@ -87,4 +98,5 @@ class User < ActiveRecord::Base
   def timeline
     Comment.where(user_id: includes_myself).order(created_at: :desc)
   end
+
 end

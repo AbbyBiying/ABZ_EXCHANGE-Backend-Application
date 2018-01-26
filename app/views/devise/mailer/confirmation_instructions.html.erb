@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <p>You have successfully signed up to ABZEXCHANGE.</p>
+    <p>You can confirm your account email through the link below:</p>
+    <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+    <p>Thanks for joining and have a great day!</p>
+    <p>Best,</p>
+    <p>Abby Zhang</p>
+  </body>
+</html>

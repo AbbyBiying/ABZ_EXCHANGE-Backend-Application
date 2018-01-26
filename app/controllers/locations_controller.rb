@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :authenticate_user!, except: [:index]
   def new
     @locations = Location.order_by_city  
     @location = Location.new

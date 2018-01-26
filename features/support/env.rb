@@ -22,8 +22,6 @@ Geocoder::Lookup::Test.set_default_stub(
  ]
 )
 
-Monban.test_mode!
-
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any

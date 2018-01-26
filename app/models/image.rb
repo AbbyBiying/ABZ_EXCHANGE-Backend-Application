@@ -5,7 +5,7 @@ class Image < ActiveRecord::Base
     s3_credentials: "config/s3.yml",
     default_url: "/images/photo_default.png"
 
-  belongs_to :guest_user
+  # belongs_to :guest_user
   belongs_to :user
   has_many :comments, as: :commentable
 

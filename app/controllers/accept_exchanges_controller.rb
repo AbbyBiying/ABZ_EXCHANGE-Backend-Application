@@ -1,5 +1,5 @@
 class AcceptExchangesController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
   before_filter :require_permission, only: [:create]
 
   def create
