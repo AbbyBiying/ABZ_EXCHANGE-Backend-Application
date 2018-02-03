@@ -1,17 +1,21 @@
-.sign-in-form {
-  width: 300px;
+.content-name {
+  font-size: 1.2em;
+  font-weight: 600;
+  a {
+    &:hover, &:active {
+      color: $arctic-blue;
+    }
+  }
 }
 
-.user-form {
-  width: 350px;
+.content-image {
+  text-align: center;
 }
 
-.session-introduction {
-  width: 400px;
-}
-
-.sign-in-form, .user-form, .session-introduction {
-  float: left;
+.dashboard-container {
+  .user-avatar {  
+    text-align: center;
+  }
 }
 
 .introduction, .sign-in-form, .user-form, .session-introduction, .home, .content-group {
@@ -26,6 +30,10 @@
   }
 }
 
+.session-introduction {
+  width: 400px;
+}
+
 .session-introduction, .home {
   font-weight: 600;
   padding: 0 45px;
@@ -37,10 +45,42 @@
   }
 }
 
-.dashboard-container {
-  img {  
-    text-align: center;
+.sign-in-form, .user-form, .session-introduction {
+  float: left;
+}
+
+.sign-in-form {
+  width: 300px;
+}
+
+.sign-in a {
+  &:hover, &:active, {
+    color: $lake-blue;
   }
+}
+
+.sign-out {
+  float: right;
+  padding: 0;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.user {
+  width: 850px;
+}
+
+.user-form {
+  width: 350px;
+}
+
+#user-follows, .user-info {
+  padding: 8px;
 }
 
 .user-form, .sign-in-form, .dashboard-container, .container {
@@ -84,35 +124,6 @@
       text-align: center;
     }
   }
-}
-
-.sign-in a:hover, a:active, {
-  color: $lake-blue;
-}
-
-.sign-out {
-  float: right;
-  padding: 0;
-}
-
-.title {
-  font-weight: 600;
-  margin-bottom: 30px;
-  font-size: 25px;
-  text-align: center;
-}
-
-.content-name {
-  font-size: 1.2em;
-  font-weight: 600;
-}
-
-.content-name a:hover, a:active {
-  color: $arctic-blue;
-}
-
-.content-image {
-  text-align: center;
 }
 
 @media only screen and (max-device-width: 1000px) {

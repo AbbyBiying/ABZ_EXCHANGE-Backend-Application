@@ -1,31 +1,11 @@
 @import "variables";
 
-.home .introduction {
-  margin: 0 auto !important;
-}
-
-.container {
-  max-width: 960px;
-  margin: 20px auto;
-  padding: 1em;
-  @media only screen and (max-width: 1000px) {
-    max-width: 95%;
-    margin: 20px auto;
-  }
-}
-
-.clearfix{
-  @media only screen and (max-width: 900px) {
-    font-size: 0.8em;
-  }
-}
-
-.exchange-in-process {
-  padding: 30px;
-}
-
 a {
   text-decoration: none;
+}
+
+a:hover, a:active {
+  color: $lake-blue;
 }
 
 body {
@@ -37,144 +17,6 @@ body {
   margin: 0;
   overflow-x: hidden;
   width: 100%;
-}
-
-.footer {
-  clear: both;
-  font-size: 0.8em;
-  margin-top: 100px;
-  padding-bottom: 20px;
-  padding: 20px;
-  text-align: center;
-}
-
-img {
-  width: 200px;
-
-  @media only screen and (max-width: 700px) {
-    width: 80%;
-  }
-}
-
-ul {
-  padding: 0;
-}
-
-.button-container {
-  li {
-    display: inline;
-  }
-}
-
-.clearfix:after {
-  clear: both;
-  content: " ";
-  display: block;
-  font-size: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
-
-.clearfix li {
-  float: left;
-  font-size: 1.2em;
-  margin: 0;
-  padding: 0;
-  text-align:right
-}
-
-.comment {
-  padding: 20px;
-  width: 850px;
-}
-
-.image {
-  padding: 20px;
-  width: 850px;
-}
-
-input {
-  height: 35px;
-  border-radius: $border-radius;
-  background-color: white;
-}
-
-.search-result {
-  margin-left: 180px;
-}
-
-.header-container {
-  background-color: $orange-red;
-  display: block;
-}
-
-nav {
-  padding: 10px;
-}
-
-nav .clearfix a {
-  color: $light-grey;
-}
-
-nav .search {
-  float: left;
-  input {
-    font-size: 1.5em;
-  }
-  margin-left: 320px;
-  margin-top: 45px;
-  #search {
-    width: 400px;
-  }
-}
-
-.offer {
-  padding: 20px;
-  width: 850px;
-}
-
-.offer-show {
-  border-bottom: dotted white;
-  width: 850px;
-}
-
-ul {
-  list-style-type: none;
-  list-style-position: inside;
-  padding: 10px 10px -5px 10px;
-  width: 100%;
-}
-
-.clearfix li {
-  font-size: 1em;
-  padding-right: 1em;
-}
-
-.clearfix a:hover, a:active {
-  color: $lake-blue;
-}
-
-.user {
-  width: 850px;
-}
-
-.new {
-  margin-top: 30px;
-}
-
-.successful-exchange {
-  padding: 20px;
-}
-
-.index-header {
-  font-size: 1.5em;
-  text-align: center;
 }
 
 .button {
@@ -190,11 +32,94 @@ ul {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
+  &:hover {
+    background: white;
+    color: $red-orange;
+  }
 }
 
-.button:hover {
-  background: white;
-  color: $red-orange;
+.button-container {
+  li {
+    display: inline;
+  }
+}
+
+.clearfix{
+  @media only screen and (max-width: 900px) {
+    font-size: 0.8em;
+  }
+}
+
+.clearfix:after {
+  clear: both;
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix li {
+  float: left;
+  font-size: 1.2em;
+  margin: 0;
+  padding-right: 1em;
+  text-align:right
+}
+
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 1em;
+  @media only screen and (max-width: 1000px) {
+    max-width: 95%;
+    margin: 20px auto;
+  }
+}
+
+.exchange-in-process {
+  padding: 30px;
+}
+
+.footer {
+  clear: both;
+  font-size: 0.8em;
+  margin-top: 100px;
+  padding-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-container {
+  background-color: $orange-red;
+  display: block;
+}
+
+.home .introduction {
+  margin: 0 auto !important;
+}
+
+img {
+  width: 200px;
+
+  @media only screen and (max-width: 700px) {
+    width: 80%;
+  }
+}
+
+input {
+  height: 35px;
+  border-radius: $border-radius;
+  background-color: white;
+}
+
+input#offer_avatar, select#user_location_id {
+  width: 95.5%;
+}
+
+.index-header {
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .logo {
@@ -203,4 +128,59 @@ ul {
     width: 100%;
     max-width: 500px;
   }
+}
+
+nav {
+  padding: 10px;
+  ul.clearfix { 
+    padding-left: 0;
+  }
+}
+
+nav .clearfix a {
+  color: white;
+  &:hover, &:active {
+    color: red;
+    font-weight: 600;
+  }
+}
+ 
+nav .search {
+  float: left;
+  input {
+    font-size: 1.5em;
+  }
+  margin-left: 320px;
+  margin-top: 45px;
+  #search {
+    width: 400px;
+  }
+}
+
+.new {
+  margin-top: 30px;
+}
+
+.offer {
+  padding: 20px;
+  width: 850px;
+}
+
+.search-result {
+  margin-left: 180px;
+}
+
+.successful-exchange {
+  padding: 20px;
+}
+
+textarea#comment_body {
+  width: 99%;
+}
+
+ul {
+  list-style-type: none;
+  list-style-position: inside;
+  padding: 10px 10px -5px 10px;
+  width: 100%;
 }

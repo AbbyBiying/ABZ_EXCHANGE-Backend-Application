@@ -63,13 +63,15 @@
   </section>
 
   <section class="container">
-    <%- flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <%- end -%>
+    <div class="user-info">
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <%- end -%>
 
-    <% if user_signed_in? -%>
-      <p>Hello User <%= current_user.username %>! You are signed in!</p>
-    <% end -%>
+      <% if user_signed_in? -%>
+        <p>Hello User <%= current_user.username %>! You are signed in!</p>
+      <% end -%>
+    </div>
 
     <%= yield %>
   </section>

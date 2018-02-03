@@ -1,8 +1,8 @@
 <div class="content-group">
-  <%= comment.body %>
+  <p class="content-name"><%= comment.body %></p>
 
   <div class="by-user">
-    <p>posted by <%= link_to comment.user.username, comment.user %></p>
+    <p>posted by <span class="content-name"><%= link_to comment.user.username, comment.user %></span></p>
     <p>was created on <%= comment.created_time %></p>
   </div>
 
