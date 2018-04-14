@@ -1,13 +1,13 @@
 <%= render @group %>
 
-<% if @group.user == current_user %>
+<% if group_user_is_current_user?(@group)%>
   <%= link_to "Edit", edit_group_path(@group), class: "button" %>
   <%= link_to "Delete", group_path(@group), class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this group?' } %>
 <% end %>
 
 <%= render partial: "comments/form", locals: { comment: @comment, commentable: @group } %>
 
-<% if @group.comments.any? %>
+<% if group_has_comments?(@group) %>
   <% @group.comments.by_most_recent.each do |comment| %>
     <%= render partial: "comments/comment",  locals: { comment: comment, commentable: @group } %>
   <% end %>

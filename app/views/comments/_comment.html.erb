@@ -7,7 +7,7 @@
   </div>
 
   <div class="edit-comment">
-    <% if comment.user == current_user %>
+    <% if comment_user_is_current_user(comment) %>
       <%= render partial: "comments/form", locals: { comment: comment, commentable: comment.commentable } %>
     <% end %>
   </div>

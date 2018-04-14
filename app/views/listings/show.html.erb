@@ -15,13 +15,13 @@
 
 <%= render @listing %>
 
-<% unless (@listing.user != current_user || @listing.accepted?) %>
+<% unless listing_user_is_not_current_user(@listing)%>
   <%= link_to "Edit", edit_listing_path(@listing), method: :get, class: "button" %>
   <%= link_to "Delete", listing_path(@listing), method: :delete, class: "button", data: { confirm: 'Are you sure you want to delete this listing?' } %>
 <% end %>
 
 <div class="new-form offer">
-  <% unless (@listing.user == current_user ||  @listing.accepted?) %>
+  <% unless listing_user_is_current_user(@listing) %>
     <header class="new">Make an offer!</header>
     <%= form_for [@listing, @offer] do |form| %>
       <div class="input-container">

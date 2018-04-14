@@ -1,12 +1,11 @@
 <header>search results for <%= params[:search] %>:</header>
-<% if @comments.any? ||  @offers.any? || @listings.any? || @users.any? || @images.any? || @groups.any? %>
+<% if @results_found %>
   <p><%= render @comments %></p> 
   <p><%= render @listings %></p> 
   <p><%= render @images %></p>
   <p><%= render @groups %></p>  
   <p><%= render @users %></p>  
   <p><%= render @offers %></p>
-
 <% else %>
   <p> Sorry, we did not find matches. </p>
 <% end %>

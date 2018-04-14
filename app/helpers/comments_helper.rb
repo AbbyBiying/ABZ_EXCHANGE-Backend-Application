@@ -10,4 +10,8 @@ module CommentsHelper
       link_to hashtag, search_path(search: hashtag)
     end.html_safe
   end
+
+  def comment_user_is_current_user(comment)
+    comment.user == current_user
+  end
 end

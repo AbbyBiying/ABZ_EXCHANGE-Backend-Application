@@ -14,4 +14,12 @@ module ListingsHelper
   def listing_has_comment?(listing)
     listing.comments.any?
   end
+
+  def listing_user_is_current_user(listing)
+    listing.user == current_user || listing.accepted?
+  end
+
+  def listing_user_is_not_current_user(listing)
+    listing.user != current_user || listing.accepted?
+  end
 end
