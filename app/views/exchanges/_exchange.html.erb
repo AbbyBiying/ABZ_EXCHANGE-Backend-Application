@@ -9,7 +9,7 @@
     <% end %>
     <p>posted by <span class="content-name"><%= link_to exchange.listing.username, exchange.listing.user %></span></p>
 
-    <% if current_user == exchange.offer.user %>
+    <% if current_user_is_offer_user?(exchange) %>
       <p>email: <%= exchange.listing.user.email %></p>
     <% end %>
   </div>
@@ -24,16 +24,14 @@
     <% end %>
     <p>posted by <span class="content-name"><%= link_to exchange.offer.username, exchange.offer.user %></span></p>
 
-    <% if current_user == exchange.listing.user %>
+    <% if current_user_is_listing_user?(exchange)%>
       <p>email: <%= exchange.offer.user.email %></p>
     <% end %>
   </div>
   <p>This exchange was created at <%= exchange.offer.created_time %></p>
 
 
-  <% if (current_user.id == exchange.listing.user_id && !exchange.completed?) ||
-  (current_user.id == exchange.offer.user_id && !exchange.completed?
-  ) %>
+  <% if exchange_in_process?(exchange) %>
     <p class="exchange-in-process">If you have completed this exchange, please hit the complete button.</p>
 
     <p><%= link_to "COMPLETE", complete_exchange_path(exchange), method: :post, class: "button", data: { confirm: 'Are you sure you have completed this exchange?'} %></p>

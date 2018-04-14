@@ -8,7 +8,7 @@ class Exchange < ActiveRecord::Base
   validates_uniqueness_of :offer, scope: :listing
   
   extend OrderHelper
-  include TimeFormatHelper
+  include TimeFormatHelper 
   extend SearchByNameHelper
 
   def completed?

@@ -26,5 +26,4 @@ class Listing < ActiveRecord::Base
   def accepted?
     exchange.present?
   end
-
 end

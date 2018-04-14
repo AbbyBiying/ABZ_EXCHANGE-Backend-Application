@@ -13,5 +13,4 @@ class Group < ActiveRecord::Base
   extend OrderHelper
   include TimeFormatHelper
   extend SearchByNameHelper
-
 end
