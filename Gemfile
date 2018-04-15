@@ -14,7 +14,9 @@ gem 'puma'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'newrelic_rpm'
 gem 'normalize-rails'
+gem 'omniauth-facebook'
 gem 'pg'
+gem 'rack-cors', require: 'rack/cors'
 gem 'refills'
 gem 'rmagick'
 gem 'rails', '4.1.6'
@@ -30,7 +32,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.6' 
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
   gem 'launchy'

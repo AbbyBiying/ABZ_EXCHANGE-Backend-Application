@@ -1,11 +1,8 @@
 <header>search results for <%= params[:search] %>:</header>
-<% if @results_found %>
-  <p><%= render @comments %></p> 
-  <p><%= render @listings %></p> 
-  <p><%= render @images %></p>
-  <p><%= render @groups %></p>  
-  <p><%= render @users %></p>  
-  <p><%= render @offers %></p>
+
+<% if @search.results.any? %>
+  <p><%= render @search.results %></p>  
+
 <% else %>
   <p> Sorry, we did not find matches. </p>
 <% end %>

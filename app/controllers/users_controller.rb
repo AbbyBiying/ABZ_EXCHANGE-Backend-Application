@@ -13,6 +13,12 @@ class UsersController < ApplicationController
     @users = User.all
     @locations = Location.order_by_city
     @locations_json = @users.map { |user| {lat:user.latitude, lng:user.longitude} }.to_json
+  
+    respond_to do |format|
+      format.html  
+      format.json  { render json: @users }
+      format.xml { render xml: @users }
+    end
   end
 
   def show

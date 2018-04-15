@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:location)}
 
   describe "#can_accept?" do
-    # Classicist Test
+    # Classicist Test, using factory bot
     it "should return true if the listing has a offer" do
       user = create(:user)
       user.confirmed_at = Time.now
@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
       expect(user.can_accept?(listing)).to eql true
     end
 
-    # Mockist Test
+    # Mockist Test, not using factory bot, no data is saved to the database
     it "should return true if the listing has the offer" do
       user = User.new
       listings = double("listings")

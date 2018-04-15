@@ -1,7 +1,11 @@
 module CommentsHelper
   def link_usernames(text)
     text.gsub(/@\w+/) do |username|
-      link_to username, user_path(username.sub("@", ""))
+      if user = User.find_by(username: username.sub("@", ""))
+        link_to username, user_path(user)
+      else
+        username
+      end
     end.html_safe
   end
 
