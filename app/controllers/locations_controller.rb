@@ -11,13 +11,15 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.order_by_city  
+ 
+    @locations_json = @locations.map { |location| {lat:location.latitude, lng:location.longitude} }.to_json
+    
     respond_to do |format|
       format.html  
       format.json  { render json: @locations }
       format.xml { render xml: @locations }
     end
-    @locations_json = @locations.map { |location| {lat:location.latitude, lng:location.longitude} }.to_json
-   end
+  end
 
   def create
     @location = Location.new(location_params)
