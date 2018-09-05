@@ -4,6 +4,11 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    respond_to do |format|
+      format.html  
+      format.json  { render json: @listings }
+      format.xml { render xml: @listings }
+    end
   end
 
   def new
