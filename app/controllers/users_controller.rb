@@ -23,8 +23,14 @@ class UsersController < ApplicationController
 
   def show
     @user = find_user
-    if @user == current_user
-      redirect_to root_path
+    respond_to do |format|
+      if @user == current_user
+        format.html { redirect_to root_path }
+        format.json { render json: @users }
+      else
+        format.html { render :show }
+        format.json { render json: @user }
+      end
     end
   end
 
@@ -63,12 +69,20 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update(user_params)
-      flash[:notice] = "User was successfully updated!"
-      redirect_to root_path
-    else
-      @locations = Location.order_by_city
-      render :edit
+    respond_to do |format|
+      if @user.update(user_params)
+        flash[:notice] = "User was successfully updated!"
+        # redirect_to root_path
+        # format.html { redirect_to(@user, notice: 'User was successfully updated.') }
+        format.html{ render :show }
+        format.json { render json: @user, status: :ok, location: @user }
+
+      else
+        @locations = Location.order_by_city
+             
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
