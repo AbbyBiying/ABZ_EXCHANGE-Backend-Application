@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 5.times { FactoryBot.create(:location) }
+User.create(email: 'bi802802@gmail.com', username: 'bi', bio:"I m Bi.", password: "bi802802", location_id: "1")

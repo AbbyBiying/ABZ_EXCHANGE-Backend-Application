@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   
     respond_to do |format|
       format.html  
-      format.json  { render json: @users }
+      format.json { render json: @users }
       format.xml { render xml: @users }
     end
   end
@@ -36,7 +36,6 @@ class UsersController < ApplicationController
         UserMailer.welcome_email(@user).deliver
 
         sign_in(@user)
-        format.html { redirect_to root_path }
         format.html { redirect_to(@user, notice: 'User was successfully created.') }
         format.json { render json: @user, status: :created, location: @user }
 
@@ -53,7 +52,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    @locations = Location.order_by_city
+    @locations = Location.order_by_city    
+
+    respond_to do |format|
+      format.html  
+      format.json { render json: @users }
+      format.xml { render xml: @users }
+    end
   end
 
   def update

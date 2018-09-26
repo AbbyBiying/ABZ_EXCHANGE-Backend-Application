@@ -7,9 +7,11 @@ class User < ActiveRecord::Base
     :rememberable, 
     :trackable, 
     :validatable,
-    :confirmable, 
-    :lockable, 
-    :timeoutable
+    :confirmable
+    # :lockable, 
+    # :timeoutable
+    
+    include DeviseTokenAuth::Concerns::User
 
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "100x100>" },
