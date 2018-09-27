@@ -11,7 +11,12 @@ class User < ActiveRecord::Base
     # :lockable, 
     # :timeoutable
     
-    include DeviseTokenAuth::Concerns::User
+  include DeviseTokenAuth::Concerns::User
+  before_save -> { skip_confirmation! }
+  
+  before_validation do
+    self.uid = email if uid.blank?
+  end
 
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "100x100>" },

@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415060741) do
+ActiveRecord::Schema.define(version: 20180926193131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.integer  "user_id"
   end
 
-  create_table "exchanges", force: true do |t|
+  create_table "exchanges", force: :cascade do |t|
     t.integer  "listing_id", null: false
     t.integer  "offer_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "follow_relationships", force: true do |t|
+  create_table "follow_relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_user_id"
   end
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20180415060741) do
   add_index "follow_relationships", ["followed_user_id"], name: "index_follow_relationships_on_followed_user_id", using: :btree
   add_index "follow_relationships", ["follower_id"], name: "index_follow_relationships_on_follower_id", using: :btree
 
-  create_table "groups", force: true do |t|
+  create_table "groups", force: :cascade do |t|
     t.string   "name",        null: false
     t.integer  "user_id",     null: false
     t.text     "description", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "images", force: true do |t|
+  create_table "images", force: :cascade do |t|
     t.string   "name",                null: false
     t.integer  "user_id",             null: false
     t.text     "description",         null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "listings", force: true do |t|
+  create_table "listings", force: :cascade do |t|
     t.string   "name",                null: false
     t.integer  "user_id",             null: false
     t.text     "description",         null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "locations", force: true do |t|
+  create_table "locations", force: :cascade do |t|
     t.string   "number",     default: "", null: false
     t.string   "street",     default: "", null: false
     t.string   "city",       default: "", null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.datetime "updated_at"
   end
 
-  create_table "offers", force: true do |t|
+  create_table "offers", force: :cascade do |t|
     t.string   "name",                null: false
     t.integer  "user_id",             null: false
     t.text     "description",         null: false
@@ -100,28 +100,28 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "successful_exchanges", force: true do |t|
+  create_table "successful_exchanges", force: :cascade do |t|
     t.integer  "exchange_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                               null: false
-    t.string   "username",                            null: false
-    t.string   "bio",                    default: "", null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                                    null: false
+    t.string   "username",                                 null: false
+    t.string   "bio",                    default: "",      null: false
     t.integer  "location_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -130,16 +130,19 @@ ActiveRecord::Schema.define(version: 20180415060741) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",        default: 0,       null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "provider",               default: "email", null: false
+    t.string   "uid",                    default: "",      null: false
+    t.boolean  "allow_password_change",  default: false
+    t.json     "tokens"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
