@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  
   devise :database_authenticatable, 
     :registerable,
     :recoverable, 
@@ -11,7 +9,11 @@ class User < ActiveRecord::Base
     # :lockable, 
     # :timeoutable
     
-    include DeviseTokenAuth::Concerns::User
+  before_save -> { skip_confirmation! }
+
+  before_validation do
+    self.uid = email if uid.blank?
+  end
 
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "100x100>" },
