@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations'}
-  # devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
+  # devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' } 
+
+  post 'auth_user' => 'authentication#authenticate_user'
+
   resources :users, except: [:destroy] do
     member do
       post "follow" => "follows#create"

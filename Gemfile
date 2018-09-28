@@ -25,6 +25,7 @@ gem 'sass-rails'
 gem 'sdoc', group: :doc
 gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
+gem 'jwt'
 
 group :development do
   gem "foreman"

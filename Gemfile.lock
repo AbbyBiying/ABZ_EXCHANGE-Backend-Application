@@ -930,6 +930,7 @@ DEPENDENCIES
   jquery-rails
   js-rails
   json (>= 1.8.6)
+  jwt
   launchy
   mailgun-ruby (~> 1.1.6)
   newrelic_rpm
