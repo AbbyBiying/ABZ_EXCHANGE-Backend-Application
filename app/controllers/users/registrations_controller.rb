@@ -5,7 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   # before_filter :configure_permitted_parameters, only: [:create]
 
-  
+  # Disable CSRF protection
+  skip_before_action :verify_authenticity_token
+
+  # Be sure to enable JSON
+  respond_to :html, :json
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in) do |user_params|
       user_params.permit(:email)

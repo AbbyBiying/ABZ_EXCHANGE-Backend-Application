@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :index]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
+
+  before_filter :verify_jwt_token, except: [:new, :create, :index], if: "request.format.symbol == :json" 
 
   def new
     @user = User.new
