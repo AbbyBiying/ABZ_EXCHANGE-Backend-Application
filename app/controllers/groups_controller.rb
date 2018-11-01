@@ -1,12 +1,12 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
     @groups = Group.all
     respond_to do |format|
       format.html  
-      format.json  { render json: @groups }
+      format.json { render json: @groups }
       format.xml { render xml: @groups }
     end
   end
@@ -18,15 +18,31 @@ class GroupsController < ApplicationController
   def show
     find_by_name
     @comment = Comment.new
+    respond_to do |format|
+      format.html  
+      format.json { render json: @group }
+      format.xml { render xml: @group }
+    end
   end
 
   def create
     @group = current_user.groups.build(group_params)
     if @group.save
       flash[:notice] = "Group was successfully created!"
-      redirect_to @group
+
+      respond_to do |format|
+        format.html { redirect_to @group }
+
+        format.json { render json: @group }
+        format.xml { render xml: @group }
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+
+        format.json { render json: @group }
+        format.xml { render xml: @group }
+      end
     end
   end
 
@@ -38,23 +54,40 @@ class GroupsController < ApplicationController
     find_by_name
     if @group.update(group_params)
       flash[:notice] = "Group was successfully updated!"
-      redirect_to @group
+      respond_to do |format|
+        format.html { redirect_to @group }
+
+        format.json { render json: @group }
+        format.xml { render xml: @group }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+
+        format.json { render json: @group }
+        format.xml { render xml: @group }
+      end
     end
   end
 
   def destroy
     group = Group.find(params[:id])
     group.destroy
-    flash[:notice] = "Group was successfully deleted!"
-    redirect_to root_path
+    flash[:notice] = "Group was successfully deleted!"    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+
+      format.json { redirect_to root_path }
+      format.xml { redirect_to root_path }
+    end
   end
 
   private
 
   def require_permission
-    if current_user != Group.find(params[:id]).user
+    find_by_name
+
+    if current_user != @group.user
       flash[:error] = "You do not have the permission to do it."
       redirect_to dashboard_index_path
     end

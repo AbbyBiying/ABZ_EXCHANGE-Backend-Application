@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   resources :successful_exchanges, only: [:index]
 
+  # resources :exchanges, only: [:index]
+
   resources :exchanges, only: [:show] do
     member do
       post "complete" => "complete_exchanges#create"

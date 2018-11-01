@@ -39,18 +39,18 @@
       });
     }
   </script>
-
-<% end %>
-
-<div class="user" id="user-follows">
-  <% if @user != current_user %>
-    <% if current_user.followings?(@user) %>
-      <%= button_to "unfollow!", follow_user_path(@user), method: :delete %>
-    <% else %>
-      <%= button_to "follow!", follow_user_path(@user) %>
+ 
+ 
+  <div class="user" id="user-follows">
+    <% if @user != current_user %>
+      <% if current_user.followings?(@user) %>
+        <%= button_to "unfollow!", follow_user_path(@user), method: :delete %>
+      <% else %>
+        <%= button_to "follow!", follow_user_path(@user) %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <%= render @user %>
 <%= render "info", user: @user %>

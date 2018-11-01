@@ -1,4 +1,5 @@
 <%= render "application/google_maps", object: @location %>
+<% if user_signed_in? %>
 
 <script>
   function initMap() {
@@ -35,7 +36,7 @@
     });
   }
 </script>
-
+<% end %>
 <div id="map"></div>
 
 <div class="user">

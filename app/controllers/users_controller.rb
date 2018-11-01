@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create, :index]
+  before_action :authenticate_user!, except: [:new, :create, :show, :index]
   before_action :configure_permitted_parameters, if: :devise_controller?
   
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user == current_user
         format.html { redirect_to root_path }
-        format.json { render json: @users }
+        format.json { render json: @user }
       else
         format.html { render :show }
         format.json { render json: @user }
