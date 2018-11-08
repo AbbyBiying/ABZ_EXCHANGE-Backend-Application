@@ -26,11 +26,13 @@ module ArtFind
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+    # config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
-        resource '*', headers: :any, methods: [:HEAD, :GET, :PATCH, :PUT, :PUT, :POST, :OPTION, :DELETE
-        ]
+        resource '*', 
+        headers: :any, 
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
 
