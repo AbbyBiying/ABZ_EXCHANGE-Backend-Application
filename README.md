@@ -1,4 +1,4 @@
-# ABZ EXCHANGE
+# ABZ EXCHANGE back end application
 
 ## This is a Ruby on Rails app for barter trading.
 You can demo this application on [Heroku](http://www.abzexchange.com/) 
