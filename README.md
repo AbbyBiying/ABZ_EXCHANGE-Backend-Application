@@ -18,6 +18,7 @@ When you sign up and get a welcome email, you can:
 * Add comments to listings, images and groups
 * Find direction to reach another user
 * Search listings, offers, users, images and comments.
+(user authentication system using Devise)
 
 ## Implementation
 Rendering is done on the server side with erb.
