@@ -3,7 +3,18 @@ class ImagesController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
-    @images = Image.all
+    if params[:image] && params[:image][:name]
+      @images = Image.where("name ILIKE ?", "%#{params[:images][:name]}%")
+
+    else
+      @images = Image.all
+    end
+
+    respond_to do |format|
+      format.html  
+      format.json { render json: @images }
+      format.xml { render xml: @images }
+    end
   end
 
   def new
@@ -13,6 +24,12 @@ class ImagesController < ApplicationController
   def show
     find_by_name
     @comment = Comment.new
+
+    respond_to do |format|
+      format.html  
+      format.json { render json: @images }
+      format.xml { render xml: @images }
+    end
   end
 
   def create

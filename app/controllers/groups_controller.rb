@@ -3,7 +3,13 @@ class GroupsController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
-    @groups = Group.all
+    if params[:group] && params[:group][:name]
+      @groups = Group.where("name ILIKE ?", "%#{params[:group][:name]}%")
+
+    else
+      @groups = Group.all
+    end
+    
     respond_to do |format|
       format.html  
       format.json { render json: @groups }

@@ -3,7 +3,12 @@ class ListingsController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   def index
-    @listings = Listing.all
+    if params[:listing] && params[:listing][:name]
+      @listings = Listing.where("name ILIKE ?", "%#{params[:listing][:name]}%")
+
+    else
+      @listings = Listing.all
+    end
     respond_to do |format|
       format.html  
       format.json  { render json: @listings }
