@@ -12,8 +12,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    puts "HELLO"
-    @users = User.all
+    if params[:user] && params[:user][:username]
+      @users = User.where("username ILIKE ?", "%#{params[:user][:username]}%")
+
+    else
+      @users = User.all
+    end
+
     @locations = Location.order_by_city
     @locations_json = @users.map { |user| {lat:user.latitude, lng:user.longitude} }.to_json
   
