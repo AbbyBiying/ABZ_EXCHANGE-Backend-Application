@@ -24,6 +24,12 @@ class ListingsController < ApplicationController
     @listing = find_by_name
     @offer = Offer.new
     @comment = Comment.new
+
+    respond_to do |format|
+      format.html  
+      format.json  { render json: @listing }
+      format.xml { render xml: @listing }
+    end
   end
 
   def create

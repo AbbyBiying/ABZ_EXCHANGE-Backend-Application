@@ -10,7 +10,12 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.order_by_city  
+    if params[:location] && params[:location][:city]
+      @locations = Location.where("city ILIKE ?", "%#{params[:location][:city]}%")
+
+    else
+      @locations = Location.order_by_city  
+    end
  
     @locations_json = @locations.map { |location| {lat:location.latitude, lng:location.longitude} }.to_json
     
